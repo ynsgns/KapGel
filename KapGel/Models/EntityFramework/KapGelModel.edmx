@@ -1,0 +1,753 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KapGelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="cityName" Type="varchar" MaxLength="50" />
+          <Property Name="districtName" Type="varchar" MaxLength="50" />
+          <Property Name="neighborhoodName" Type="varchar" MaxLength="50" />
+          <Property Name="adress" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Brands">
+          <Key>
+            <PropertyRef Name="brandPicture" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="brandName" Type="varchar" MaxLength="50" />
+          <Property Name="brandPicture" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoryName" Type="varchar" MaxLength="50" />
+          <Property Name="icon" Type="varchar" MaxLength="50" />
+          <Property Name="topCategoryId" Type="int" />
+        </EntityType>
+        <EntityType Name="Discounts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="marketId" Type="int" />
+          <Property Name="productId" Type="int" />
+          <Property Name="discountRate" Type="tinyint" />
+          <Property Name="startDate" Type="datetime" />
+          <Property Name="endDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Donation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productId" Type="int" />
+          <Property Name="customerId" Type="int" />
+          <Property Name="number" Type="tinyint" />
+          <Property Name="donationCase" Type="bit" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customerId" Type="int" />
+          <Property Name="ıpAdress" Type="varchar" MaxLength="15" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="falseInputCount" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="MarketComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customerId" Type="int" />
+          <Property Name="commentMessage" Type="varchar" MaxLength="200" />
+          <Property Name="creationDate" Type="datetime" />
+          <Property Name="marketCommentCase" Type="bit" />
+        </EntityType>
+        <EntityType Name="Markets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="marketName" Type="varchar" MaxLength="150" />
+          <Property Name="phoneNumber" Type="varchar" MaxLength="11" />
+          <Property Name="recordDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MarketVote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="marketId" Type="int" />
+          <Property Name="customerId" Type="int" />
+          <Property Name="marketPoint" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Menus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="menuName" Type="varchar" MaxLength="50" />
+          <Property Name="link" Type="varchar" MaxLength="50" />
+          <Property Name="sequence" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="MyBasket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customerId" Type="int" />
+          <Property Name="myBasketCase" Type="bit" />
+          <Property Name="creationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Pages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pageName" Type="varchar" MaxLength="50" />
+          <Property Name="url" Type="varchar" MaxLength="50" />
+          <Property Name="pageContent" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="ProductComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customerId" Type="int" />
+          <Property Name="productId" Type="int" />
+          <Property Name="commentMessage" Type="varchar" MaxLength="250" />
+          <Property Name="creationDate" Type="datetime" />
+          <Property Name="productCommentCase" Type="bit" />
+        </EntityType>
+        <EntityType Name="productPicture">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productId" Type="int" />
+          <Property Name="productPicture" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="marketId" Type="int" />
+          <Property Name="categoryId" Type="int" />
+          <Property Name="productName" Type="varchar" MaxLength="50" />
+          <Property Name="stockNumber" Type="smallint" />
+          <Property Name="discountRate" Type="tinyint" />
+          <Property Name="productPoint" Type="tinyint" />
+          <Property Name="price" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductsInBasket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productId" Type="int" />
+          <Property Name="Number" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="ProductVote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="marketId" Type="int" />
+          <Property Name="customerId" Type="int" />
+          <Property Name="productPoint" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Promotion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="marketId" Type="int" />
+          <Property Name="price" Type="int" />
+          <Property Name="startDate" Type="datetime" />
+          <Property Name="endDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PromotionProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="promotionId" Type="int" />
+          <Property Name="productId" Type="int" />
+          <Property Name="number" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="authority" Type="int" />
+          <Property Name="tokenCode" Type="varchar" MaxLength="50" />
+          <Property Name="userId" Type="int" />
+          <Property Name="isDeleted" Type="bit" />
+          <Property Name="creationDate" Type="datetime" />
+          <Property Name="sessionTime" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameSurname" Type="varchar" MaxLength="50" />
+          <Property Name="eMail" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="16" />
+          <Property Name="phoneNumber" Type="varchar" MaxLength="11" />
+          <Property Name="authority" Type="tinyint" />
+          <Property Name="isDeleted" Type="bit" />
+          <Property Name="recordDate" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="KapGelModelStoreContainer">
+          <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Discounts" EntityType="Self.Discounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Donation" EntityType="Self.Donation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MarketComment" EntityType="Self.MarketComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Markets" EntityType="Self.Markets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MarketVote" EntityType="Self.MarketVote" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MyBasket" EntityType="Self.MyBasket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pages" EntityType="Self.Pages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductComment" EntityType="Self.ProductComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productPicture" EntityType="Self.productPicture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductsInBasket" EntityType="Self.ProductsInBasket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductVote" EntityType="Self.ProductVote" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Promotion" EntityType="Self.Promotion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PromotionProduct" EntityType="Self.PromotionProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Token" EntityType="Self.Token" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KapGelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="KapGelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adress" EntityType="KapGelModel.Adress" />
+          <EntitySet Name="Brands" EntityType="KapGelModel.Brands" />
+          <EntitySet Name="Categories" EntityType="KapGelModel.Categories" />
+          <EntitySet Name="Discounts" EntityType="KapGelModel.Discounts" />
+          <EntitySet Name="Donation" EntityType="KapGelModel.Donation" />
+          <EntitySet Name="Log" EntityType="KapGelModel.Log" />
+          <EntitySet Name="MarketComment" EntityType="KapGelModel.MarketComment" />
+          <EntitySet Name="Markets" EntityType="KapGelModel.Markets" />
+          <EntitySet Name="MarketVote" EntityType="KapGelModel.MarketVote" />
+          <EntitySet Name="Menus" EntityType="KapGelModel.Menus" />
+          <EntitySet Name="MyBasket" EntityType="KapGelModel.MyBasket" />
+          <EntitySet Name="Pages" EntityType="KapGelModel.Pages" />
+          <EntitySet Name="ProductComment" EntityType="KapGelModel.ProductComment" />
+          <EntitySet Name="productPicture" EntityType="KapGelModel.productPicture" />
+          <EntitySet Name="Products" EntityType="KapGelModel.Products" />
+          <EntitySet Name="ProductsInBasket" EntityType="KapGelModel.ProductsInBasket" />
+          <EntitySet Name="ProductVote" EntityType="KapGelModel.ProductVote" />
+          <EntitySet Name="Promotion" EntityType="KapGelModel.Promotion" />
+          <EntitySet Name="PromotionProduct" EntityType="KapGelModel.PromotionProduct" />
+          <EntitySet Name="Roles" EntityType="KapGelModel.Roles" />
+          <EntitySet Name="Token" EntityType="KapGelModel.Token" />
+          <EntitySet Name="Users" EntityType="KapGelModel.Users" />
+        </EntityContainer>
+        <EntityType Name="Adress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="cityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="districtName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="neighborhoodName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adress1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Brands">
+          <Key>
+            <PropertyRef Name="brandPicture" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="brandName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="brandPicture" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="icon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="topCategoryId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Discounts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="marketId" Type="Int32" />
+          <Property Name="productId" Type="Int32" />
+          <Property Name="discountRate" Type="Byte" />
+          <Property Name="startDate" Type="DateTime" Precision="3" />
+          <Property Name="endDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Donation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productId" Type="Int32" />
+          <Property Name="customerId" Type="Int32" />
+          <Property Name="number" Type="Byte" />
+          <Property Name="donationCase" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerId" Type="Int32" />
+          <Property Name="ıpAdress" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="falseInputCount" Type="Byte" />
+        </EntityType>
+        <EntityType Name="MarketComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerId" Type="Int32" />
+          <Property Name="commentMessage" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="creationDate" Type="DateTime" Precision="3" />
+          <Property Name="marketCommentCase" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Markets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="marketName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="phoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="recordDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MarketVote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="marketId" Type="Int32" />
+          <Property Name="customerId" Type="Int32" />
+          <Property Name="marketPoint" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Menus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="menuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="link" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sequence" Type="Byte" />
+        </EntityType>
+        <EntityType Name="MyBasket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerId" Type="Int32" />
+          <Property Name="myBasketCase" Type="Boolean" />
+          <Property Name="creationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Pages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pageName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pageContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProductComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerId" Type="Int32" />
+          <Property Name="productId" Type="Int32" />
+          <Property Name="commentMessage" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="creationDate" Type="DateTime" Precision="3" />
+          <Property Name="productCommentCase" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="productPicture">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productId" Type="Int32" />
+          <Property Name="productPicture1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="marketId" Type="Int32" />
+          <Property Name="categoryId" Type="Int32" />
+          <Property Name="productName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="stockNumber" Type="Int16" />
+          <Property Name="discountRate" Type="Byte" />
+          <Property Name="productPoint" Type="Byte" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductsInBasket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productId" Type="Int32" />
+          <Property Name="Number" Type="Byte" />
+        </EntityType>
+        <EntityType Name="ProductVote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="marketId" Type="Int32" />
+          <Property Name="customerId" Type="Int32" />
+          <Property Name="productPoint" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Promotion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="marketId" Type="Int32" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="startDate" Type="DateTime" Precision="3" />
+          <Property Name="endDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PromotionProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="promotionId" Type="Int32" />
+          <Property Name="productId" Type="Int32" />
+          <Property Name="number" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="authority" Type="Int32" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <Property Name="creationDate" Type="DateTime" Precision="3" />
+          <Property Name="sessionTime" Type="Time" Precision="7" />
+          <Property Name="tokenCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="eMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="phoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="authority" Type="Byte" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <Property Name="recordDate" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KapGelModelStoreContainer" CdmEntityContainer="KapGelEntities">
+          <EntitySetMapping Name="Adress">
+            <EntityTypeMapping TypeName="KapGelModel.Adress">
+              <MappingFragment StoreEntitySet="Adress">
+                <ScalarProperty Name="adress1" ColumnName="adress" />
+                <ScalarProperty Name="neighborhoodName" ColumnName="neighborhoodName" />
+                <ScalarProperty Name="districtName" ColumnName="districtName" />
+                <ScalarProperty Name="cityName" ColumnName="cityName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="KapGelModel.Brands">
+              <MappingFragment StoreEntitySet="Brands">
+                <ScalarProperty Name="brandPicture" ColumnName="brandPicture" />
+                <ScalarProperty Name="brandName" ColumnName="brandName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="KapGelModel.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="topCategoryId" ColumnName="topCategoryId" />
+                <ScalarProperty Name="icon" ColumnName="icon" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Discounts">
+            <EntityTypeMapping TypeName="KapGelModel.Discounts">
+              <MappingFragment StoreEntitySet="Discounts">
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="discountRate" ColumnName="discountRate" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="marketId" ColumnName="marketId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Donation">
+            <EntityTypeMapping TypeName="KapGelModel.Donation">
+              <MappingFragment StoreEntitySet="Donation">
+                <ScalarProperty Name="donationCase" ColumnName="donationCase" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="customerId" ColumnName="customerId" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Log">
+            <EntityTypeMapping TypeName="KapGelModel.Log">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="falseInputCount" ColumnName="falseInputCount" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="ıpAdress" ColumnName="ıpAdress" />
+                <ScalarProperty Name="customerId" ColumnName="customerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MarketComment">
+            <EntityTypeMapping TypeName="KapGelModel.MarketComment">
+              <MappingFragment StoreEntitySet="MarketComment">
+                <ScalarProperty Name="marketCommentCase" ColumnName="marketCommentCase" />
+                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+                <ScalarProperty Name="commentMessage" ColumnName="commentMessage" />
+                <ScalarProperty Name="customerId" ColumnName="customerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Markets">
+            <EntityTypeMapping TypeName="KapGelModel.Markets">
+              <MappingFragment StoreEntitySet="Markets">
+                <ScalarProperty Name="recordDate" ColumnName="recordDate" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+                <ScalarProperty Name="marketName" ColumnName="marketName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MarketVote">
+            <EntityTypeMapping TypeName="KapGelModel.MarketVote">
+              <MappingFragment StoreEntitySet="MarketVote">
+                <ScalarProperty Name="marketPoint" ColumnName="marketPoint" />
+                <ScalarProperty Name="customerId" ColumnName="customerId" />
+                <ScalarProperty Name="marketId" ColumnName="marketId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="KapGelModel.Menus">
+              <MappingFragment StoreEntitySet="Menus">
+                <ScalarProperty Name="sequence" ColumnName="sequence" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="menuName" ColumnName="menuName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MyBasket">
+            <EntityTypeMapping TypeName="KapGelModel.MyBasket">
+              <MappingFragment StoreEntitySet="MyBasket">
+                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+                <ScalarProperty Name="myBasketCase" ColumnName="myBasketCase" />
+                <ScalarProperty Name="customerId" ColumnName="customerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pages">
+            <EntityTypeMapping TypeName="KapGelModel.Pages">
+              <MappingFragment StoreEntitySet="Pages">
+                <ScalarProperty Name="pageContent" ColumnName="pageContent" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="pageName" ColumnName="pageName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductComment">
+            <EntityTypeMapping TypeName="KapGelModel.ProductComment">
+              <MappingFragment StoreEntitySet="ProductComment">
+                <ScalarProperty Name="productCommentCase" ColumnName="productCommentCase" />
+                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+                <ScalarProperty Name="commentMessage" ColumnName="commentMessage" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="customerId" ColumnName="customerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productPicture">
+            <EntityTypeMapping TypeName="KapGelModel.productPicture">
+              <MappingFragment StoreEntitySet="productPicture">
+                <ScalarProperty Name="productPicture1" ColumnName="productPicture" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="KapGelModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="productPoint" ColumnName="productPoint" />
+                <ScalarProperty Name="discountRate" ColumnName="discountRate" />
+                <ScalarProperty Name="stockNumber" ColumnName="stockNumber" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="marketId" ColumnName="marketId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductsInBasket">
+            <EntityTypeMapping TypeName="KapGelModel.ProductsInBasket">
+              <MappingFragment StoreEntitySet="ProductsInBasket">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductVote">
+            <EntityTypeMapping TypeName="KapGelModel.ProductVote">
+              <MappingFragment StoreEntitySet="ProductVote">
+                <ScalarProperty Name="productPoint" ColumnName="productPoint" />
+                <ScalarProperty Name="customerId" ColumnName="customerId" />
+                <ScalarProperty Name="marketId" ColumnName="marketId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Promotion">
+            <EntityTypeMapping TypeName="KapGelModel.Promotion">
+              <MappingFragment StoreEntitySet="Promotion">
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="marketId" ColumnName="marketId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PromotionProduct">
+            <EntityTypeMapping TypeName="KapGelModel.PromotionProduct">
+              <MappingFragment StoreEntitySet="PromotionProduct">
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="promotionId" ColumnName="promotionId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="KapGelModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="roleName" ColumnName="roleName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Token">
+            <EntityTypeMapping TypeName="KapGelModel.Token">
+              <MappingFragment StoreEntitySet="Token">
+                <ScalarProperty Name="tokenCode" ColumnName="tokenCode" />
+                <ScalarProperty Name="sessionTime" ColumnName="sessionTime" />
+                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="authority" ColumnName="authority" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="KapGelModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="recordDate" ColumnName="recordDate" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="authority" ColumnName="authority" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="eMail" ColumnName="eMail" />
+                <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

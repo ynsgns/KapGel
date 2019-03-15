@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2e0c1031db6d4213aa069030ac260df1" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="KapGelModel.Adress" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KapGelModel.Brands" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KapGelModel.Categories" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="KapGelModel.Discounts" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="KapGelModel.Donation" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KapGelModel.Log" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="KapGelModel.MarketComment" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KapGelModel.Markets" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="KapGelModel.MarketVote" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="KapGelModel.Menus" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="KapGelModel.MyBasket" Width="1.5" PointX="4.75" PointY="6.75" />
+        <EntityTypeShape EntityType="KapGelModel.Pages" Width="1.5" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="KapGelModel.ProductComment" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KapGelModel.productPicture" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="KapGelModel.Products" Width="1.5" PointX="8.75" PointY="6.75" />
+        <EntityTypeShape EntityType="KapGelModel.ProductsInBasket" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="KapGelModel.ProductVote" Width="1.5" PointX="2.75" PointY="9.75" />
+        <EntityTypeShape EntityType="KapGelModel.Promotion" Width="1.5" PointX="4.75" PointY="9.75" />
+        <EntityTypeShape EntityType="KapGelModel.PromotionProduct" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KapGelModel.Roles" Width="1.5" PointX="10.75" PointY="3.75" />
+        <EntityTypeShape EntityType="KapGelModel.Token" Width="1.5" PointX="10.75" PointY="6.75" />
+        <EntityTypeShape EntityType="KapGelModel.Users" Width="1.5" PointX="6.625" PointY="9.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

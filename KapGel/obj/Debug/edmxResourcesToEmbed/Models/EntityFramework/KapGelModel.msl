@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KapGelModelStoreContainer" CdmEntityContainer="KapGelEntities">
+    <EntitySetMapping Name="Adress">
+      <EntityTypeMapping TypeName="KapGelModel.Adress">
+        <MappingFragment StoreEntitySet="Adress">
+          <ScalarProperty Name="adress1" ColumnName="adress" />
+          <ScalarProperty Name="neighborhoodName" ColumnName="neighborhoodName" />
+          <ScalarProperty Name="districtName" ColumnName="districtName" />
+          <ScalarProperty Name="cityName" ColumnName="cityName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brands">
+      <EntityTypeMapping TypeName="KapGelModel.Brands">
+        <MappingFragment StoreEntitySet="Brands">
+          <ScalarProperty Name="brandPicture" ColumnName="brandPicture" />
+          <ScalarProperty Name="brandName" ColumnName="brandName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="KapGelModel.Categories">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="topCategoryId" ColumnName="topCategoryId" />
+          <ScalarProperty Name="icon" ColumnName="icon" />
+          <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Discounts">
+      <EntityTypeMapping TypeName="KapGelModel.Discounts">
+        <MappingFragment StoreEntitySet="Discounts">
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="discountRate" ColumnName="discountRate" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="marketId" ColumnName="marketId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Donation">
+      <EntityTypeMapping TypeName="KapGelModel.Donation">
+        <MappingFragment StoreEntitySet="Donation">
+          <ScalarProperty Name="donationCase" ColumnName="donationCase" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Log">
+      <EntityTypeMapping TypeName="KapGelModel.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="falseInputCount" ColumnName="falseInputCount" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="ıpAdress" ColumnName="ıpAdress" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MarketComment">
+      <EntityTypeMapping TypeName="KapGelModel.MarketComment">
+        <MappingFragment StoreEntitySet="MarketComment">
+          <ScalarProperty Name="marketCommentCase" ColumnName="marketCommentCase" />
+          <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+          <ScalarProperty Name="commentMessage" ColumnName="commentMessage" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Markets">
+      <EntityTypeMapping TypeName="KapGelModel.Markets">
+        <MappingFragment StoreEntitySet="Markets">
+          <ScalarProperty Name="recordDate" ColumnName="recordDate" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="marketName" ColumnName="marketName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MarketVote">
+      <EntityTypeMapping TypeName="KapGelModel.MarketVote">
+        <MappingFragment StoreEntitySet="MarketVote">
+          <ScalarProperty Name="marketPoint" ColumnName="marketPoint" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="marketId" ColumnName="marketId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="KapGelModel.Menus">
+        <MappingFragment StoreEntitySet="Menus">
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="menuName" ColumnName="menuName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MyBasket">
+      <EntityTypeMapping TypeName="KapGelModel.MyBasket">
+        <MappingFragment StoreEntitySet="MyBasket">
+          <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+          <ScalarProperty Name="myBasketCase" ColumnName="myBasketCase" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pages">
+      <EntityTypeMapping TypeName="KapGelModel.Pages">
+        <MappingFragment StoreEntitySet="Pages">
+          <ScalarProperty Name="pageContent" ColumnName="pageContent" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="pageName" ColumnName="pageName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductComment">
+      <EntityTypeMapping TypeName="KapGelModel.ProductComment">
+        <MappingFragment StoreEntitySet="ProductComment">
+          <ScalarProperty Name="productCommentCase" ColumnName="productCommentCase" />
+          <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+          <ScalarProperty Name="commentMessage" ColumnName="commentMessage" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productPicture">
+      <EntityTypeMapping TypeName="KapGelModel.productPicture">
+        <MappingFragment StoreEntitySet="productPicture">
+          <ScalarProperty Name="productPicture1" ColumnName="productPicture" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="KapGelModel.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="productPoint" ColumnName="productPoint" />
+          <ScalarProperty Name="discountRate" ColumnName="discountRate" />
+          <ScalarProperty Name="stockNumber" ColumnName="stockNumber" />
+          <ScalarProperty Name="productName" ColumnName="productName" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="marketId" ColumnName="marketId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductsInBasket">
+      <EntityTypeMapping TypeName="KapGelModel.ProductsInBasket">
+        <MappingFragment StoreEntitySet="ProductsInBasket">
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductVote">
+      <EntityTypeMapping TypeName="KapGelModel.ProductVote">
+        <MappingFragment StoreEntitySet="ProductVote">
+          <ScalarProperty Name="productPoint" ColumnName="productPoint" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="marketId" ColumnName="marketId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Promotion">
+      <EntityTypeMapping TypeName="KapGelModel.Promotion">
+        <MappingFragment StoreEntitySet="Promotion">
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="marketId" ColumnName="marketId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PromotionProduct">
+      <EntityTypeMapping TypeName="KapGelModel.PromotionProduct">
+        <MappingFragment StoreEntitySet="PromotionProduct">
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="promotionId" ColumnName="promotionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="KapGelModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="roleName" ColumnName="roleName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Token">
+      <EntityTypeMapping TypeName="KapGelModel.Token">
+        <MappingFragment StoreEntitySet="Token">
+          <ScalarProperty Name="sessionTime" ColumnName="sessionTime" />
+          <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="authority" ColumnName="authority" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="KapGelModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="recordDate" ColumnName="recordDate" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="authority" ColumnName="authority" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="eMail" ColumnName="eMail" />
+          <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

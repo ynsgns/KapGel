@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KapGelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Adress">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="cityName" Type="varchar" MaxLength="50" />
+    <Property Name="districtName" Type="varchar" MaxLength="50" />
+    <Property Name="neighborhoodName" Type="varchar" MaxLength="50" />
+    <Property Name="adress" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Brands">
+    <Key>
+      <PropertyRef Name="brandPicture" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="brandName" Type="varchar" MaxLength="50" />
+    <Property Name="brandPicture" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoryName" Type="varchar" MaxLength="50" />
+    <Property Name="icon" Type="varchar" MaxLength="50" />
+    <Property Name="topCategoryId" Type="int" />
+  </EntityType>
+  <EntityType Name="Discounts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="marketId" Type="int" />
+    <Property Name="productId" Type="int" />
+    <Property Name="discountRate" Type="tinyint" />
+    <Property Name="startDate" Type="datetime" />
+    <Property Name="endDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Donation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productId" Type="int" />
+    <Property Name="customerId" Type="int" />
+    <Property Name="number" Type="tinyint" />
+    <Property Name="donationCase" Type="bit" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customerId" Type="int" />
+    <Property Name="ıpAdress" Type="varchar" MaxLength="15" />
+    <Property Name="date" Type="datetime" />
+    <Property Name="falseInputCount" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="MarketComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customerId" Type="int" />
+    <Property Name="commentMessage" Type="varchar" MaxLength="200" />
+    <Property Name="creationDate" Type="datetime" />
+    <Property Name="marketCommentCase" Type="bit" />
+  </EntityType>
+  <EntityType Name="Markets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="marketName" Type="varchar" MaxLength="150" />
+    <Property Name="phoneNumber" Type="varchar" MaxLength="11" />
+    <Property Name="recordDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MarketVote">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="marketId" Type="int" />
+    <Property Name="customerId" Type="int" />
+    <Property Name="marketPoint" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Menus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="menuName" Type="varchar" MaxLength="50" />
+    <Property Name="link" Type="varchar" MaxLength="50" />
+    <Property Name="sequence" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="MyBasket">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customerId" Type="int" />
+    <Property Name="myBasketCase" Type="bit" />
+    <Property Name="creationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Pages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pageName" Type="varchar" MaxLength="50" />
+    <Property Name="url" Type="varchar" MaxLength="50" />
+    <Property Name="pageContent" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="ProductComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customerId" Type="int" />
+    <Property Name="productId" Type="int" />
+    <Property Name="commentMessage" Type="varchar" MaxLength="250" />
+    <Property Name="creationDate" Type="datetime" />
+    <Property Name="productCommentCase" Type="bit" />
+  </EntityType>
+  <EntityType Name="productPicture">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productId" Type="int" />
+    <Property Name="productPicture" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="marketId" Type="int" />
+    <Property Name="categoryId" Type="int" />
+    <Property Name="productName" Type="varchar" MaxLength="50" />
+    <Property Name="stockNumber" Type="smallint" />
+    <Property Name="discountRate" Type="tinyint" />
+    <Property Name="productPoint" Type="tinyint" />
+    <Property Name="price" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductsInBasket">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productId" Type="int" />
+    <Property Name="Number" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="ProductVote">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="marketId" Type="int" />
+    <Property Name="customerId" Type="int" />
+    <Property Name="productPoint" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Promotion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="marketId" Type="int" />
+    <Property Name="price" Type="int" />
+    <Property Name="startDate" Type="datetime" />
+    <Property Name="endDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PromotionProduct">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="promotionId" Type="int" />
+    <Property Name="productId" Type="int" />
+    <Property Name="number" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roleName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="authority" Type="int" />
+    <Property Name="userId" Type="int" />
+    <Property Name="isDeleted" Type="bit" />
+    <Property Name="creationDate" Type="datetime" />
+    <Property Name="sessionTime" Type="time" Precision="7" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameSurname" Type="varchar" MaxLength="50" />
+    <Property Name="eMail" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="16" />
+    <Property Name="phoneNumber" Type="varchar" MaxLength="11" />
+    <Property Name="authority" Type="tinyint" />
+    <Property Name="isDeleted" Type="bit" />
+    <Property Name="recordDate" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="KapGelModelStoreContainer">
+    <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Discounts" EntityType="Self.Discounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Donation" EntityType="Self.Donation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MarketComment" EntityType="Self.MarketComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Markets" EntityType="Self.Markets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MarketVote" EntityType="Self.MarketVote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MyBasket" EntityType="Self.MyBasket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pages" EntityType="Self.Pages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductComment" EntityType="Self.ProductComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="productPicture" EntityType="Self.productPicture" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductsInBasket" EntityType="Self.ProductsInBasket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductVote" EntityType="Self.ProductVote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Promotion" EntityType="Self.Promotion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PromotionProduct" EntityType="Self.PromotionProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Token" EntityType="Self.Token" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
