@@ -35,3 +35,43 @@ C:\Users\yunus\documents\visual studio 2015\Projects\KapGel\KapGel\bin\System.We
 C:\Users\yunus\documents\visual studio 2015\Projects\KapGel\KapGel\obj\Debug\KapGel.csprojResolveAssemblyReference.cache
 C:\Users\yunus\documents\visual studio 2015\Projects\KapGel\KapGel\obj\Debug\KapGel.dll
 C:\Users\yunus\documents\visual studio 2015\Projects\KapGel\KapGel\obj\Debug\KapGel.pdb
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\obj\Debug\KapGel.csprojResolveAssemblyReference.cache
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\obj\Debug\KapGel.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\obj\Debug\KapGel.pdb
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\roslyn\csc.exe
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\roslyn\vbc.exe
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\roslyn\VBCSCompiler.exe
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\KapGel.dll.config
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\KapGel.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\KapGel.pdb
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\EntityFramework.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\EntityFramework.SqlServer.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\System.Web.Helpers.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\System.Web.Mvc.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\System.Web.Razor.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\System.Web.Webpages.Deployment.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\System.Web.Webpages.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\System.Web.Webpages.Razor.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\EntityFramework.xml
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\EntityFramework.SqlServer.xml
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\System.Web.Razor.xml
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\System.Web.Webpages.xml
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\System.Web.Webpages.Deployment.xml
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\System.Web.Webpages.Razor.xml
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\System.Web.Helpers.xml
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\System.Web.Mvc.xml
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\Newtonsoft.Json.dll
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\Newtonsoft.Json.pdb
+C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\Newtonsoft.Json.xml

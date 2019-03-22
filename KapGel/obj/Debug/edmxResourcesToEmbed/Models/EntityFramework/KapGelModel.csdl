@@ -23,6 +23,7 @@
     <EntitySet Name="Roles" EntityType="KapGelModel.Roles" />
     <EntitySet Name="Token" EntityType="KapGelModel.Token" />
     <EntitySet Name="Users" EntityType="KapGelModel.Users" />
+    <EntitySet Name="ForgotPassword" EntityType="KapGelModel.ForgotPassword" />
   </EntityContainer>
   <EntityType Name="Adress">
     <Key>
@@ -223,6 +224,7 @@
     <Property Name="isDeleted" Type="Boolean" />
     <Property Name="creationDate" Type="DateTime" Precision="3" />
     <Property Name="sessionTime" Type="Time" Precision="7" />
+    <Property Name="tokenCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -236,5 +238,13 @@
     <Property Name="authority" Type="Byte" />
     <Property Name="isDeleted" Type="Boolean" />
     <Property Name="recordDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ForgotPassword">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="Int32" />
+    <Property Name="fotgotKey" Type="Int32" />
   </EntityType>
 </Schema>

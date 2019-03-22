@@ -213,6 +213,7 @@
     <EntitySetMapping Name="Token">
       <EntityTypeMapping TypeName="KapGelModel.Token">
         <MappingFragment StoreEntitySet="Token">
+          <ScalarProperty Name="tokenCode" ColumnName="tokenCode" />
           <ScalarProperty Name="sessionTime" ColumnName="sessionTime" />
           <ScalarProperty Name="creationDate" ColumnName="creationDate" />
           <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
@@ -232,6 +233,15 @@
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="eMail" ColumnName="eMail" />
           <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ForgotPassword">
+      <EntityTypeMapping TypeName="KapGelModel.ForgotPassword">
+        <MappingFragment StoreEntitySet="ForgotPassword">
+          <ScalarProperty Name="fotgotKey" ColumnName="fotgotKey" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
