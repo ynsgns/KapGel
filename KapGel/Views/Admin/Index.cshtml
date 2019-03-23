@@ -1,0 +1,46 @@
+﻿@model IEnumerable<KapGel.Models.EntityFramework.Users>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<a class="btn btn-success" href="/Admin/Ekle/0">ekle</a>
+<table class="table tab-content">
+    <thead>
+
+        <tr>
+            <th>ADI SOYADI</th>
+            <th>MAIL</th>
+            <th>SIFRESI</th>
+            <th>TEL</th>
+            <th>Yetki</th>
+            <th>Kayıt Tarihi</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var b in Model)
+        {
+
+            <tr>
+                <td>@b.NameSurname</td>
+                <td>@b.eMail</td>
+                <td>@b.password</td>
+                <td>@b.phoneNumber</td>
+                <td>@b.authority</td>
+                <td>@b.recordDate</td>
+                <td>
+                    <a class="btn btn-warning"  href="/Admin/Ekle/@b.id">Düzenle</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="/Admin/Sil/@b.id">Sil</a>
+                </td>
+
+    </tr>
+        }
+
+    </tbody>
+
+
+</table>
