@@ -20,7 +20,7 @@ namespace KapGel.Controllers
         }
 
         [HttpPost]
-        public ActionResult Giris(db usr)
+        public ActionResult Giris(Users usr)
         {
             KapGelEntities db = new KapGelEntities();
             var model = db.Users.Where(x => x.eMail.Equals(usr.eMail)).FirstOrDefault();
@@ -118,7 +118,7 @@ namespace KapGel.Controllers
                 {
 
                     db.ForgotPassword.Where(x => x.userId == model.id && x.forgetKeys == kod);
-                    db usr = new db();
+                    Users usr = new Users();
                     usr = db.Users.Find(model.id);
                     usr.password = sifre;
                     db.Entry(usr);

@@ -25,7 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>1.5</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -264,6 +264,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
@@ -283,6 +284,9 @@
       <DependentUpon>KapGelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Donation.cs">
+      <DependentUpon>KapGelModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityFramework\ForgotPassword.cs">
       <DependentUpon>KapGelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\KapGelModel.Context.cs">
@@ -389,6 +393,7 @@
     <Folder Include="Controllers\Admin\" />
     <Folder Include="Controllers\Costumer\" />
     <Folder Include="Controllers\Market\" />
+    <Folder Include="Views\Admin\" />
     <Folder Include="Views\Token\" />
   </ItemGroup>
   <ItemGroup>

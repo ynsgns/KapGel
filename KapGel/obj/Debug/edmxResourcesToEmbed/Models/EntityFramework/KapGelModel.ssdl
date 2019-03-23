@@ -49,6 +49,14 @@
     <Property Name="number" Type="tinyint" />
     <Property Name="donationCase" Type="bit" />
   </EntityType>
+  <EntityType Name="ForgotPassword">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="int" />
+    <Property Name="forgetKeys" Type="int" />
+  </EntityType>
   <EntityType Name="Log">
     <Key>
       <PropertyRef Name="Id" />
@@ -195,6 +203,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="authority" Type="int" />
+    <Property Name="tokenCode" Type="varchar" MaxLength="50" />
     <Property Name="userId" Type="int" />
     <Property Name="isDeleted" Type="bit" />
     <Property Name="creationDate" Type="datetime" />
@@ -219,6 +228,7 @@
     <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Discounts" EntityType="Self.Discounts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Donation" EntityType="Self.Donation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ForgotPassword" EntityType="Self.ForgotPassword" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MarketComment" EntityType="Self.MarketComment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Markets" EntityType="Self.Markets" Schema="dbo" store:Type="Tables" />

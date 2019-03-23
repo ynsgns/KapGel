@@ -54,6 +54,14 @@
           <Property Name="number" Type="tinyint" />
           <Property Name="donationCase" Type="bit" />
         </EntityType>
+        <EntityType Name="ForgotPassword">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" />
+          <Property Name="forgetKeys" Type="int" />
+        </EntityType>
         <EntityType Name="Log">
           <Key>
             <PropertyRef Name="Id" />
@@ -225,6 +233,7 @@
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Discounts" EntityType="Self.Discounts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Donation" EntityType="Self.Donation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ForgotPassword" EntityType="Self.ForgotPassword" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MarketComment" EntityType="Self.MarketComment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Markets" EntityType="Self.Markets" Schema="dbo" store:Type="Tables" />
@@ -270,6 +279,7 @@
           <EntitySet Name="Roles" EntityType="KapGelModel.Roles" />
           <EntitySet Name="Token" EntityType="KapGelModel.Token" />
           <EntitySet Name="Users" EntityType="KapGelModel.Users" />
+          <EntitySet Name="ForgotPassword" EntityType="KapGelModel.ForgotPassword" />
         </EntityContainer>
         <EntityType Name="Adress">
           <Key>
@@ -484,6 +494,14 @@
           <Property Name="authority" Type="Byte" />
           <Property Name="isDeleted" Type="Boolean" />
           <Property Name="recordDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ForgotPassword">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="forgetKeys" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -723,6 +741,15 @@
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="eMail" ColumnName="eMail" />
                 <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ForgotPassword">
+            <EntityTypeMapping TypeName="KapGelModel.ForgotPassword">
+              <MappingFragment StoreEntitySet="ForgotPassword">
+                <ScalarProperty Name="forgetKeys" ColumnName="forgetKeys" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

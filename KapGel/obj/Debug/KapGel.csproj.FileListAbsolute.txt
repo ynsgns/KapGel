@@ -35,3 +35,6 @@ C:\Users\yunus\documents\visual studio 2015\Projects\KapGel\KapGel\bin\System.We
 C:\Users\yunus\documents\visual studio 2015\Projects\KapGel\KapGel\obj\Debug\KapGel.csprojResolveAssemblyReference.cache
 C:\Users\yunus\documents\visual studio 2015\Projects\KapGel\KapGel\obj\Debug\KapGel.dll
 C:\Users\yunus\documents\visual studio 2015\Projects\KapGel\KapGel\obj\Debug\KapGel.pdb
+C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\obj\Debug\KapGel.csprojResolveAssemblyReference.cache
+C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\obj\Debug\KapGel.dll
+C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\obj\Debug\KapGel.pdb
