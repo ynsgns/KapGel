@@ -16,6 +16,6 @@ namespace KapGel.Models.EntityFramework
     {
         public int id { get; set; }
         public Nullable<int> userId { get; set; }
-        public Nullable<int> fotgotKey { get; set; }
+        public Nullable<int> forgetKeys { get; set; }
     }
 }

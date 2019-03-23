@@ -55,7 +55,9 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="userId" Type="int" />
-    <Property Name="fotgotKey" Type="int" />
+
+    <Property Name="forgetKeys" Type="int" />
+
   </EntityType>
   <EntityType Name="Log">
     <Key>

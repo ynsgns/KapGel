@@ -229,8 +229,7 @@ namespace KapGel.Controllers
                 var yenileme = db.ForgotPassword.FirstOrDefault(x => x.userId == model.id && x.fotgotKey == kod);
                 if (yenileme != null)
                 {
-
-                    db.ForgotPassword.Where(x => x.userId == model.id && x.fotgotKey == kod);
+                    db.ForgotPassword.Where(x => x.userId == model.id && x.forgetKeys == kod);
                     Users usr = new Users();
                     usr = db.Users.Find(model.id);
                     usr.password = sifre;

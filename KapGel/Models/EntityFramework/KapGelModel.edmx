@@ -60,7 +60,9 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="userId" Type="int" />
-          <Property Name="fotgotKey" Type="int" />
+
+      <Property Name="forgetKeys" Type="int" />
+
         </EntityType>
         <EntityType Name="Log">
           <Key>
@@ -501,7 +503,9 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="userId" Type="Int32" />
-          <Property Name="fotgotKey" Type="Int32" />
+
+       <Property Name="forgetKeys" Type="Int32" />
+
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -748,7 +752,9 @@
           <EntitySetMapping Name="ForgotPassword">
             <EntityTypeMapping TypeName="KapGelModel.ForgotPassword">
               <MappingFragment StoreEntitySet="ForgotPassword">
-                <ScalarProperty Name="fotgotKey" ColumnName="fotgotKey" />
+
+            <ScalarProperty Name="forgetKeys" ColumnName="forgetKeys" />
+
                 <ScalarProperty Name="userId" ColumnName="userId" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>

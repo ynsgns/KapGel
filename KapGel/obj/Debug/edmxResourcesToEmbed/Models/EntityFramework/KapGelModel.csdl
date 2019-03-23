@@ -245,6 +245,8 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="userId" Type="Int32" />
-    <Property Name="fotgotKey" Type="Int32" />
+
+    <Property Name="forgetKeys" Type="Int32" />
+
   </EntityType>
 </Schema>
