@@ -27,7 +27,9 @@
         <EntityTypeShape EntityType="KapGelModel.Roles" Width="1.5" PointX="10.75" PointY="3.75" />
         <EntityTypeShape EntityType="KapGelModel.Token" Width="1.5" PointX="10.75" PointY="6.75" />
         <EntityTypeShape EntityType="KapGelModel.Users" Width="1.5" PointX="6.625" PointY="9.75" />
+
         <EntityTypeShape EntityType="KapGelModel.ForgotPassword" Width="1.5" PointX="8.625" PointY="9.875" />
+
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

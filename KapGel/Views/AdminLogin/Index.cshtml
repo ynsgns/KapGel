@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/assets/css/login.css" rel="stylesheet" />
+<div class="login-page">
+    <div class="col-md-12 logo_agile">
+        <h1>
+            <a href="/Home">
+                <span>K</span>ap
+                <span>G</span>el
+                <img src="~/assets/img/logo2.png" alt=" ">
+            </a>
+        </h1>
+    </div>
+    <div class="form">
+        @*<form class="register-form">
+                <input type="text" placeholder="name" />
+                <input type="password" placeholder="password" />
+                <input type="text" placeholder="email address" />
+                <button>create</button>
+                <p class="message">Already registered? <a href="#">Sign In</a></p>
+            </form>*@
+        @using (Html.BeginForm("Giris", "Login", FormMethod.Post, new { @class = "login-form" }))
+        {
+            <input type="text" name="eMail" placeholder="Mail adresini giriniz" />
+            <input type="password" name="password" placeholder="Şifre" />
+            <button>login</button>
+            <p class="message">Not registered? <a href="#">Create an account</a></p>
+        }
+    </div>
+</div>
+
+@*<script>
+        $('.message a').click(function () {
+            $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+        });
+    </script>*@
+

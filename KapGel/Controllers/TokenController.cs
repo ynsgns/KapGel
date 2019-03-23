@@ -11,7 +11,7 @@ namespace KapGel.Controllers
     public class TokenController : Controller
     {
         // GET: Token 
-        public static string IsimGetir()
+        public string IsimGetir()
         {
             string isim = "";
             string token = System.Web.HttpContext.Current.Request.Cookies["Token"].Value;
@@ -28,7 +28,7 @@ namespace KapGel.Controllers
 
             return isim;
         }
-        public static int YetkiGetir()
+        public int YetkiGetir()
         {
             int yetki = 0;
             string token = System.Web.HttpContext.Current.Request.Cookies["Token"].Value;
@@ -47,7 +47,7 @@ namespace KapGel.Controllers
             }
             return yetki;
         }
-        public static int UserIdGetir()
+        public int UserIdGetir()
         {
             int id = 0;
             string token = System.Web.HttpContext.Current.Request.Cookies["Token"].Value;
@@ -64,7 +64,7 @@ namespace KapGel.Controllers
 
             return id;
         }
-        public static void TokenOlustur(string id, string yetki)
+        public void TokenOlustur(string id, string yetki)
         {
             KapGelEntities db = new KapGelEntities();
             int usersId = int.Parse(id);
@@ -93,7 +93,7 @@ namespace KapGel.Controllers
             userToken.Expires = DateTime.Now.AddHours(12);
             System.Web.HttpContext.Current.Response.Cookies.Add(userToken);
         }
-        public static void TokenSil()
+        public void TokenSil()
         {
             string token = System.Web.HttpContext.Current.Request.Cookies["Token"].Value;
             KapGelEntities db = new KapGelEntities();

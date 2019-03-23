@@ -240,7 +240,9 @@
     <EntitySetMapping Name="ForgotPassword">
       <EntityTypeMapping TypeName="KapGelModel.ForgotPassword">
         <MappingFragment StoreEntitySet="ForgotPassword">
+
           <ScalarProperty Name="forgetKeys" ColumnName="forgetKeys" />
+
           <ScalarProperty Name="userId" ColumnName="userId" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
