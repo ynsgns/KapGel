@@ -1,0 +1,48 @@
+﻿@model KapGel.Models.EntityFramework.Users
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Personel Ekle</h2>
+@using (Html.BeginForm("Ekle", "Admin", FormMethod.Post))
+{
+    @Html.HiddenFor(x=>x.id)
+    @Html.HiddenFor(x => x.recordDate)
+   @Html.HiddenFor(x => x.isDeleted)
+    <span>Personelin Adi</span> @Html.TextBoxFor(x => x.NameSurname, new { @class="form-control col-md-4"})//bi tane textbox oluşturduk, buraya girilen değer controlere aynı isimle gönderilicek
+     <span>Personelin Email</span> @Html.TextBoxFor(x => x.eMail, new { @class = "form-control col-md-4" }) <br />
+    <span>Personelin Şifresi</span> @Html.TextBoxFor(x => x.password, new { @class = "form-control col-md-4" }) <br />
+    <span>Personelin Tel</span> @Html.TextBoxFor(x => x.phoneNumber, new { @class = "form-control col-md-4" })<br />
+     <span>Personelin yetkisi </span>     <select id="authority" name="authority"></select>//selectin içini boş yaptık ajax ile gelen veriyi optionla beraber selecte ekledk
+
+    <input type="submit" class="btn btn-success"  value="Ekle"/>
+}
+
+<script>
+
+    $.ajax({
+        url: "/Admin/YetkileriGetir",
+        type: "GET",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: "",
+        success: function (data) {
+
+            var output = "";
+            var adres = "";
+            for (var i in data.yetkidiJson) {
+                output += "<option value='" + data.yetkidiJson[i].Id + "'>" + data.yetkidiJson[i].roleName + "</option>";
+            }
+            $("#authority").html(output);
+        },
+        error: function (result) {
+            $.alert({
+                title: 'HATA!',
+                content: 'Bir hata oluştu',
+            });
+            error.show;
+        }
+    });
+</script>
+
