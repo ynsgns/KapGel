@@ -269,6 +269,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\Costumer\CostumerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
@@ -399,8 +400,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\Admin\" />
-    <Folder Include="Controllers\Costumer\" />
     <Folder Include="Controllers\Market\" />
+    <Folder Include="Views\Costumer\" />
     <Folder Include="Views\Token\" />
   </ItemGroup>
   <ItemGroup>
