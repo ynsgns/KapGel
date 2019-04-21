@@ -24,6 +24,14 @@
           <Property Name="brandName" Type="varchar" MaxLength="50" />
           <Property Name="brandPicture" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Campaign">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MarketId" Type="int" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="Id" />
@@ -60,7 +68,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="userId" Type="int" />
-          <Property Name="forgetKeys" Type="int" />
+          <Property Name="fotgotKey" Type="int" />
         </EntityType>
         <EntityType Name="Log">
           <Key>
@@ -230,6 +238,7 @@
         <EntityContainer Name="KapGelModelStoreContainer">
           <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Campaign" EntityType="Self.Campaign" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Discounts" EntityType="Self.Discounts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Donation" EntityType="Self.Donation" Schema="dbo" store:Type="Tables" />
@@ -280,6 +289,7 @@
           <EntitySet Name="Token" EntityType="KapGelModel.Token" />
           <EntitySet Name="Users" EntityType="KapGelModel.Users" />
           <EntitySet Name="ForgotPassword" EntityType="KapGelModel.ForgotPassword" />
+          <EntitySet Name="Campaign" EntityType="KapGelModel.Campaign" />
         </EntityContainer>
         <EntityType Name="Adress">
           <Key>
@@ -502,6 +512,15 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="userId" Type="Int32" />
           <Property Name="forgetKeys" Type="Int32" />
+          <Property Name="fotgotKey" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Campaign">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MarketId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -748,8 +767,17 @@
           <EntitySetMapping Name="ForgotPassword">
             <EntityTypeMapping TypeName="KapGelModel.ForgotPassword">
               <MappingFragment StoreEntitySet="ForgotPassword">
-                <ScalarProperty Name="forgetKeys" ColumnName="forgetKeys" />
+                <ScalarProperty Name="fotgotKey" ColumnName="fotgotKey" />
                 <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Campaign">
+            <EntityTypeMapping TypeName="KapGelModel.Campaign">
+              <MappingFragment StoreEntitySet="Campaign">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="MarketId" ColumnName="MarketId" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

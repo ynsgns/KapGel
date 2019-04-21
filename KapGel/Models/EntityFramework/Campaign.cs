@@ -12,11 +12,10 @@ namespace KapGel.Models.EntityFramework
     using System;
     using System.Collections.Generic;
     
-    public partial class ForgotPassword
+    public partial class Campaign
     {
         public int id { get; set; }
-        public Nullable<int> userId { get; set; }
-        public Nullable<int> forgetKeys { get; set; }
-        public Nullable<int> fotgotKey { get; set; }
+        public Nullable<int> MarketId { get; set; }
+        public Nullable<int> UserId { get; set; }
     }
 }

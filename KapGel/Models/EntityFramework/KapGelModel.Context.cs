@@ -48,5 +48,6 @@ namespace KapGel.Models.EntityFramework
         public virtual DbSet<Token> Token { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<ForgotPassword> ForgotPassword { get; set; }
+        public virtual DbSet<Campaign> Campaign { get; set; }
     }
 }
