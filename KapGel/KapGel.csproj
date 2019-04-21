@@ -271,6 +271,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MusteriController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -389,6 +390,7 @@
     <Content Include="Views\Login\SifremiUnuttum.cshtml" />
     <Content Include="Views\Admin\Ekle.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Musteri\UyeGirisi.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
