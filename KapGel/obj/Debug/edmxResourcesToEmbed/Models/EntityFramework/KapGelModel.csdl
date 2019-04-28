@@ -23,6 +23,11 @@
     <EntitySet Name="Roles" EntityType="KapGelModel.Roles" />
     <EntitySet Name="Token" EntityType="KapGelModel.Token" />
     <EntitySet Name="Users" EntityType="KapGelModel.Users" />
+    <EntitySet Name="Campaign" EntityType="KapGelModel.Campaign" />
+    <EntitySet Name="BrandFavorite" EntityType="KapGelModel.BrandFavorite" />
+    <EntitySet Name="BrandVote" EntityType="KapGelModel.BrandVote" />
+    <EntitySet Name="MarketFavorite" EntityType="KapGelModel.MarketFavorite" />
+    <EntitySet Name="ProductFavorite" EntityType="KapGelModel.ProductFavorite" />
     <EntitySet Name="ForgotPassword" EntityType="KapGelModel.ForgotPassword" />
   </EntityContainer>
   <EntityType Name="Adress">
@@ -178,6 +183,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="productId" Type="Int32" />
     <Property Name="Number" Type="Byte" />
+    <Property Name="BasketId" Type="Int32" />
   </EntityType>
   <EntityType Name="ProductVote">
     <Key>
@@ -239,12 +245,53 @@
     <Property Name="isDeleted" Type="Boolean" />
     <Property Name="recordDate" Type="DateTime" Precision="3" />
   </EntityType>
+  <EntityType Name="Campaign">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MarketId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BrandFavorite">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="BrandId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BrandVote">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="brandId" Type="Int32" />
+    <Property Name="customerId" Type="Int32" />
+    <Property Name="brandPoint" Type="Byte" />
+  </EntityType>
+  <EntityType Name="MarketFavorite">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="MarketId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ProductFavorite">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+  </EntityType>
   <EntityType Name="ForgotPassword">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="userId" Type="Int32" />
-    <Property Name="forgetKeys" Type="Int32" />
+    <Property Name="forgotKey" Type="Int32" />
   </EntityType>
 </Schema>

@@ -11,6 +11,14 @@
     <Property Name="neighborhoodName" Type="varchar" MaxLength="50" />
     <Property Name="adress" Type="varchar" MaxLength="200" />
   </EntityType>
+  <EntityType Name="BrandFavorite">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="BrandId" Type="int" />
+  </EntityType>
   <EntityType Name="Brands">
     <Key>
       <PropertyRef Name="brandPicture" />
@@ -18,6 +26,23 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="brandName" Type="varchar" MaxLength="50" />
     <Property Name="brandPicture" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BrandVote">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="brandId" Type="int" />
+    <Property Name="customerId" Type="int" />
+    <Property Name="brandPoint" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Campaign">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MarketId" Type="int" />
+    <Property Name="UserId" Type="int" />
   </EntityType>
   <EntityType Name="Categories">
     <Key>
@@ -55,7 +80,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="userId" Type="int" />
-    <Property Name="forgetKeys" Type="int" />
+    <Property Name="forgotKey" Type="int" />
   </EntityType>
   <EntityType Name="Log">
     <Key>
@@ -76,6 +101,14 @@
     <Property Name="commentMessage" Type="varchar" MaxLength="200" />
     <Property Name="creationDate" Type="datetime" />
     <Property Name="marketCommentCase" Type="bit" />
+  </EntityType>
+  <EntityType Name="MarketFavorite">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="MarketId" Type="int" />
   </EntityType>
   <EntityType Name="Markets">
     <Key>
@@ -133,6 +166,14 @@
     <Property Name="creationDate" Type="datetime" />
     <Property Name="productCommentCase" Type="bit" />
   </EntityType>
+  <EntityType Name="ProductFavorite">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+  </EntityType>
   <EntityType Name="productPicture">
     <Key>
       <PropertyRef Name="Id" />
@@ -159,6 +200,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BasketId" Type="int" />
     <Property Name="productId" Type="int" />
     <Property Name="Number" Type="tinyint" />
   </EntityType>
@@ -224,19 +266,24 @@
   </EntityType>
   <EntityContainer Name="KapGelModelStoreContainer">
     <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BrandFavorite" EntityType="Self.BrandFavorite" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BrandVote" EntityType="Self.BrandVote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Campaign" EntityType="Self.Campaign" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Discounts" EntityType="Self.Discounts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Donation" EntityType="Self.Donation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ForgotPassword" EntityType="Self.ForgotPassword" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MarketComment" EntityType="Self.MarketComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MarketFavorite" EntityType="Self.MarketFavorite" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Markets" EntityType="Self.Markets" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MarketVote" EntityType="Self.MarketVote" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MyBasket" EntityType="Self.MyBasket" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pages" EntityType="Self.Pages" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProductComment" EntityType="Self.ProductComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductFavorite" EntityType="Self.ProductFavorite" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="productPicture" EntityType="Self.productPicture" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProductsInBasket" EntityType="Self.ProductsInBasket" Schema="dbo" store:Type="Tables" />

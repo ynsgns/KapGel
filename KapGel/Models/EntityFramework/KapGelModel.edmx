@@ -16,6 +16,14 @@
           <Property Name="neighborhoodName" Type="varchar" MaxLength="50" />
           <Property Name="adress" Type="varchar" MaxLength="200" />
         </EntityType>
+        <EntityType Name="BrandFavorite">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="BrandId" Type="int" />
+        </EntityType>
         <EntityType Name="Brands">
           <Key>
             <PropertyRef Name="brandPicture" />
@@ -23,6 +31,15 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="brandName" Type="varchar" MaxLength="50" />
           <Property Name="brandPicture" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BrandVote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="brandId" Type="int" />
+          <Property Name="customerId" Type="int" />
+          <Property Name="brandPoint" Type="tinyint" />
         </EntityType>
         <EntityType Name="Campaign">
           <Key>
@@ -68,7 +85,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="userId" Type="int" />
-          <Property Name="fotgotKey" Type="int" />
+          <Property Name="forgotKey" Type="int" />
         </EntityType>
         <EntityType Name="Log">
           <Key>
@@ -89,6 +106,14 @@
           <Property Name="commentMessage" Type="varchar" MaxLength="200" />
           <Property Name="creationDate" Type="datetime" />
           <Property Name="marketCommentCase" Type="bit" />
+        </EntityType>
+        <EntityType Name="MarketFavorite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="MarketId" Type="int" />
         </EntityType>
         <EntityType Name="Markets">
           <Key>
@@ -146,6 +171,14 @@
           <Property Name="creationDate" Type="datetime" />
           <Property Name="productCommentCase" Type="bit" />
         </EntityType>
+        <EntityType Name="ProductFavorite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+        </EntityType>
         <EntityType Name="productPicture">
           <Key>
             <PropertyRef Name="Id" />
@@ -172,6 +205,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BasketId" Type="int" />
           <Property Name="productId" Type="int" />
           <Property Name="Number" Type="tinyint" />
         </EntityType>
@@ -237,7 +271,9 @@
         </EntityType>
         <EntityContainer Name="KapGelModelStoreContainer">
           <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BrandFavorite" EntityType="Self.BrandFavorite" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BrandVote" EntityType="Self.BrandVote" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Campaign" EntityType="Self.Campaign" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Discounts" EntityType="Self.Discounts" Schema="dbo" store:Type="Tables" />
@@ -245,12 +281,14 @@
           <EntitySet Name="ForgotPassword" EntityType="Self.ForgotPassword" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MarketComment" EntityType="Self.MarketComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MarketFavorite" EntityType="Self.MarketFavorite" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Markets" EntityType="Self.Markets" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MarketVote" EntityType="Self.MarketVote" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MyBasket" EntityType="Self.MyBasket" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pages" EntityType="Self.Pages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductComment" EntityType="Self.ProductComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductFavorite" EntityType="Self.ProductFavorite" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="productPicture" EntityType="Self.productPicture" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductsInBasket" EntityType="Self.ProductsInBasket" Schema="dbo" store:Type="Tables" />
@@ -288,8 +326,12 @@
           <EntitySet Name="Roles" EntityType="KapGelModel.Roles" />
           <EntitySet Name="Token" EntityType="KapGelModel.Token" />
           <EntitySet Name="Users" EntityType="KapGelModel.Users" />
-          <EntitySet Name="ForgotPassword" EntityType="KapGelModel.ForgotPassword" />
           <EntitySet Name="Campaign" EntityType="KapGelModel.Campaign" />
+          <EntitySet Name="BrandFavorite" EntityType="KapGelModel.BrandFavorite" />
+          <EntitySet Name="BrandVote" EntityType="KapGelModel.BrandVote" />
+          <EntitySet Name="MarketFavorite" EntityType="KapGelModel.MarketFavorite" />
+          <EntitySet Name="ProductFavorite" EntityType="KapGelModel.ProductFavorite" />
+          <EntitySet Name="ForgotPassword" EntityType="KapGelModel.ForgotPassword" />
         </EntityContainer>
         <EntityType Name="Adress">
           <Key>
@@ -444,6 +486,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="productId" Type="Int32" />
           <Property Name="Number" Type="Byte" />
+          <Property Name="BasketId" Type="Int32" />
         </EntityType>
         <EntityType Name="ProductVote">
           <Key>
@@ -505,15 +548,6 @@
           <Property Name="isDeleted" Type="Boolean" />
           <Property Name="recordDate" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="ForgotPassword">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="userId" Type="Int32" />
-          <Property Name="forgetKeys" Type="Int32" />
-          <Property Name="fotgotKey" Type="Int32" />
-        </EntityType>
         <EntityType Name="Campaign">
           <Key>
             <PropertyRef Name="id" />
@@ -521,6 +555,47 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MarketId" Type="Int32" />
           <Property Name="UserId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BrandFavorite">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="BrandId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BrandVote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="brandId" Type="Int32" />
+          <Property Name="customerId" Type="Int32" />
+          <Property Name="brandPoint" Type="Byte" />
+        </EntityType>
+        <EntityType Name="MarketFavorite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="MarketId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ProductFavorite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ForgotPassword">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="forgotKey" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -692,6 +767,7 @@
           <EntitySetMapping Name="ProductsInBasket">
             <EntityTypeMapping TypeName="KapGelModel.ProductsInBasket">
               <MappingFragment StoreEntitySet="ProductsInBasket">
+                <ScalarProperty Name="BasketId" ColumnName="BasketId" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="productId" ColumnName="productId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -764,20 +840,57 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ForgotPassword">
-            <EntityTypeMapping TypeName="KapGelModel.ForgotPassword">
-              <MappingFragment StoreEntitySet="ForgotPassword">
-                <ScalarProperty Name="fotgotKey" ColumnName="fotgotKey" />
-                <ScalarProperty Name="userId" ColumnName="userId" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Campaign">
             <EntityTypeMapping TypeName="KapGelModel.Campaign">
               <MappingFragment StoreEntitySet="Campaign">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="MarketId" ColumnName="MarketId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BrandFavorite">
+            <EntityTypeMapping TypeName="KapGelModel.BrandFavorite">
+              <MappingFragment StoreEntitySet="BrandFavorite">
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BrandVote">
+            <EntityTypeMapping TypeName="KapGelModel.BrandVote">
+              <MappingFragment StoreEntitySet="BrandVote">
+                <ScalarProperty Name="brandPoint" ColumnName="brandPoint" />
+                <ScalarProperty Name="customerId" ColumnName="customerId" />
+                <ScalarProperty Name="brandId" ColumnName="brandId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MarketFavorite">
+            <EntityTypeMapping TypeName="KapGelModel.MarketFavorite">
+              <MappingFragment StoreEntitySet="MarketFavorite">
+                <ScalarProperty Name="MarketId" ColumnName="MarketId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductFavorite">
+            <EntityTypeMapping TypeName="KapGelModel.ProductFavorite">
+              <MappingFragment StoreEntitySet="ProductFavorite">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ForgotPassword">
+            <EntityTypeMapping TypeName="KapGelModel.ForgotPassword">
+              <MappingFragment StoreEntitySet="ForgotPassword">
+                <ScalarProperty Name="forgotKey" ColumnName="forgotKey" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

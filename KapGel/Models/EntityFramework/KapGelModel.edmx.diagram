@@ -27,8 +27,12 @@
         <EntityTypeShape EntityType="KapGelModel.Roles" Width="1.5" PointX="10.75" PointY="3.75" />
         <EntityTypeShape EntityType="KapGelModel.Token" Width="1.5" PointX="10.75" PointY="6.75" />
         <EntityTypeShape EntityType="KapGelModel.Users" Width="1.5" PointX="6.625" PointY="9.75" />
-        <EntityTypeShape EntityType="KapGelModel.ForgotPassword" Width="1.5" PointX="8.625" PointY="9.875" />
         <EntityTypeShape EntityType="KapGelModel.Campaign" Width="1.5" PointX="11.375" PointY="10.75" />
+        <EntityTypeShape EntityType="KapGelModel.BrandFavorite" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="KapGelModel.BrandVote" Width="1.5" PointX="2.75" PointY="12.75" />
+        <EntityTypeShape EntityType="KapGelModel.MarketFavorite" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KapGelModel.ProductFavorite" Width="1.5" PointX="13.75" PointY="3.75" />
+        <EntityTypeShape EntityType="KapGelModel.ForgotPassword" Width="1.5" PointX="8.75" PointY="10.375" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

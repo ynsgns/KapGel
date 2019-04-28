@@ -52,6 +52,7 @@ namespace KapGel.Controllers
                 {
                      TokenController tk = new TokenController();
                     tk.TokenOlustur(model.id.ToString(), model.authority.ToString());
+                    return RedirectToAction("Index", "Home");
                     return Json(new { result = "Giris Basarılı" }, JsonRequestBehavior.AllowGet);
                 }
                 else
@@ -215,11 +216,11 @@ namespace KapGel.Controllers
             var model = db.Users.Where(x => x.eMail.Equals(email)).FirstOrDefault();
             if (model != null)
             {
-                var yenileme = db.ForgotPassword.FirstOrDefault(x => x.userId == model.id && x.forgetKeys == kod);
+                var yenileme = db.ForgotPassword.FirstOrDefault(x => x.userId == model.id && x.forgotKey == kod);
                 if (yenileme != null)
                 {
 
-                    db.ForgotPassword.Where(x => x.userId == model.id && x.forgetKeys == kod);
+                    db.ForgotPassword.Where(x => x.userId == model.id && x.forgotKey == kod);
                     Users usr = new Users();
                     usr = db.Users.Find(model.id);
                     usr.password = sifre;

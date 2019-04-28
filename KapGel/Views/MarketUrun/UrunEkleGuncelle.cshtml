@@ -1,0 +1,94 @@
+﻿@model KapGel.Models.EntityFramework.Products
+
+@{
+    ViewBag.Title = "UrunEkleGuncelle";
+  //  Layout = "~/Views/Shared/_LayoutMarket.cshtml";
+}
+
+<h2>@*Urun Ekle/Guncelle*@</h2>
+
+@using (Html.BeginForm("UrunEkleGuncelle", "MarketUrun", FormMethod.Post,  
+    new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(x => x.Id)
+    @Html.HiddenFor(x => x.marketId)
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <span>Ürün Adı</span>
+                @Html.TextBoxFor(x => x.productName, new { @class = "form-control col-md-9", @required = "required" })
+            </div>
+            <div class="col-md-3">
+                <span>Stok sayısı</span>
+                @Html.TextBoxFor(x => x.stockNumber, new { @class = "form-control col-md-9", @required = "required", @type = "number" })
+            </div>
+            <div class="col-md-3">
+                <span>Fiyati</span>
+                @*@Html.TextBoxFor(x => x.price, new { @class = "form-control col-md-9", @required = "required", @type = "number" })*@
+                <input type="number" name="price" class = "form-control col-md-9" required = "required" step="0.01"/>
+            </div>
+        </div>
+        <br />
+        <div class="col-md-8 row">
+            <div class="col-md-6">
+                <span>Ürün Kategorisi</span>
+                <select id="ustKategori" class="form-control"></select>
+            </div>
+            <div class="col-md-6" id="altKategoriDiv">
+                <span>Ürün Alt Kategorisi</span>
+                <select id="altKategori" name="categoryId" class="form-control"></select>
+            </div>
+        </div>
+        <div>
+            <input type="file" name="productPicture1" id="file" class="btn btn-primary" />
+        </div>
+    </div>
+
+    <input class="btn btn-primary" type="submit" value="Kaydet"/>
+}
+
+<script>
+    $(document).ready(function () { /* code here */
+        $("#altKategoriDiv").hide();
+        $.ajax({
+            type: "GET",
+            url: '/MarketUrun/UstKategoriGet',
+            success: function (data) {
+                //alert(data.data[0].categoryName)
+                output = "<option value='0'> --------- </option>";
+                for (var i = 0; i < data.data.length; i++) {
+                    output += "<option   value='" + data.data[i].Id + "'> " + data.data[i].categoryName + "</option>";
+                }
+
+                $("#ustKategori").html(output);
+            },
+        });
+
+    });
+
+    $("#ustKategori").change(function () {
+        var id = $(this).val();
+        //  alert(id)
+        $.ajax({
+            type: "POST",
+            url: '/MarketUrun/AltKategoriGet/' + id,
+            // data: id,
+            success: function (data) {
+                //   alert("alt çağırıldı");
+                output = "<option value='0'> --------- </option>";
+                for (var i = 0; i < data.data.length; i++) {
+                    output += "<option value='" + data.data[i].Id + "'> " + data.data[i].categoryName + "</option>";
+                }
+
+                $("#altKategori").html(output);
+                if (id > 0) $("#altKategoriDiv").show(450);
+                else $("#altKategoriDiv").hide(450);
+            },
+            error: function () {
+                $("#altKategoriDiv").hide(450);
+                alert("hata");
+            }
+        })
+    });
+
+</script>

@@ -45,9 +45,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body>
     <!-- top-header -->
-    <div class="header-most-top">
-        <p>Grocery Offer Zone Top Deals & Discounts</p>
-    </div>
+    @*<div class="header-most-top">
+            <p>Grocery Offer Zone Top Deals & Discounts</p>
+        </div>*@
     <!-- //top-header -->
     <!-- header-bot-->
     <div class="header-bot">
@@ -68,27 +68,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul>
                     <li>
                         <a class="play-icon popup-with-zoom-anim" href="#small-dialog1">
-                            <span class="fa fa-map-marker" aria-hidden="true"></span> Shop Locator
+                            <span class="fa fa-map-marker" aria-hidden="true"></span> Mağazalar
                         </a>
                     </li>
                     <li>
                         <a href="#" data-toggle="modal" data-target="#myModal1">
-                            <span class="fa fa-truck" aria-hidden="true"></span>Track Order
+                            <span class="fa fa-truck" aria-hidden="true"></span>Siraş Takip
                         </a>
                     </li>
                     <li>
                         <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
                     </li>
-                    <li>
-                        <a href="#" data-toggle="modal" data-target="#myModal1">
-                            <span class="fa fa-unlock-alt" aria-hidden="true"></span> Sign In
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" data-toggle="modal" data-target="#myModal2">
-                            <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Sign Up
-                        </a>
-                    </li>
+                    @if (System.Web.HttpContext.Current.Request.Cookies["Token"] != null)
+                    {
+                        <li>
+                            @{
+                                KapGel.Controllers.TokenController tkn = new KapGel.Controllers.TokenController();
+                            }
+                            <span class="fa fa-unlock-alt" aria-hidden="true">
+                                @tkn.IsimGetir()
+
+                            </span>
+                        </li>
+                        <li>
+                            <a href="/Login/" data-toggle="modal" data-target="#myModal1">
+                                <span class="fa fa-unlock-alt" aria-hidden="true"></span> Çıkış Yap
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="/Login"   data-target="#myModal1">
+                                <span class="fa fa-unlock-alt" aria-hidden="true"></span> Giriş Yap
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#myModal2">
+                                <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Kayıt Ol
+                            </a>
+                        </li>
+                    }
                 </ul>
                 <!-- //header lists -->
                 <!-- search -->
@@ -578,13 +598,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!-- //Modal content-->
         </div>
-    </div> 
+    </div>
     <hr />
-    
+
     <div class="ads-grid">
         @RenderBody()
     </div>
-     
+
     <div class="copy-right">
         <div class="container">
             <p>
@@ -628,9 +648,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         paypalm.minicartk.cart.on('checkout', function (evt) {
             var items = this.items(),
-				len = items.length,
-				total = 0,
-				i;
+                len = items.length,
+                total = 0,
+                i;
 
             // Count the number of each item in the cart
             for (i = 0; i < len; i++) {
@@ -733,13 +753,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script>
         $(document).ready(function () {
             /*
-			var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear'
-			};
-			*/
+            var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+            };
+            */
             $().UItoTop({
                 easingType: 'easeOutQuart'
             });

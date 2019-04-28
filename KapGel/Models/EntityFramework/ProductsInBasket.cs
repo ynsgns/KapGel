@@ -17,5 +17,6 @@ namespace KapGel.Models.EntityFramework
         public int Id { get; set; }
         public Nullable<int> productId { get; set; }
         public Nullable<byte> Number { get; set; }
+        public Nullable<int> BasketId { get; set; }
     }
 }

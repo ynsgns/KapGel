@@ -19,7 +19,7 @@ namespace KapGel.Controllers
             {
                 KapGelEntities db = new KapGelEntities();
                 var model = db.Token.FirstOrDefault(x => x.tokenCode == token);
-                if (model != null) isim = db.Users.FirstOrDefault(x => x.id == model.Id).NameSurname;
+                if (model != null) isim = db.Users.FirstOrDefault(x => x.id == model.userId).NameSurname;
                 else
                 {
                     TokenSil();
@@ -80,7 +80,7 @@ namespace KapGel.Controllers
                 token = Guid.NewGuid().ToString();
             }
             while (db.Token.Where(x => x.tokenCode == token).FirstOrDefault()?.tokenCode != null);
-            var users = db.Users.Find(id);
+            var users = db.Users.Find(usersId);
             Token tkn = new Token()
             {
                 tokenCode = token,
