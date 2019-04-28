@@ -462,6 +462,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\Admin\AdminHomeController.cs" />
     <Compile Include="Controllers\Costumer\CostumerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -740,6 +741,7 @@
     <Content Include="MarketTemplate\vendor\slick\slick.less" />
     <Content Include="MarketTemplate\vendor\slick\slick.scss" />
     <Content Include="Views\Market\Index.cshtml" />
+    <Content Include="Views\AdminHome\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -749,7 +751,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Admin\" />
     <Folder Include="Views\Costumer\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Token\" />

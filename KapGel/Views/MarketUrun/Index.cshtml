@@ -4,10 +4,12 @@
     //    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutMarket.cshtml";
 }
-
-<button style="margin-right: 5px" type="button" class="btn btn-success" data-toggle="modal" onclick="modal('/MarketUrun/UrunEkleGuncelle/0')" data-target="#mediumModal">
+<script src="~/assets/Scripts/jquery-3.3.1.js"></script>
+<button style="margin-right: 5px" type="button" class="btn btn-success" data-toggle="modal" 
+        onclick="modal('/MarketUrun/UrunEkleGuncelle/0')" data-target="#mediumModal">
     Yeni Ürü Ekle
 </button>
+
 <div class="row">
     @foreach (var i in Model)
     {
@@ -33,3 +35,35 @@
         </div>
     }
 </div> 
+
+
+@*<div id="gelenVeriYazdir"></div>
+
+<script>
+    $(document).ready(function () { /* code here */
+        //alert("sadsafsdf");
+        $.ajax({
+            type: "Get",
+            url: "/MarketUrun/UstKategoriGet",
+            success: function (gelenveri) {
+                //alert("başarılı");
+                // alert("aaa" + gelenveri.data[0].categoryName);
+
+                yazdırılacak = "";
+                for (var i = 0; i < gelenveri.data.length; i++) {
+                    yazdırılacak += "<h1>"+ gelenveri.data[i].categoryName+";
+                }
+
+                $("#gelenVeriYazdir").html(yazdırılacak)
+                
+            },
+            error: function () {
+                alert("başarısız");
+            }
+        });
+
+    });
+
+    
+
+</script>*@

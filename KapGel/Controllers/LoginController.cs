@@ -44,16 +44,34 @@ namespace KapGel.Controllers
         public ActionResult Giris(Users usr)
         {
             KapGelEntities db = new KapGelEntities();
-
             var model = db.Users.Where(x => x.eMail.Equals(usr.eMail)).FirstOrDefault();
             if (model != null)
             {
                 if (model.password == usr.password)
                 {
-                     TokenController tk = new TokenController();
+                    TokenController tk = new TokenController();
                     tk.TokenOlustur(model.id.ToString(), model.authority.ToString());
-                    return RedirectToAction("Index", "Home");
-                    return Json(new { result = "Giris Basarılı" }, JsonRequestBehavior.AllowGet);
+                    var yetikisi = db.Roles.Find(model.authority);
+                    if (yetikisi.roleName == "Musteri")
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else if (yetikisi.roleName == "Market")
+                    {
+                        return RedirectToAction("Index", "Market");
+                    }
+                    else if (yetikisi.roleName == "Personel" || yetikisi.roleName == "Admin")
+                    {
+                        return RedirectToAction("Index", "AdminHome");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+
+
+
+                    //  return Json(new { result = "Giris Basarılı" }, JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
@@ -85,7 +103,7 @@ namespace KapGel.Controllers
             }
             else
             {
-                 ipDb.falseInputCount = ipDb.falseInputCount++;
+                ipDb.falseInputCount = ipDb.falseInputCount++;
                 db.Entry(ipDb);
                 db.SaveChanges();
             }

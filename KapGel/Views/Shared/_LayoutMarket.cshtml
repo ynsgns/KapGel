@@ -50,6 +50,28 @@
             </div>
             <nav class="navbar-mobile">
                 <div class="container-fluid">
+                    @{
+                        KapGel.Controllers.TokenController tk = new KapGel.Controllers.TokenController();
+                        var yetki = tk.YetkiGetir();
+                    }
+                     @if (yetki == 1 || yetki == 3)
+                     {
+                        <ul class="navbar-mobile__list list-unstyled">
+                            <li class="has-sub">
+                                <a class="js-arrow" href="/Market">
+                                    <i class="fas fa-tachometer-alt"></i>Dashboard
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/MarketUrun">
+                                    <i class="fas fa-chart-bar"></i>Adminn
+                                </a>
+                            </li>
+                          
+                        </ul>
+                     }
+                     else
+                     {
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
                             <a class="js-arrow" href="/Market">
@@ -138,6 +160,7 @@
                             </ul>
                         </li>
                     </ul>
+                     }
                 </div>
             </nav>
         </header>
@@ -151,6 +174,24 @@
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
+                    @if (yetki == 1 || yetki == 3)
+                    {
+                        <ul class="list-unstyled navbar__list">
+                            <li class="has-sub active">
+                                <a class="js-arrow" href="/Market">
+                                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/MarketUrun">
+                                    <i class="fas fa-store"></i>  Admin
+                                </a>
+                            </li>
+
+                        </ul>
+                    }
+                    else
+                    {
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub active">
                             <a class="js-arrow" href="/Market">
@@ -238,7 +279,7 @@
                                 </li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul>}
                 </nav>
             </div>
         </aside>
@@ -425,6 +466,7 @@
             <!-- HEADER DESKTOP-->
             <!-- MAIN CONTENT-->
             <div class="main-content container-fluid">
+                <h1> Yetki = @yetki</h1>
                 @RenderBody()
             </div>
             <!-- END MAIN CONTENT-->
