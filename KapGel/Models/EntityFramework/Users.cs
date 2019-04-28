@@ -22,5 +22,6 @@ namespace KapGel.Models.EntityFramework
         public Nullable<byte> authority { get; set; }
         public Nullable<bool> isDeleted { get; set; }
         public Nullable<System.DateTime> recordDate { get; set; }
+        public string profilePhoto { get; set; }
     }
 }

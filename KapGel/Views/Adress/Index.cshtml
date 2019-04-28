@@ -1,0 +1,38 @@
+﻿@model IEnumerable<KapGel.Models.EntityFramework.Adress>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a class="btn btn-success" href="/Adress/AdresEkleGuncelle/0">ekle</a>
+<table class="table tab-content">
+    <thead>
+        <tr>
+            <th>İl</th>
+            <th>ilçe</th>
+            <th>Mahalle</th>
+            <th>Adres</th>
+          
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+
+            <tr>
+                <td>@c.cityName</td>
+                <td>@c.districtName</td>
+                <td>@c.neighborhoodName</td>
+                <td>@c.adress1</td>
+               
+                <td>
+                    <a class="btn btn-warning" href="/Adress/AdresEkleGuncelle/@c.Id">Düzenle</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="/Adress/Sil/@c.Id">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

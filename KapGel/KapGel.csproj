@@ -463,7 +463,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\Admin\AdminHomeController.cs" />
+    <Compile Include="Controllers\AdressController.cs" />
     <Compile Include="Controllers\Costumer\CostumerController.cs" />
+    <Compile Include="Controllers\Costumer\FavoriteBrandController.cs" />
+    <Compile Include="Controllers\Costumer\FavoriteMarketController.cs" />
+    <Compile Include="Controllers\Costumer\FavoriteProductController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\Market\MarketController.cs" />
@@ -742,6 +746,9 @@
     <Content Include="MarketTemplate\vendor\slick\slick.scss" />
     <Content Include="Views\Market\Index.cshtml" />
     <Content Include="Views\AdminHome\Index.cshtml" />
+    <Content Include="Views\Adress\AdresEkleGuncelle.cshtml" />
+    <Content Include="Views\Adress\Index.cshtml" />
+    <Content Include="Views\Market\MarketEkleGuncelle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -751,8 +758,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\Videos\" />
     <Folder Include="Views\Costumer\" />
     <Folder Include="Views\Default\" />
+    <Folder Include="Views\FavoriteBrand\" />
+    <Folder Include="Views\FavoriteMarket\" />
+    <Folder Include="Views\FavoriteProduct\" />
     <Folder Include="Views\Token\" />
   </ItemGroup>
   <ItemGroup>

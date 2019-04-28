@@ -120,9 +120,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" />
           <Property Name="marketName" Type="varchar" MaxLength="150" />
           <Property Name="phoneNumber" Type="varchar" MaxLength="11" />
           <Property Name="recordDate" Type="datetime" />
+          <Property Name="video" Type="varchar" MaxLength="500" />
+          <Property Name="marketPhoto" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="MarketVote">
           <Key>
@@ -268,6 +271,7 @@
           <Property Name="authority" Type="tinyint" />
           <Property Name="isDeleted" Type="bit" />
           <Property Name="recordDate" Type="datetime" />
+          <Property Name="profilePhoto" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityContainer Name="KapGelModelStoreContainer">
           <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />
@@ -410,6 +414,9 @@
           <Property Name="marketName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="phoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
           <Property Name="recordDate" Type="DateTime" Precision="3" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="video" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="marketPhoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="MarketVote">
           <Key>
@@ -547,6 +554,7 @@
           <Property Name="authority" Type="Byte" />
           <Property Name="isDeleted" Type="Boolean" />
           <Property Name="recordDate" Type="DateTime" Precision="3" />
+          <Property Name="profilePhoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Campaign">
           <Key>
@@ -682,6 +690,9 @@
           <EntitySetMapping Name="Markets">
             <EntityTypeMapping TypeName="KapGelModel.Markets">
               <MappingFragment StoreEntitySet="Markets">
+                <ScalarProperty Name="marketPhoto" ColumnName="marketPhoto" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
                 <ScalarProperty Name="recordDate" ColumnName="recordDate" />
                 <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
                 <ScalarProperty Name="marketName" ColumnName="marketName" />
@@ -829,6 +840,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="KapGelModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="profilePhoto" ColumnName="profilePhoto" />
                 <ScalarProperty Name="recordDate" ColumnName="recordDate" />
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="authority" ColumnName="authority" />

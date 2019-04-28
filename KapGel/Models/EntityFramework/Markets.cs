@@ -18,5 +18,8 @@ namespace KapGel.Models.EntityFramework
         public string marketName { get; set; }
         public string phoneNumber { get; set; }
         public Nullable<System.DateTime> recordDate { get; set; }
+        public Nullable<int> userId { get; set; }
+        public string video { get; set; }
+        public string marketPhoto { get; set; }
     }
 }

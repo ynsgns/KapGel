@@ -107,6 +107,9 @@
     <Property Name="marketName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <Property Name="phoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
     <Property Name="recordDate" Type="DateTime" Precision="3" />
+    <Property Name="userId" Type="Int32" />
+    <Property Name="video" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="marketPhoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="MarketVote">
     <Key>
@@ -244,6 +247,7 @@
     <Property Name="authority" Type="Byte" />
     <Property Name="isDeleted" Type="Boolean" />
     <Property Name="recordDate" Type="DateTime" Precision="3" />
+    <Property Name="profilePhoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Campaign">
     <Key>

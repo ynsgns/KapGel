@@ -80,6 +80,9 @@
     <EntitySetMapping Name="Markets">
       <EntityTypeMapping TypeName="KapGelModel.Markets">
         <MappingFragment StoreEntitySet="Markets">
+          <ScalarProperty Name="marketPhoto" ColumnName="marketPhoto" />
+          <ScalarProperty Name="video" ColumnName="video" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
           <ScalarProperty Name="recordDate" ColumnName="recordDate" />
           <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
           <ScalarProperty Name="marketName" ColumnName="marketName" />
@@ -227,6 +230,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="KapGelModel.Users">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="profilePhoto" ColumnName="profilePhoto" />
           <ScalarProperty Name="recordDate" ColumnName="recordDate" />
           <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
           <ScalarProperty Name="authority" ColumnName="authority" />
