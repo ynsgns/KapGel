@@ -472,6 +472,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\Market\MarketController.cs" />
     <Compile Include="Controllers\Market\MarketUrunController.cs" />
+    <Compile Include="Controllers\Menu\MenuController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -749,6 +750,8 @@
     <Content Include="Views\Adress\AdresEkleGuncelle.cshtml" />
     <Content Include="Views\Adress\Index.cshtml" />
     <Content Include="Views\Market\MarketEkleGuncelle.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\Menu\MenuEkleGuncelle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
