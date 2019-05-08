@@ -1,35 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="KapGelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="KapGelEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Adress" EntityType="KapGelModel.Adress" />
-    <EntitySet Name="Brands" EntityType="KapGelModel.Brands" />
-    <EntitySet Name="Categories" EntityType="KapGelModel.Categories" />
-    <EntitySet Name="Discounts" EntityType="KapGelModel.Discounts" />
-    <EntitySet Name="Donation" EntityType="KapGelModel.Donation" />
-    <EntitySet Name="Log" EntityType="KapGelModel.Log" />
-    <EntitySet Name="MarketComment" EntityType="KapGelModel.MarketComment" />
-    <EntitySet Name="Markets" EntityType="KapGelModel.Markets" />
-    <EntitySet Name="MarketVote" EntityType="KapGelModel.MarketVote" />
-    <EntitySet Name="Menus" EntityType="KapGelModel.Menus" />
-    <EntitySet Name="MyBasket" EntityType="KapGelModel.MyBasket" />
-    <EntitySet Name="Pages" EntityType="KapGelModel.Pages" />
-    <EntitySet Name="ProductComment" EntityType="KapGelModel.ProductComment" />
-    <EntitySet Name="productPicture" EntityType="KapGelModel.productPicture" />
-    <EntitySet Name="Products" EntityType="KapGelModel.Products" />
-    <EntitySet Name="ProductsInBasket" EntityType="KapGelModel.ProductsInBasket" />
-    <EntitySet Name="ProductVote" EntityType="KapGelModel.ProductVote" />
-    <EntitySet Name="Promotion" EntityType="KapGelModel.Promotion" />
-    <EntitySet Name="PromotionProduct" EntityType="KapGelModel.PromotionProduct" />
-    <EntitySet Name="Roles" EntityType="KapGelModel.Roles" />
-    <EntitySet Name="Token" EntityType="KapGelModel.Token" />
-    <EntitySet Name="Users" EntityType="KapGelModel.Users" />
-    <EntitySet Name="Campaign" EntityType="KapGelModel.Campaign" />
-    <EntitySet Name="BrandFavorite" EntityType="KapGelModel.BrandFavorite" />
-    <EntitySet Name="BrandVote" EntityType="KapGelModel.BrandVote" />
-    <EntitySet Name="MarketFavorite" EntityType="KapGelModel.MarketFavorite" />
-    <EntitySet Name="ProductFavorite" EntityType="KapGelModel.ProductFavorite" />
-    <EntitySet Name="ForgotPassword" EntityType="KapGelModel.ForgotPassword" />
-  </EntityContainer>
   <EntityType Name="Adress">
     <Key>
       <PropertyRef Name="Id" />
@@ -41,13 +11,38 @@
     <Property Name="neighborhoodName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="adress1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
   </EntityType>
+  <EntityType Name="BrandFavorite">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="BrandId" Type="Int32" />
+  </EntityType>
   <EntityType Name="Brands">
     <Key>
-      <PropertyRef Name="brandPicture" />
+      <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="brandName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="brandPicture" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="brandPicture" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BrandVote">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="brandId" Type="Int32" />
+    <Property Name="customerId" Type="Int32" />
+    <Property Name="brandPoint" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Campaign">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MarketId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
   </EntityType>
   <EntityType Name="Categories">
     <Key>
@@ -79,6 +74,14 @@
     <Property Name="number" Type="Byte" />
     <Property Name="donationCase" Type="Boolean" />
   </EntityType>
+  <EntityType Name="ForgotPassword">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="Int32" />
+    <Property Name="forgotKey" Type="Int32" />
+  </EntityType>
   <EntityType Name="Log">
     <Key>
       <PropertyRef Name="Id" />
@@ -99,15 +102,23 @@
     <Property Name="creationDate" Type="DateTime" Precision="3" />
     <Property Name="marketCommentCase" Type="Boolean" />
   </EntityType>
+  <EntityType Name="MarketFavorite">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="MarketId" Type="Int32" />
+  </EntityType>
   <EntityType Name="Markets">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="Int32" />
     <Property Name="marketName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <Property Name="phoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
     <Property Name="recordDate" Type="DateTime" Precision="3" />
-    <Property Name="userId" Type="Int32" />
     <Property Name="video" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="marketPhoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
   </EntityType>
@@ -158,6 +169,14 @@
     <Property Name="creationDate" Type="DateTime" Precision="3" />
     <Property Name="productCommentCase" Type="Boolean" />
   </EntityType>
+  <EntityType Name="ProductFavorite">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+  </EntityType>
   <EntityType Name="productPicture">
     <Key>
       <PropertyRef Name="Id" />
@@ -178,15 +197,17 @@
     <Property Name="discountRate" Type="Byte" />
     <Property Name="productPoint" Type="Byte" />
     <Property Name="price" Type="Int32" Nullable="false" />
+    <Property Name="isItApprovet" Type="Boolean" />
+    <Property Name="brandsId" Type="Int32" />
   </EntityType>
   <EntityType Name="ProductsInBasket">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BasketId" Type="Int32" />
     <Property Name="productId" Type="Int32" />
     <Property Name="Number" Type="Byte" />
-    <Property Name="BasketId" Type="Int32" />
   </EntityType>
   <EntityType Name="ProductVote">
     <Key>
@@ -229,11 +250,11 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="authority" Type="Int32" />
+    <Property Name="tokenCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="userId" Type="Int32" />
     <Property Name="isDeleted" Type="Boolean" />
     <Property Name="creationDate" Type="DateTime" Precision="3" />
     <Property Name="sessionTime" Type="Time" Precision="7" />
-    <Property Name="tokenCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -249,53 +270,34 @@
     <Property Name="recordDate" Type="DateTime" Precision="3" />
     <Property Name="profilePhoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="Campaign">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MarketId" Type="Int32" />
-    <Property Name="UserId" Type="Int32" />
-  </EntityType>
-  <EntityType Name="BrandFavorite">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserId" Type="Int32" />
-    <Property Name="BrandId" Type="Int32" />
-  </EntityType>
-  <EntityType Name="BrandVote">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="brandId" Type="Int32" />
-    <Property Name="customerId" Type="Int32" />
-    <Property Name="brandPoint" Type="Byte" />
-  </EntityType>
-  <EntityType Name="MarketFavorite">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserId" Type="Int32" />
-    <Property Name="MarketId" Type="Int32" />
-  </EntityType>
-  <EntityType Name="ProductFavorite">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserId" Type="Int32" />
-    <Property Name="ProductId" Type="Int32" />
-  </EntityType>
-  <EntityType Name="ForgotPassword">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="userId" Type="Int32" />
-    <Property Name="forgotKey" Type="Int32" />
-  </EntityType>
+  <EntityContainer Name="KapGelEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Adress" EntityType="Self.Adress" />
+    <EntitySet Name="BrandFavorite" EntityType="Self.BrandFavorite" />
+    <EntitySet Name="Brands" EntityType="Self.Brands" />
+    <EntitySet Name="BrandVote" EntityType="Self.BrandVote" />
+    <EntitySet Name="Campaign" EntityType="Self.Campaign" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" />
+    <EntitySet Name="Discounts" EntityType="Self.Discounts" />
+    <EntitySet Name="Donation" EntityType="Self.Donation" />
+    <EntitySet Name="ForgotPassword" EntityType="Self.ForgotPassword" />
+    <EntitySet Name="Log" EntityType="Self.Log" />
+    <EntitySet Name="MarketComment" EntityType="Self.MarketComment" />
+    <EntitySet Name="MarketFavorite" EntityType="Self.MarketFavorite" />
+    <EntitySet Name="Markets" EntityType="Self.Markets" />
+    <EntitySet Name="MarketVote" EntityType="Self.MarketVote" />
+    <EntitySet Name="Menus" EntityType="Self.Menus" />
+    <EntitySet Name="MyBasket" EntityType="Self.MyBasket" />
+    <EntitySet Name="Pages" EntityType="Self.Pages" />
+    <EntitySet Name="ProductComment" EntityType="Self.ProductComment" />
+    <EntitySet Name="ProductFavorite" EntityType="Self.ProductFavorite" />
+    <EntitySet Name="productPicture" EntityType="Self.productPicture" />
+    <EntitySet Name="Products" EntityType="Self.Products" />
+    <EntitySet Name="ProductsInBasket" EntityType="Self.ProductsInBasket" />
+    <EntitySet Name="ProductVote" EntityType="Self.ProductVote" />
+    <EntitySet Name="Promotion" EntityType="Self.Promotion" />
+    <EntitySet Name="PromotionProduct" EntityType="Self.PromotionProduct" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" />
+    <EntitySet Name="Token" EntityType="Self.Token" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+  </EntityContainer>
 </Schema>

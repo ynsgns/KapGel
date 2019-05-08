@@ -15,10 +15,10 @@ namespace KapGel.Models.EntityFramework
     public partial class Markets
     {
         public int Id { get; set; }
+        public Nullable<int> userId { get; set; }
         public string marketName { get; set; }
         public string phoneNumber { get; set; }
         public Nullable<System.DateTime> recordDate { get; set; }
-        public Nullable<int> userId { get; set; }
         public string video { get; set; }
         public string marketPhoto { get; set; }
     }

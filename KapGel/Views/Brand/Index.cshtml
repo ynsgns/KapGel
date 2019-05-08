@@ -1,0 +1,56 @@
+﻿@model IEnumerable<KapGel.Models.EntityFramework.Brands>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMarket.cshtml";
+}
+
+<button style="margin-right: 5px" type="button" class="btn btn-success" data-toggle="modal"
+        onclick="modal('/Brand/MarkaEkleGuncelle/0')" data-target="#mediumModal">
+    Marka ekle
+</button>
+<div class="table-responsive table--no-card m-b-30">
+    <table class="table table-borderless table-striped table-earning">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Marka Adı</th>
+              
+                <th>Marka resmi</th>
+            
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td><a href="#" class="btn btn-info"><i class="fa fa-info"></i></a></td>
+
+                    <td>@i.brandName</td>
+                
+                    <td><img src="~/Uploads/brandPicture/@i.brandPicture" width="50px" height="50px" /></td>
+                   
+
+
+
+                    <td>
+                        <button style="margin-right: 5px" type="button" data-toggle="modal"
+                                onclick="modal('/Brand/MarkaEkleGuncelle/@i.Id')" data-target="#mediumModal">
+                            <i style="color: orange" class="fas fa-edit"></i>
+                        </button>
+
+                        <button type="button" data-toggle="modal" onclick="ModalileSil('/Brand/MarkaSil/@i.Id')" data-target="#staticModal">
+                            <i style="color: red" class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+</div>
+

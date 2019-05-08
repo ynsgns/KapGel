@@ -21,11 +21,11 @@
   </EntityType>
   <EntityType Name="Brands">
     <Key>
-      <PropertyRef Name="brandPicture" />
+      <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="brandName" Type="varchar" MaxLength="50" />
-    <Property Name="brandPicture" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="brandPicture" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="BrandVote">
     <Key>
@@ -197,6 +197,8 @@
     <Property Name="discountRate" Type="tinyint" />
     <Property Name="productPoint" Type="tinyint" />
     <Property Name="price" Type="int" Nullable="false" />
+    <Property Name="isItApprovet" Type="bit" />
+    <Property Name="brandsId" Type="int" />
   </EntityType>
   <EntityType Name="ProductsInBasket">
     <Key>

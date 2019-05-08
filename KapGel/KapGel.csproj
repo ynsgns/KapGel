@@ -378,6 +378,7 @@
       <DependentUpon>KapGelModel.edmx</DependentUpon>
       <LastGenOutput>KapGelModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Uploads\brandPicture\indir.png" />
     <Content Include="Uploads\ProductsPictures\1.PNG" />
     <Content Include="vendor\animsition\animsition.min.css" />
     <Content Include="vendor\animsition\animsition.min.js" />
@@ -464,6 +465,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\Admin\AdminHomeController.cs" />
     <Compile Include="Controllers\AdressController.cs" />
+    <Compile Include="Controllers\Brand\BrandController.cs" />
     <Compile Include="Controllers\Costumer\CostumerController.cs" />
     <Compile Include="Controllers\Costumer\FavoriteBrandController.cs" />
     <Compile Include="Controllers\Costumer\FavoriteMarketController.cs" />
@@ -596,13 +598,6 @@
     <Content Include="assets\Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="assets\Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
-    <EntityDeploy Include="Models\EntityFramework\KapGelModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>KapGelModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\EntityFramework\KapGelModel.edmx.diagram">
-      <DependentUpon>KapGelModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\SifremiUnuttum.cshtml" />
     <Content Include="Views\Admin\Ekle.cshtml" />
@@ -752,6 +747,15 @@
     <Content Include="Views\Market\MarketEkleGuncelle.cshtml" />
     <Content Include="Views\Menu\Index.cshtml" />
     <Content Include="Views\Menu\MenuEkleGuncelle.cshtml" />
+    <Content Include="Views\Brand\Index.cshtml" />
+    <Content Include="Views\Brand\MarkaEkleGuncelle.cshtml" />
+    <EntityDeploy Include="Models\EntityFramework\KapGelModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KapGelModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EntityFramework\KapGelModel.edmx.diagram">
+      <DependentUpon>KapGelModel.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

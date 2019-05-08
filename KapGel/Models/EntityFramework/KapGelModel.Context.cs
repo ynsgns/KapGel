@@ -26,18 +26,24 @@ namespace KapGel.Models.EntityFramework
         }
     
         public virtual DbSet<Adress> Adress { get; set; }
+        public virtual DbSet<BrandFavorite> BrandFavorite { get; set; }
         public virtual DbSet<Brands> Brands { get; set; }
+        public virtual DbSet<BrandVote> BrandVote { get; set; }
+        public virtual DbSet<Campaign> Campaign { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Discounts> Discounts { get; set; }
         public virtual DbSet<Donation> Donation { get; set; }
+        public virtual DbSet<ForgotPassword> ForgotPassword { get; set; }
         public virtual DbSet<Log> Log { get; set; }
         public virtual DbSet<MarketComment> MarketComment { get; set; }
+        public virtual DbSet<MarketFavorite> MarketFavorite { get; set; }
         public virtual DbSet<Markets> Markets { get; set; }
         public virtual DbSet<MarketVote> MarketVote { get; set; }
         public virtual DbSet<Menus> Menus { get; set; }
         public virtual DbSet<MyBasket> MyBasket { get; set; }
         public virtual DbSet<Pages> Pages { get; set; }
         public virtual DbSet<ProductComment> ProductComment { get; set; }
+        public virtual DbSet<ProductFavorite> ProductFavorite { get; set; }
         public virtual DbSet<productPicture> productPicture { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<ProductsInBasket> ProductsInBasket { get; set; }
@@ -47,11 +53,5 @@ namespace KapGel.Models.EntityFramework
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Token> Token { get; set; }
         public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<Campaign> Campaign { get; set; }
-        public virtual DbSet<BrandFavorite> BrandFavorite { get; set; }
-        public virtual DbSet<BrandVote> BrandVote { get; set; }
-        public virtual DbSet<MarketFavorite> MarketFavorite { get; set; }
-        public virtual DbSet<ProductFavorite> ProductFavorite { get; set; }
-        public virtual DbSet<ForgotPassword> ForgotPassword { get; set; }
     }
 }
