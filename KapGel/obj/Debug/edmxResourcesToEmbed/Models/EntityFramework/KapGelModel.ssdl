@@ -21,11 +21,11 @@
   </EntityType>
   <EntityType Name="Brands">
     <Key>
-      <PropertyRef Name="brandPicture" />
+      <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="brandName" Type="varchar" MaxLength="50" />
-    <Property Name="brandPicture" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="brandPicture" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="BrandVote">
     <Key>
@@ -115,9 +115,12 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="int" />
     <Property Name="marketName" Type="varchar" MaxLength="150" />
     <Property Name="phoneNumber" Type="varchar" MaxLength="11" />
     <Property Name="recordDate" Type="datetime" />
+    <Property Name="video" Type="varchar" MaxLength="500" />
+    <Property Name="marketPhoto" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="MarketVote">
     <Key>
@@ -264,6 +267,7 @@
     <Property Name="authority" Type="tinyint" />
     <Property Name="isDeleted" Type="bit" />
     <Property Name="recordDate" Type="datetime" />
+    <Property Name="profilePhoto" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityContainer Name="KapGelModelStoreContainer">
     <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />

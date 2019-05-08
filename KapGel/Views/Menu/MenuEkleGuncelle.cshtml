@@ -1,0 +1,39 @@
+﻿@model KapGel.Models.EntityFramework.Menus
+@{
+    ViewBag.Title = "MenuEkleGuncelle";
+   
+}
+
+
+@using (Html.BeginForm("MenuEkleGuncelle", "Menu", FormMethod.Post,
+                                                    new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(x => x.Id)
+   
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <span>
+                    Menu Adı
+                </span>
+                @Html.TextBoxFor(x => x.menuName, new { @class = "form-control col-md-9", @required = "required" })
+            </div>
+            <div class="col-md-3">
+                <span> Menu sırası</span>
+                @Html.TextBoxFor(x => x.sequence, new { @class = "form-control col-md-9", @required = "required", @type = "number" })
+            </div>
+            <div class="col-md-3">
+                <span> Link</span>
+                @Html.TextBoxFor(x => x.link, new { @class = "form-control col-md-9", @required = "required", @type = "required" })
+            </div>
+
+        </div>
+        <br />
+      
+
+
+        <input class="btn btn-primary" type="submit" value="Kaydet" />
+    </div>
+}
+

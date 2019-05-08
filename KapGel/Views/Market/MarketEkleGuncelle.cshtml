@@ -1,0 +1,40 @@
+﻿@model KapGel.Models.EntityFramework.Markets
+@{
+    Layout = null;
+}
+<h2>@*Market Ekle/Guncelle*@</h2>
+
+@using (Html.BeginForm("MarketEkleGuncelle", "Market", FormMethod.Post,
+                                        new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(x => x.Id)
+    @Html.HiddenFor(x => x.userId)
+    @Html.HiddenFor(x => x.recordDate, DateTime.Now)
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <span>
+                    Market Adı
+                </span>
+                @Html.TextBoxFor(x => x.marketName, new { @class = "form-control col-md-9", @required = "required" })
+            </div>
+            <div class="col-md-3">
+                <span>Telefon numarası</span>
+                @Html.TextBoxFor(x => x.phoneNumber, new { @class = "form-control col-md-9", @required = "required", @type = "number" })
+            </div>
+
+        </div>
+        <br />
+        <div>
+            <input type="file" name="video" id="file" class="btn btn-primary" />
+        </div>
+        <div>
+            <input type="file" name="marketPhoto" id="file" class="btn btn-primary" />
+        </div>
+
+
+        <input class="btn btn-primary" type="submit" value="Kaydet" />
+    </div>
+}
+

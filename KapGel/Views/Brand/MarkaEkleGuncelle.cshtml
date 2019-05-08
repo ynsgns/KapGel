@@ -1,0 +1,37 @@
+﻿@model KapGel.Models.EntityFramework.Brands
+@{
+    ViewBag.Title = "MarkaEkleGuncelle";
+  //  Layout = "~/Views/Shared/_LayoutMarket.cshtml"; 
+}
+
+@using (Html.BeginForm("MarkaEkleGuncelle", "Brand", FormMethod.Post,
+                                                    new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(x => x.Id)
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <span>
+                    Marka Adı
+                </span>
+                @Html.TextBoxFor(x => x.brandName, new { @class = "form-control col-md-9", @required = "required" })
+            </div>
+        
+
+        </div>
+        <br />
+       
+        <div>
+            Marka Resmi:
+            <br />
+            <input type="file" name="brandPicture" id="file" class="btn btn-primary" />
+        </div>
+
+
+        <input class="btn btn-primary" type="submit" value="Kaydet" />
+    </div>
+}
+
+

@@ -378,6 +378,7 @@
       <DependentUpon>KapGelModel.edmx</DependentUpon>
       <LastGenOutput>KapGelModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Uploads\brandPicture\indir.png" />
     <Content Include="Uploads\ProductsPictures\1.PNG" />
     <Content Include="vendor\animsition\animsition.min.css" />
     <Content Include="vendor\animsition\animsition.min.js" />
@@ -465,10 +466,14 @@
     <Compile Include="Controllers\Admin\AdminHomeController.cs" />
     <Compile Include="Controllers\Admin\OnayBekleyenUrunlerController.cs" />
     <Compile Include="Controllers\Costumer\CostumerController.cs" />
+    <Compile Include="Controllers\Costumer\FavoriteBrandController.cs" />
+    <Compile Include="Controllers\Costumer\FavoriteMarketController.cs" />
+    <Compile Include="Controllers\Costumer\FavoriteProductController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\Market\MarketController.cs" />
     <Compile Include="Controllers\Market\MarketUrunController.cs" />
+    <Compile Include="Controllers\Menu\MenuController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -592,13 +597,6 @@
     <Content Include="assets\Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="assets\Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
-    <EntityDeploy Include="Models\EntityFramework\KapGelModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>KapGelModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\EntityFramework\KapGelModel.edmx.diagram">
-      <DependentUpon>KapGelModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\SifremiUnuttum.cshtml" />
     <Content Include="Views\Admin\Ekle.cshtml" />
@@ -753,8 +751,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\Videos\" />
     <Folder Include="Views\Costumer\" />
     <Folder Include="Views\Default\" />
+    <Folder Include="Views\FavoriteBrand\" />
+    <Folder Include="Views\FavoriteMarket\" />
+    <Folder Include="Views\FavoriteProduct\" />
     <Folder Include="Views\Token\" />
   </ItemGroup>
   <ItemGroup>

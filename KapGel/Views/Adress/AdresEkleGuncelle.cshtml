@@ -1,0 +1,18 @@
+﻿@model KapGel.Models.EntityFramework.Adress
+@{
+    ViewBag.Title = "AdresEkleGuncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AdresEkleGuncelle</h2>
+@using (Html.BeginForm("AdresEkleGuncelle", "Adress", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Id)
+    @Html.HiddenFor(x => x.UserId ) 
+    <span>İl</span> @Html.TextBoxFor(x => x.cityName, new { @class = "form-control col-md-4" }) <br />
+    <span>İlçe</span> @Html.TextBoxFor(x => x.districtName, new { @class = "form-control col-md-4" }) <br />
+    <span>Mahalle</span> @Html.TextBoxFor(x => x.neighborhoodName, new { @class = "form-control col-md-4" })<br />
+    <span>Adres</span> @Html.TextBoxFor(x => x.adress1, new { @class = "form-control col-md-4" }) <br />
+    <input type="submit" class="btn btn-success" value="Ekle" />
+}
+

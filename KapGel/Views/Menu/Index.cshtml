@@ -1,0 +1,53 @@
+﻿@model IEnumerable<KapGel.Models.EntityFramework.Menus>
+@{
+    ViewBag.Title = "Menuler";
+    Layout = "~/Views/Shared/_LayoutMarket.cshtml";
+}
+<button style="margin-right: 5px" type="button" class="btn btn-success" data-toggle="modal"
+        onclick="modal('/Menu/MenuEkleGuncelle/0')" data-target="#mediumModal">
+    Menu ekle
+</button>
+<div class="table-responsive table--no-card m-b-30">
+    <table class="table table-borderless table-striped table-earning">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Menu Adı</th>
+               
+                <th>Menu sırası</th>
+                <th>Menu Linki</th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td><a href="#" class="btn btn-info"><i class="fa fa-info"></i></a></td>
+                   
+                    <td>@i.menuName</td>
+                    <td>@i.sequence</td>
+                    <td>@i.link</td>
+                  
+
+
+                    <td>
+                        <button style="margin-right: 5px" type="button" data-toggle="modal"
+                                onclick="modal('/Menu/MenuEkleGuncelle/@i.Id')" data-target="#mediumModal">
+                            <i style="color: orange" class="fas fa-edit"></i>
+                        </button>
+
+                        <button type="button" data-toggle="modal" onclick="ModalileSil('/Menu/MenuSil/@i.Id')" data-target="#staticModal">
+                            <i style="color: red" class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+    </div>

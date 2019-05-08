@@ -16,10 +16,10 @@ namespace KapGel.Models.EntityFramework
     {
         public int Id { get; set; }
         public Nullable<int> authority { get; set; }
+        public string tokenCode { get; set; }
         public Nullable<int> userId { get; set; }
         public Nullable<bool> isDeleted { get; set; }
         public Nullable<System.DateTime> creationDate { get; set; }
         public Nullable<System.TimeSpan> sessionTime { get; set; }
-        public string tokenCode { get; set; }
     }
 }
