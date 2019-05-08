@@ -199,6 +199,7 @@
           <Property Name="discountRate" Type="tinyint" />
           <Property Name="productPoint" Type="tinyint" />
           <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="IsitApproved" Type="bit" />
         </EntityType>
         <EntityType Name="ProductsInBasket">
           <Key>
@@ -478,6 +479,7 @@
           <Property Name="discountRate" Type="Byte" />
           <Property Name="productPoint" Type="Byte" />
           <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="IsitApproved" Type="Boolean" />
         </EntityType>
         <EntityType Name="ProductsInBasket">
           <Key>
@@ -753,6 +755,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="KapGelModel.Products">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="IsitApproved" ColumnName="IsitApproved" />
                 <ScalarProperty Name="price" ColumnName="price" />
                 <ScalarProperty Name="productPoint" ColumnName="productPoint" />
                 <ScalarProperty Name="discountRate" ColumnName="discountRate" />

@@ -175,6 +175,7 @@
     <Property Name="discountRate" Type="Byte" />
     <Property Name="productPoint" Type="Byte" />
     <Property Name="price" Type="Int32" Nullable="false" />
+    <Property Name="IsitApproved" Type="Boolean" />
   </EntityType>
   <EntityType Name="ProductsInBasket">
     <Key>

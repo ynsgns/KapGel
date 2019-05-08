@@ -1,0 +1,70 @@
+﻿@model IEnumerable<KapGel.Models.ViewModelUrun>
+@{
+    ViewBag.Title = "Onay Bekleyen Ürünler";
+    Layout = "~/Views/Shared/_LayoutMarket.cshtml";
+}
+<script src="~/assets/Scripts/jquery-3.3.1.js"></script>
+
+<div class="table-responsive table--no-card m-b-30">
+    <table class="table table-borderless table-striped table-earning">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Ürün Fotoğrafı</th>
+                <th>Ürün Adi</th>
+                <th>Ürün Fiyati</th>
+                <th>Ürünü Ekliyen Market</th>
+                <th>
+                    @*<button style="margin-right: 5px" type="button" class="btn btn-success" data-toggle="modal"
+                            onclick="modal('/MarketUrun/UrunEkleGuncelle/0')" data-target="#mediumModal">
+                        Yeni Ürü Ekle
+                    </button>*@
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td> <a href="#" class="btn btn-info"><i class="fa fa-info"></i></a></td>
+                    <td><img src="~/Uploads/ProductsPictures/@i.productPicture" width="50px" height="50px" /></td>
+                    <td>@i.productName</td>
+                    <td>@i.price ₺</td>
+                    <td>@i.stockNumber</td>
+                    <td>
+                        <a href="/OnayBekleyenUrunler/UrunOnayla/@i.Id" class="btn btn-success"><i class="fa fa-check"></i></a>
+                        <a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@*<div class="row">
+        @foreach (var i in Model)
+        {
+            <div class="bg-white " style="margin: 7px; width: 150px; height: 170px; border-radius: 8px;">
+                <div style="height: 50%;background-image: url(../../Uploads/ProductsPictures/@i.productPicture);
+                 background-size: contain; background-repeat:no-repeat;border-radius: 8px;"></div>
+                <div style="height: 50%">
+                    <div class="row">
+                        <span class="col-md-8"> &nbsp; @i.productName</span>
+                        <span class="col-md-4 text-success">@i.price ₺</span>
+                    </div>
+                    <div class="col-md-12" style="bottom: -20px; text-align: right">
+                        <button style="margin-right: 5px" type="button" data-toggle="modal" onclick="modal('/MarketUrun/UrunEkleGuncelle/@i.Id')" data-target="#mediumModal">
+                            <i style="color: orange" class="fas fa-edit"></i>
+                        </button>
+
+                        <button type="button" data-toggle="modal" onclick="ModalileSil('/MarketUrun/Sil/@i.Id')" data-target="#staticModal">
+                            <i style="color: red" class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>*@
+
+

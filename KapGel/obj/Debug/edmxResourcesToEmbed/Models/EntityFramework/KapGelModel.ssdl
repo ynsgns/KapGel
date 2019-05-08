@@ -194,6 +194,7 @@
     <Property Name="discountRate" Type="tinyint" />
     <Property Name="productPoint" Type="tinyint" />
     <Property Name="price" Type="int" Nullable="false" />
+    <Property Name="IsitApproved" Type="bit" />
   </EntityType>
   <EntityType Name="ProductsInBasket">
     <Key>

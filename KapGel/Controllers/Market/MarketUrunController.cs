@@ -41,10 +41,11 @@ namespace KapGel.Controllers.Market
                              stockNumber = pp.Id,
                              productName = pp.productName,
                              discountRate = pp.discountRate,
-                             productPoint = pp.productPoint
+                             productPoint = pp.productPoint,
+                             IsitApproved = pp.IsitApproved
 
                          }
-                ).ToList();
+                ).Where(x => x.IsitApproved == true).ToList();
 
             return View(model);
         }
@@ -74,7 +75,8 @@ namespace KapGel.Controllers.Market
                     price = pr.price,
                     productName = pr.productName,
                     productPoint = pr.productPoint,
-                    stockNumber = pr.stockNumber
+                    stockNumber = pr.stockNumber,
+                    IsitApproved = false
                 };
                 db.Products.Add(products);
                 db.SaveChanges();
@@ -114,6 +116,7 @@ namespace KapGel.Controllers.Market
                 products.productName = pr.productName;
                 products.productPoint = pr.productPoint;
                 products.stockNumber = pr.stockNumber;
+                products.IsitApproved = false;
 
                 db.Entry(products);
                 db.SaveChanges();

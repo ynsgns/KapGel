@@ -22,5 +22,6 @@ namespace KapGel.Models.EntityFramework
         public Nullable<byte> discountRate { get; set; }
         public Nullable<byte> productPoint { get; set; }
         public int price { get; set; }
+        public Nullable<bool> IsitApproved { get; set; }
     }
 }

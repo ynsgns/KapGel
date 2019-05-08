@@ -15,6 +15,8 @@ namespace KapGel.Models
         public Nullable<byte> productPoint { get; set; }
         public int price { get; set; }
         public string productPicture { get; set; }
+        public Nullable<bool> IsitApproved  { get; set; }
+
 
 
     }

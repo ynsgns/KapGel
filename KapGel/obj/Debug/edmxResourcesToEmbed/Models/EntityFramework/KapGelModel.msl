@@ -151,6 +151,7 @@
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="KapGelModel.Products">
         <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="IsitApproved" ColumnName="IsitApproved" />
           <ScalarProperty Name="price" ColumnName="price" />
           <ScalarProperty Name="productPoint" ColumnName="productPoint" />
           <ScalarProperty Name="discountRate" ColumnName="discountRate" />

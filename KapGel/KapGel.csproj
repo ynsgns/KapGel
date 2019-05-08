@@ -463,6 +463,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\Admin\AdminHomeController.cs" />
+    <Compile Include="Controllers\Admin\OnayBekleyenUrunlerController.cs" />
     <Compile Include="Controllers\Costumer\CostumerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -742,6 +743,7 @@
     <Content Include="MarketTemplate\vendor\slick\slick.scss" />
     <Content Include="Views\Market\Index.cshtml" />
     <Content Include="Views\AdminHome\Index.cshtml" />
+    <Content Include="Views\OnayBekleyenUrunler\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
