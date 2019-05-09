@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_LayoutMarket.cshtml";
 }
 @*<script src="~/assets/Scripts/jquery-3.3.1.js"></script>*@
-<button style="margin-right: 5px" type="button" class="btn btn-success" data-toggle="modal"
+<button style="margin-right: 5px;margin-bottom: 5px" type="button" class="btn btn-success" data-toggle="modal"
         onclick="modal('/Market/MarketEkleGuncelle/0')" data-target="#mediumModal">
-    Yeni market ekle
-</button>
+   <i class="fa fa-plus"></i>  Yeni market ekle
+</button> 
 <div class="table-responsive table--no-card m-b-30">
     <table class="table table-borderless table-striped table-earning">
         <thead>
@@ -18,7 +18,7 @@
                 <th>Market Adi</th>
                 <th>Market Numarası</th>
                 <th>Market Videosu</th>
-           
+
                 <th></th>
             </tr>
         </thead>
@@ -27,15 +27,24 @@
             {
                 <tr>
                     <td><a href="#" class="btn btn-info"><i class="fa fa-info"></i></a></td>
-                    <td><img src="~/Uploads/ProductsPictures/@i.marketPhoto" width="50px" height="50px" /></td>
+                    <td><img src="~/Uploads/MarketPhoto/@i.marketPhoto" width="50px" height="50px" /></td>
                     <td>@i.marketName</td>
                     <td>@i.phoneNumber</td>
-                    <td><img src="~/Uploads/Videos/@i.video" width="50px" height="50px" /></td>
+                    <td>
+                        @if (i.video == null)
+                        {
+                            <span> Yok </span>
+                        }
+                        else
+                        {
+                            <span> Var </span>
+                        }
+                    </td>
 
 
                     <td>
                         <button style="margin-right: 5px" type="button" data-toggle="modal"
-                                 onclick="modal('/Market/MarketEkleGuncelle/@i.Id')" data-target="#mediumModal">
+                                onclick="modal('/Market/MarketEkleGuncelle/@i.Id')" data-target="#mediumModal">
                             <i style="color: orange" class="fas fa-edit"></i>
                         </button>
 
@@ -52,27 +61,27 @@
 
 <div class="row">
     @*@foreach (var i in Model)
-    {
-        <div class="bg-white " style="margin: 7px; width: 150px; height: 170px; border-radius: 8px;">
-            <div style="height: 50%;background-image: url(../../Uploads/ProductsPictures/@i.productPicture);
-             background-size: contain; background-repeat:no-repeat;border-radius: 8px;"></div>
-            <div style="height: 50%">
-                <div class="row">
-                    <span class="col-md-8"> &nbsp; @i.productName</span>
-                    <span class="col-md-4 text-success">@i.price ₺</span>
-                </div>
-                <div class="col-md-12" style="bottom: -20px; text-align: right">
-                    <button style="margin-right: 5px" type="button" data-toggle="modal" onclick="modal('/MarketUrun/UrunEkleGuncelle/@i.Id')" data-target="#mediumModal">
-                        <i style="color: orange" class="fas fa-edit"></i>
-                    </button>
+        {
+            <div class="bg-white " style="margin: 7px; width: 150px; height: 170px; border-radius: 8px;">
+                <div style="height: 50%;background-image: url(../../Uploads/ProductsPictures/@i.productPicture);
+                 background-size: contain; background-repeat:no-repeat;border-radius: 8px;"></div>
+                <div style="height: 50%">
+                    <div class="row">
+                        <span class="col-md-8"> &nbsp; @i.productName</span>
+                        <span class="col-md-4 text-success">@i.price ₺</span>
+                    </div>
+                    <div class="col-md-12" style="bottom: -20px; text-align: right">
+                        <button style="margin-right: 5px" type="button" data-toggle="modal" onclick="modal('/MarketUrun/UrunEkleGuncelle/@i.Id')" data-target="#mediumModal">
+                            <i style="color: orange" class="fas fa-edit"></i>
+                        </button>
 
-                    <button type="button" data-toggle="modal" onclick="ModalileSil('/MarketUrun/Sil/@i.Id')" data-target="#staticModal">
-                        <i style="color: red" class="fas fa-trash-alt"></i>
-                    </button>
+                        <button type="button" data-toggle="modal" onclick="ModalileSil('/MarketUrun/Sil/@i.Id')" data-target="#staticModal">
+                            <i style="color: red" class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
                 </div>
+
             </div>
-
-        </div>
-    }*@
+        }*@
 </div>
 

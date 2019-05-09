@@ -20,8 +20,8 @@ namespace KapGel.Controllers.Admin
                     {
                         productPicture = pr.productPicture1,
                         Id = pp.Id,
-                        price = pp.Id,
-                        stockNumber = pp.Id,
+                        price = pp.price,
+                        stockNumber = pp.stockNumber,
                         productName = pp.productName,
                         discountRate = pp.discountRate,
                         productPoint = pp.productPoint,

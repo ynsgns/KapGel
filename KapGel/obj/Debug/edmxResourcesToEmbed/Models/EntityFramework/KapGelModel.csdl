@@ -21,11 +21,11 @@
   </EntityType>
   <EntityType Name="Brands">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="brandPicture" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="brandName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="brandPicture" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="brandPicture" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityType Name="BrandVote">
     <Key>
@@ -115,12 +115,12 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="userId" Type="Int32" />
     <Property Name="marketName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <Property Name="phoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
     <Property Name="recordDate" Type="DateTime" Precision="3" />
-    <Property Name="video" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="marketPhoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="marketPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="video" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="userId" Type="Int32" />
   </EntityType>
   <EntityType Name="MarketVote">
     <Key>
@@ -184,20 +184,6 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="productId" Type="Int32" />
     <Property Name="productPicture1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="Products">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="marketId" Type="Int32" />
-    <Property Name="categoryId" Type="Int32" />
-    <Property Name="productName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="stockNumber" Type="Int16" />
-    <Property Name="discountRate" Type="Byte" />
-    <Property Name="productPoint" Type="Byte" />
-    <Property Name="price" Type="Int32" Nullable="false" />
-    <Property Name="IsitApproved" Type="Boolean" />
   </EntityType>
   <EntityType Name="ProductsInBasket">
     <Key>
@@ -267,7 +253,6 @@
     <Property Name="authority" Type="Byte" />
     <Property Name="isDeleted" Type="Boolean" />
     <Property Name="recordDate" Type="DateTime" Precision="3" />
-    <Property Name="profilePhoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="KapGelEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Adress" EntityType="Self.Adress" />
@@ -290,7 +275,6 @@
     <EntitySet Name="ProductComment" EntityType="Self.ProductComment" />
     <EntitySet Name="ProductFavorite" EntityType="Self.ProductFavorite" />
     <EntitySet Name="productPicture" EntityType="Self.productPicture" />
-    <EntitySet Name="Products" EntityType="Self.Products" />
     <EntitySet Name="ProductsInBasket" EntityType="Self.ProductsInBasket" />
     <EntitySet Name="ProductVote" EntityType="Self.ProductVote" />
     <EntitySet Name="Promotion" EntityType="Self.Promotion" />
@@ -298,5 +282,20 @@
     <EntitySet Name="Roles" EntityType="Self.Roles" />
     <EntitySet Name="Token" EntityType="Self.Token" />
     <EntitySet Name="Users" EntityType="Self.Users" />
+    <EntitySet Name="Products" EntityType="KapGelModel.Products" />
   </EntityContainer>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="marketId" Type="Int32" />
+    <Property Name="categoryId" Type="Int32" />
+    <Property Name="productName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="stockNumber" Type="Int32" />
+    <Property Name="discountRate" Type="Byte" />
+    <Property Name="productPoint" Type="Byte" />
+    <Property Name="price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="IsitApproved" Type="Boolean" />
+  </EntityType>
 </Schema>

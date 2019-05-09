@@ -10,12 +10,12 @@ namespace KapGel.Models
     {
         public int Id  { get; set; }
         public string productName { get; set; }
-        public int stockNumber { get; set; }
+        public Nullable<int> stockNumber { get; set; }
         public Nullable<byte> discountRate { get; set; }
         public Nullable<byte> productPoint { get; set; }
-        public int price { get; set; }
+        public decimal price { get; set; }
         public string productPicture { get; set; }
-        public Nullable<bool> IsitApproved  { get; set; }
+        public bool IsitApproved  { get; set; }
 
 
 

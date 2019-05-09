@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KapGelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KapGelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Adress">
           <Key>
             <PropertyRef Name="Id" />
@@ -26,11 +26,11 @@
         </EntityType>
         <EntityType Name="Brands">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="brandPicture" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="brandName" Type="varchar" MaxLength="50" />
-          <Property Name="brandPicture" Type="varchar" MaxLength="50" />
+          <Property Name="brandPicture" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="BrandVote">
           <Key>
@@ -120,12 +120,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="userId" Type="int" />
           <Property Name="marketName" Type="varchar" MaxLength="150" />
           <Property Name="phoneNumber" Type="varchar" MaxLength="11" />
           <Property Name="recordDate" Type="datetime" />
-          <Property Name="video" Type="varchar" MaxLength="500" />
-          <Property Name="marketPhoto" Type="varchar" MaxLength="500" />
+          <Property Name="marketPhoto" Type="varchar" MaxLength="50" />
+          <Property Name="video" Type="varchar" MaxLength="150" />
+          <Property Name="userId" Type="int" />
         </EntityType>
         <EntityType Name="MarketVote">
           <Key>
@@ -198,10 +198,10 @@
           <Property Name="marketId" Type="int" />
           <Property Name="categoryId" Type="int" />
           <Property Name="productName" Type="varchar" MaxLength="50" />
-          <Property Name="stockNumber" Type="smallint" />
+          <Property Name="stockNumber" Type="int" />
           <Property Name="discountRate" Type="tinyint" />
           <Property Name="productPoint" Type="tinyint" />
-          <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="price" Type="money" Nullable="false" />
           <Property Name="IsitApproved" Type="bit" />
         </EntityType>
         <EntityType Name="ProductsInBasket">
@@ -272,7 +272,6 @@
           <Property Name="authority" Type="tinyint" />
           <Property Name="isDeleted" Type="bit" />
           <Property Name="recordDate" Type="datetime" />
-          <Property Name="profilePhoto" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityContainer Name="KapGelModelStoreContainer">
           <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />
@@ -304,8 +303,7 @@
           <EntitySet Name="Token" EntityType="Self.Token" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KapGelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -330,11 +328,11 @@
         </EntityType>
         <EntityType Name="Brands">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="brandPicture" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="brandName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="brandPicture" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="brandPicture" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="BrandVote">
           <Key>
@@ -424,12 +422,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="userId" Type="Int32" />
           <Property Name="marketName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="phoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
           <Property Name="recordDate" Type="DateTime" Precision="3" />
-          <Property Name="video" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="marketPhoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="marketPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="video" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="userId" Type="Int32" />
         </EntityType>
         <EntityType Name="MarketVote">
           <Key>
@@ -493,20 +491,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="productId" Type="Int32" />
           <Property Name="productPicture1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="Products">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="marketId" Type="Int32" />
-          <Property Name="categoryId" Type="Int32" />
-          <Property Name="productName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="stockNumber" Type="Int16" />
-          <Property Name="discountRate" Type="Byte" />
-          <Property Name="productPoint" Type="Byte" />
-          <Property Name="price" Type="Int32" Nullable="false" />
-          <Property Name="IsitApproved" Type="Boolean" />
         </EntityType>
         <EntityType Name="ProductsInBasket">
           <Key>
@@ -576,7 +560,6 @@
           <Property Name="authority" Type="Byte" />
           <Property Name="isDeleted" Type="Boolean" />
           <Property Name="recordDate" Type="DateTime" Precision="3" />
-          <Property Name="profilePhoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="KapGelEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Adress" EntityType="Self.Adress" />
@@ -599,7 +582,6 @@
           <EntitySet Name="ProductComment" EntityType="Self.ProductComment" />
           <EntitySet Name="ProductFavorite" EntityType="Self.ProductFavorite" />
           <EntitySet Name="productPicture" EntityType="Self.productPicture" />
-          <EntitySet Name="Products" EntityType="Self.Products" />
           <EntitySet Name="ProductsInBasket" EntityType="Self.ProductsInBasket" />
           <EntitySet Name="ProductVote" EntityType="Self.ProductVote" />
           <EntitySet Name="Promotion" EntityType="Self.Promotion" />
@@ -607,7 +589,22 @@
           <EntitySet Name="Roles" EntityType="Self.Roles" />
           <EntitySet Name="Token" EntityType="Self.Token" />
           <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Products" EntityType="KapGelModel.Products" />
         </EntityContainer>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="marketId" Type="Int32" />
+          <Property Name="categoryId" Type="Int32" />
+          <Property Name="productName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="stockNumber" Type="Int32" />
+          <Property Name="discountRate" Type="Byte" />
+          <Property Name="productPoint" Type="Byte" />
+          <Property Name="price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="IsitApproved" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -739,13 +736,13 @@
           <EntitySetMapping Name="Markets">
             <EntityTypeMapping TypeName="KapGelModel.Markets">
               <MappingFragment StoreEntitySet="Markets">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="marketPhoto" ColumnName="marketPhoto" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="marketName" ColumnName="marketName" />
                 <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
                 <ScalarProperty Name="recordDate" ColumnName="recordDate" />
-                <ScalarProperty Name="video" ColumnName="video" />
-                <ScalarProperty Name="marketPhoto" ColumnName="marketPhoto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -816,30 +813,6 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="productId" ColumnName="productId" />
                 <ScalarProperty Name="productPicture1" ColumnName="productPicture" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="KapGelModel.Products">
-              <MappingFragment StoreEntitySet="Products">
-                <ScalarProperty Name="IsitApproved" ColumnName="IsitApproved" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="productPoint" ColumnName="productPoint" />
-                <ScalarProperty Name="discountRate" ColumnName="discountRate" />
-                <ScalarProperty Name="stockNumber" ColumnName="stockNumber" />
-                <ScalarProperty Name="productName" ColumnName="productName" />
-                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
-                <ScalarProperty Name="marketId" ColumnName="marketId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="marketId" ColumnName="marketId" />
-                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
-                <ScalarProperty Name="productName" ColumnName="productName" />
-                <ScalarProperty Name="stockNumber" ColumnName="stockNumber" />
-                <ScalarProperty Name="discountRate" ColumnName="discountRate" />
-                <ScalarProperty Name="productPoint" ColumnName="productPoint" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="isItApprovet" ColumnName="isItApprovet" />
-                <ScalarProperty Name="brandsId" ColumnName="brandsId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -916,7 +889,21 @@
                 <ScalarProperty Name="authority" ColumnName="authority" />
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="recordDate" ColumnName="recordDate" />
-                <ScalarProperty Name="profilePhoto" ColumnName="profilePhoto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="KapGelModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="IsitApproved" ColumnName="IsitApproved" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="productPoint" ColumnName="productPoint" />
+                <ScalarProperty Name="discountRate" ColumnName="discountRate" />
+                <ScalarProperty Name="stockNumber" ColumnName="stockNumber" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="marketId" ColumnName="marketId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

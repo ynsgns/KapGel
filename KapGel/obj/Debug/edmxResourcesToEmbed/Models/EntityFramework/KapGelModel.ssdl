@@ -21,11 +21,11 @@
   </EntityType>
   <EntityType Name="Brands">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="brandPicture" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="brandName" Type="varchar" MaxLength="50" />
-    <Property Name="brandPicture" Type="varchar" MaxLength="50" />
+    <Property Name="brandPicture" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="BrandVote">
     <Key>
@@ -115,12 +115,12 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="userId" Type="int" />
     <Property Name="marketName" Type="varchar" MaxLength="150" />
     <Property Name="phoneNumber" Type="varchar" MaxLength="11" />
     <Property Name="recordDate" Type="datetime" />
-    <Property Name="video" Type="varchar" MaxLength="500" />
-    <Property Name="marketPhoto" Type="varchar" MaxLength="500" />
+    <Property Name="marketPhoto" Type="varchar" MaxLength="50" />
+    <Property Name="video" Type="varchar" MaxLength="150" />
+    <Property Name="userId" Type="int" />
   </EntityType>
   <EntityType Name="MarketVote">
     <Key>
@@ -193,10 +193,10 @@
     <Property Name="marketId" Type="int" />
     <Property Name="categoryId" Type="int" />
     <Property Name="productName" Type="varchar" MaxLength="50" />
-    <Property Name="stockNumber" Type="smallint" />
+    <Property Name="stockNumber" Type="int" />
     <Property Name="discountRate" Type="tinyint" />
     <Property Name="productPoint" Type="tinyint" />
-    <Property Name="price" Type="int" Nullable="false" />
+    <Property Name="price" Type="money" Nullable="false" />
     <Property Name="IsitApproved" Type="bit" />
   </EntityType>
   <EntityType Name="ProductsInBasket">
@@ -267,7 +267,6 @@
     <Property Name="authority" Type="tinyint" />
     <Property Name="isDeleted" Type="bit" />
     <Property Name="recordDate" Type="datetime" />
-    <Property Name="profilePhoto" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityContainer Name="KapGelModelStoreContainer">
     <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />

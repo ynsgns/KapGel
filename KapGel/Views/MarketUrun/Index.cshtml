@@ -1,11 +1,12 @@
-﻿@model IEnumerable<KapGel.Models.ViewModelUrun>
+﻿@using System.Globalization
+@model IEnumerable<KapGel.Models.ViewModelUrun>
 @{
     ViewBag.Title = "Marketteki ürünler";
     //    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutMarket.cshtml";
 }
 <script src="~/assets/Scripts/jquery-3.3.1.js"></script>
-<button style="margin-right: 5px" type="button" class="btn btn-success" data-toggle="modal" 
+<button style="margin-right: 5px" type="button" class="btn btn-success" data-toggle="modal"
         onclick="modal('/MarketUrun/UrunEkleGuncelle/0')" data-target="#mediumModal">
     Yeni Ürü Ekle
 </button>
@@ -13,57 +14,101 @@
 <div class="row">
     @foreach (var i in Model)
     {
-        <div class="bg-white " style="margin: 7px; width: 150px; height: 170px; border-radius: 8px;">
-            <div style="height: 50%;background-image: url(../../Uploads/ProductsPictures/@i.productPicture);
+        if (i.IsitApproved==true)
+         {
+             <div class="bg-white " style="margin: 7px; width: 150px; height: 170px; border-radius: 8px;">
+                 <div style="height: 50%;background-image: url(../../Uploads/ProductsPictures/@i.productPicture);
              background-size: contain; background-repeat:no-repeat;border-radius: 8px;"></div>
-            <div style="height: 50%">
-                <div class="row">
-                    <span class="col-md-8"> &nbsp; @i.productName</span>
-                    <span class="col-md-4 text-success">@i.price ₺</span>
-                </div>
-                <div class="col-md-12" style="bottom: -20px; text-align: right">
-                    <button style="margin-right: 5px" type="button" data-toggle="modal" onclick="modal('/MarketUrun/UrunEkleGuncelle/@i.Id')" data-target="#mediumModal">
-                        <i style="color: orange" class="fas fa-edit"></i>
-                    </button>
+                 <div style="height: 50%">
+                     <div>
+                         <span class="col-md-12"> &nbsp; @i.productName</span>
 
-                    <button type="button" data-toggle="modal" onclick="ModalileSil('/MarketUrun/Sil/@i.Id')" data-target="#staticModal">
-                        <i style="color: red" class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-            </div>
+                     </div>
+                     <div class="col-md-12 row" style="bottom: -20px; text-align: right">
+                         <span class="col-md-6 text-success">@i.price.ToString("C", CultureInfo.CurrentCulture)</span>
+                         <div class="col-md-6 ">
+                             <div class="row">
+                                 <div class="col-md-5  ">
+                                     <button type="button" data-toggle="modal" onclick="modal('/MarketUrun/UrunEkleGuncelle/@i.Id')" data-target="#mediumModal">
+                                         <i style="color: orange" class="fas fa-edit"></i>
+                                     </button>
 
-        </div>
+                                 </div>
+                                 <div class="col-md-5 ">
+                                     <button type="button" data-toggle="modal" onclick="ModalileSil('/MarketUrun/Sil/@i.Id')" data-target="#staticModal">
+                                         <i style="color: red" class="fas fa-trash-alt"></i>
+                                     </button>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+             </div>
+        }
+         else
+         {
+             <div class="bg-warning " style="margin: 7px; width: 150px; height: 170px; border-radius: 8px;">
+                 <div style="height: 50%;background-image: url(../../Uploads/ProductsPictures/@i.productPicture);
+             background-size: contain; background-repeat:no-repeat;border-radius: 8px;"></div>
+                 <div style="height: 50%">
+                     <div>
+                         <span class="col-md-12"> &nbsp; @i.productName</span>
+
+                     </div>
+                     <div class="col-md-12 row" style="bottom: -20px; text-align: right">
+                         <span class="col-md-6 text-success">@i.price.ToString("C", CultureInfo.CurrentCulture)</span>
+                         <div class="col-md-6 ">
+                             <div class="row">
+                                 <div class="col-md-5  ">
+                                     <button type="button" data-toggle="modal" onclick="modal('/MarketUrun/UrunEkleGuncelle/@i.Id')" data-target="#mediumModal">
+                                         <i style="color: orange" class="fas fa-edit"></i>
+                                     </button>
+
+                                 </div>
+                                 <div class="col-md-5 ">
+                                     <button type="button" data-toggle="modal" onclick="ModalileSil('/MarketUrun/Sil/@i.Id')" data-target="#staticModal">
+                                         <i style="color: red" class="fas fa-trash-alt"></i>
+                                     </button>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+             </div>
+         }
     }
-</div> 
+</div>
 
 
 @*<div id="gelenVeriYazdir"></div>
 
-<script>
-    $(document).ready(function () { /* code here */
-        //alert("sadsafsdf");
-        $.ajax({
-            type: "Get",
-            url: "/MarketUrun/UstKategoriGet",
-            success: function (gelenveri) {
-                //alert("başarılı");
-                // alert("aaa" + gelenveri.data[0].categoryName);
+    <script>
+        $(document).ready(function () { /* code here */
+            //alert("sadsafsdf");
+            $.ajax({
+                type: "Get",
+                url: "/MarketUrun/UstKategoriGet",
+                success: function (gelenveri) {
+                    //alert("başarılı");
+                    // alert("aaa" + gelenveri.data[0].categoryName);
 
-                yazdırılacak = "";
-                for (var i = 0; i < gelenveri.data.length; i++) {
-                    yazdırılacak += "<h1>"+ gelenveri.data[i].categoryName+";
+                    yazdırılacak = "";
+                    for (var i = 0; i < gelenveri.data.length; i++) {
+                        yazdırılacak += "<h1>"+ gelenveri.data[i].categoryName+";
+                    }
+
+                    $("#gelenVeriYazdir").html(yazdırılacak)
+
+                },
+                error: function () {
+                    alert("başarısız");
                 }
+            });
 
-                $("#gelenVeriYazdir").html(yazdırılacak)
-                
-            },
-            error: function () {
-                alert("başarısız");
-            }
         });
 
-    });
 
-    
 
-</script>*@
+    </script>*@

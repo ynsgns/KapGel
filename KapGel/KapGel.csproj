@@ -379,6 +379,7 @@
       <LastGenOutput>KapGelModel.cs</LastGenOutput>
     </Content>
     <Content Include="Uploads\brandPicture\indir.png" />
+    <Content Include="Uploads\MarketPhoto\market.png" />
     <Content Include="Uploads\ProductsPictures\1.PNG" />
     <Content Include="vendor\animsition\animsition.min.css" />
     <Content Include="vendor\animsition\animsition.min.js" />
@@ -465,6 +466,8 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\Admin\AdminHomeController.cs" />
     <Compile Include="Controllers\Admin\OnayBekleyenUrunlerController.cs" />
+    <Compile Include="Controllers\AdressController.cs" />
+    <Compile Include="Controllers\Brand\BrandController.cs" />
     <Compile Include="Controllers\Costumer\CostumerController.cs" />
     <Compile Include="Controllers\Costumer\FavoriteBrandController.cs" />
     <Compile Include="Controllers\Costumer\FavoriteMarketController.cs" />
@@ -742,6 +745,22 @@
     <Content Include="Views\Market\Index.cshtml" />
     <Content Include="Views\AdminHome\Index.cshtml" />
     <Content Include="Views\OnayBekleyenUrunler\Index.cshtml" />
+    <EntityDeploy Include="Models\EntityFramework\KapGelModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KapGelModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EntityFramework\KapGelModel.edmx.diagram">
+      <DependentUpon>KapGelModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Views\Shared\TopMenu.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\Menu\MenuEkleGuncelle.cshtml" />
+    <Content Include="Views\Home\SolMenuListele.cshtml" />
+    <Content Include="Views\AdminLogin\Index.cshtml" />
+    <Content Include="Views\Adress\AdresEkleGuncelle.cshtml" />
+    <Content Include="Views\Adress\Index.cshtml" />
+    <Content Include="Views\Brand\Index.cshtml" />
+    <Content Include="Views\Brand\MarkaEkleGuncelle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -752,6 +771,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\Videos\" />
+    <Folder Include="Views\Confirmation\" />
     <Folder Include="Views\Costumer\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\FavoriteBrand\" />

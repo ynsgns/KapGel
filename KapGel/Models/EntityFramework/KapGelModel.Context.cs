@@ -45,7 +45,6 @@ namespace KapGel.Models.EntityFramework
         public virtual DbSet<ProductComment> ProductComment { get; set; }
         public virtual DbSet<ProductFavorite> ProductFavorite { get; set; }
         public virtual DbSet<productPicture> productPicture { get; set; }
-        public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<ProductsInBasket> ProductsInBasket { get; set; }
         public virtual DbSet<ProductVote> ProductVote { get; set; }
         public virtual DbSet<Promotion> Promotion { get; set; }
@@ -53,5 +52,6 @@ namespace KapGel.Models.EntityFramework
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Token> Token { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Products> Products { get; set; }
     }
 }

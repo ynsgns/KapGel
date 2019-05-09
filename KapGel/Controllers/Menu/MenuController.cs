@@ -16,6 +16,8 @@ namespace KapGel.Controllers.Menu
             var model = db.Menus.ToList();
             return View(model);
         }
+
+ 
         [HttpGet]
         public ActionResult MenuEkleGuncelle(int id)
         {

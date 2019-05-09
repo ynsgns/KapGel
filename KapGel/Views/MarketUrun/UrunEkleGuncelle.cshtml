@@ -1,13 +1,14 @@
-﻿@model KapGel.Models.EntityFramework.Products
+﻿@using System.Globalization
+@model KapGel.Models.EntityFramework.Products
 
 @{
     ViewBag.Title = "UrunEkleGuncelle";
-  //  Layout = "~/Views/Shared/_LayoutMarket.cshtml";
+    //  Layout = "~/Views/Shared/_LayoutMarket.cshtml";
 }
 
 <h2>@*Urun Ekle/Guncelle*@</h2>
 
-@using (Html.BeginForm("UrunEkleGuncelle", "MarketUrun", FormMethod.Post,  
+@using (Html.BeginForm("UrunEkleGuncelle", "MarketUrun", FormMethod.Post,
     new { enctype = "multipart/form-data" }))
 {
     @Html.HiddenFor(x => x.Id)
@@ -23,28 +24,52 @@
                 @Html.TextBoxFor(x => x.stockNumber, new { @class = "form-control col-md-9", @required = "required", @type = "number" })
             </div>
             <div class="col-md-3">
-                <span>Fiyati</span>
-                @*@Html.TextBoxFor(x => x.price, new { @class = "form-control col-md-9", @required = "required", @type = "number" })*@
-                <input type="number" name="price" class = "form-control col-md-9" required = "required" step="0.01"/>
+                <span>Fiyati  -> @Model.price.ToString("C", CultureInfo.CurrentCulture)</span>
+                @Html.TextBoxFor(x => x.price, new { @class = "form-control col-md-9", @required = "required", @type = "", @step = "any" })
+                @*<input type="number" name="price" class="form-control col-md-9" required="required"  step=".01"  />*@
             </div>
         </div>
         <br />
-        <div class="col-md-8 row">
-            <div class="col-md-6">
-                <span>Ürün Kategorisi</span>
-                <select id="ustKategori" class="form-control"></select>
-            </div>
-            <div class="col-md-6" id="altKategoriDiv">
-                <span>Ürün Alt Kategorisi</span>
-                <select id="altKategori" name="categoryId" class="form-control"></select>
-            </div>
+        <div class="col-md-12 row">
+            @if (Model.categoryId == null)
+            {
+                <div class="col-md-6">
+                    <span>Ürün Kategorisi</span>
+                    <select id="ustKategori" class="form-control"></select>
+                </div>
+                <div class="col-md-6" id="altKategoriDiv">
+                    <span>Ürün Alt Kategorisi</span>
+                    <select id="altKategori" name="categoryId" class="form-control"></select>
+                </div>
+            }
+            else
+            {
+                <span class="btn btn-success" id="btnKtgr" onclick="Denm()"> Kategori Değiş</span>
+                <script>
+                    function Denm() {
+                        document.getElementById("ktrgr").hidden = false;
+                        document.getElementById("btnKtgr").hidden = true;
+                    }
+                </script>
+                <div class="col-md-12 row" id="ktrgr" hidden>
+                    <div class="col-md-6">
+                        <span>Ürün Kategorisi</span>
+                        <select id="ustKategori" class="form-control"></select>
+                    </div>
+                    <div class="col-md-6" id="altKategoriDiv">
+                        <span>Ürün Alt Kategorisi</span>
+                        <select id="altKategori" name="categoryId" class="form-control"></select>
+                    </div>
+                </div >
+            }
         </div>
-        <div>
+        <br />
+        <div class="col-md-12">
             <input type="file" name="productPicture1" id="file" class="btn btn-primary" />
         </div>
     </div>
-
-    <input class="btn btn-primary" type="submit" value="Kaydet"/>
+    <br />
+    <input class="btn btn-primary" style="margin-left: 25px" type="submit" value="Kaydet" />
 }
 
 <script>

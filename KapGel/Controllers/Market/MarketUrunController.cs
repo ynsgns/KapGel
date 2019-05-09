@@ -37,15 +37,55 @@ namespace KapGel.Controllers.Market
                          {
                              productPicture = pr.productPicture1,
                              Id = pp.Id,
-                             price = pp.Id,
-                             stockNumber = pp.Id,
+                             price = pp.price,
+                             stockNumber = pp.stockNumber,
                              productName = pp.productName,
                              discountRate = pp.discountRate,
                              productPoint = pp.productPoint,
-                             IsitApproved = pp.IsitApproved
-
+                             IsitApproved = pp.IsitApproved, 
                          }
-                ).Where(x => x.IsitApproved == true).ToList();
+                ).ToList();
+               // .Where(x => x.IsitApproved == true).
+
+            return View(model);
+        }
+
+        public ActionResult UrunAyrinti(int id)
+        {
+            var model = (from pp in db.Products
+                    join pr in db.productPicture on pp.Id equals pr.productId
+                    where (pp.Id == id)
+                    select new ViewModelUrun
+                    {
+                        productPicture = pr.productPicture1,
+                        Id = pp.Id,
+                        price = pp.price,
+                        stockNumber = pp.stockNumber,
+                        productName = pp.productName,
+                        discountRate = pp.discountRate,
+                        productPoint = pp.productPoint,
+                        IsitApproved = pp.IsitApproved,
+                    }
+                ).FirstOrDefault();
+            return View(model);
+        }
+        public ActionResult BenzerUrunler(int id)
+        {
+            var model = (from pp in db.Products
+                    join pr in db.productPicture on pp.Id equals pr.productId
+                    where (pp.categoryId == id)
+                    select new ViewModelUrun
+                    {
+                        productPicture = pr.productPicture1,
+                        Id = pp.Id,
+                        price = pp.price,
+                        stockNumber = pp.stockNumber,
+                        productName = pp.productName,
+                        discountRate = pp.discountRate,
+                        productPoint = pp.productPoint,
+                        IsitApproved = pp.IsitApproved,
+                    }
+                ).Take(5).ToList();
 
             return View(model);
         }
@@ -59,8 +99,7 @@ namespace KapGel.Controllers.Market
                 var model = db.Products.Find(id);
                 return View(model);
             }
-        }
-
+        } 
         [HttpPost]
         public ActionResult UrunEkleGuncelle(Products pr, HttpPostedFileBase productPicture1)
         {

@@ -126,13 +126,13 @@
     <EntitySetMapping Name="Markets">
       <EntityTypeMapping TypeName="KapGelModel.Markets">
         <MappingFragment StoreEntitySet="Markets">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="video" ColumnName="video" />
+          <ScalarProperty Name="marketPhoto" ColumnName="marketPhoto" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="marketName" ColumnName="marketName" />
           <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
           <ScalarProperty Name="recordDate" ColumnName="recordDate" />
-          <ScalarProperty Name="video" ColumnName="video" />
-          <ScalarProperty Name="marketPhoto" ColumnName="marketPhoto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -203,30 +203,6 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="productId" ColumnName="productId" />
           <ScalarProperty Name="productPicture1" ColumnName="productPicture" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Products">
-      <EntityTypeMapping TypeName="KapGelModel.Products">
-        <MappingFragment StoreEntitySet="Products">
-          <ScalarProperty Name="IsitApproved" ColumnName="IsitApproved" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="productPoint" ColumnName="productPoint" />
-          <ScalarProperty Name="discountRate" ColumnName="discountRate" />
-          <ScalarProperty Name="stockNumber" ColumnName="stockNumber" />
-          <ScalarProperty Name="productName" ColumnName="productName" />
-          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
-          <ScalarProperty Name="marketId" ColumnName="marketId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="marketId" ColumnName="marketId" />
-          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
-          <ScalarProperty Name="productName" ColumnName="productName" />
-          <ScalarProperty Name="stockNumber" ColumnName="stockNumber" />
-          <ScalarProperty Name="discountRate" ColumnName="discountRate" />
-          <ScalarProperty Name="productPoint" ColumnName="productPoint" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="isItApprovet" ColumnName="isItApprovet" />
-          <ScalarProperty Name="brandsId" ColumnName="brandsId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -303,7 +279,21 @@
           <ScalarProperty Name="authority" ColumnName="authority" />
           <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
           <ScalarProperty Name="recordDate" ColumnName="recordDate" />
-          <ScalarProperty Name="profilePhoto" ColumnName="profilePhoto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="KapGelModel.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="IsitApproved" ColumnName="IsitApproved" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="productPoint" ColumnName="productPoint" />
+          <ScalarProperty Name="discountRate" ColumnName="discountRate" />
+          <ScalarProperty Name="stockNumber" ColumnName="stockNumber" />
+          <ScalarProperty Name="productName" ColumnName="productName" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="marketId" ColumnName="marketId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
