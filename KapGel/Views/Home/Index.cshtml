@@ -4,27 +4,31 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="col-sm-3">
+<script src="~/assets/Scripts/jquery-3.3.1.js"></script>
 
-    @Html.Partial("SolMenuListele")
+<div class="col-sm-3">
+    <div id="kategorii"></div>
+    <script type="text/jscript">
+        $('#kategorii').load('/Home/SolCategoriesistele')
+    </script>
 </div>
 
 <div class="col-sm-9 padding-right">
     <div class="features_items">
         <!--features_items-->
         <h2 class="title text-center">Ürünler </h2>
-       @foreach (var urn in Model)
-            {<div class="col-sm-4">
-                    <div class="product-image-wrapper">
-                        <div class="single-products">
-                            <div class="productinfo text-center">
-                                <img src="~/Uploads/ProductsPictures/@urn.productPicture" style="width:80px; height: 90px"  alt="" />
-                                 <h2>@urn.price.ToString("C", CultureInfo.CurrentCulture)</h2>
-                                <p>@urn.productName</p>
-                                <button class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Sepete ekle</button>
- 
-                            </div>
-                            @*<div class="product-overlay"  >
+        @foreach (var urn in Model)
+        {<div class="col-sm-4">
+                <div class="product-image-wrapper">
+                    <div class="single-products">
+                        <div class="productinfo text-center">
+                            <img src="~/Uploads/ProductsPictures/@urn.productPicture" style="width:80px; height: 90px" alt="" />
+                            <h2>@urn.price.ToString("C", CultureInfo.CurrentCulture)</h2>
+                            <p>@urn.productName</p>
+                            <button class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Sepete ekle</button>
+
+                        </div>
+                        @*<div class="product-overlay"  >
                                 <div class="overlay-content" >
                                     <img src="~/Uploads/ProductsPictures/@urn.productPicture"  width="80%" height="70%" alt="" />
                                     <h2>₺ @urn.price</h2>
@@ -32,43 +36,43 @@
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Sepete Ekle</a>
                                 </div>
                             </div>*@
-                        </div>
-                        @*<div class="choose">
+                    </div>
+                    @*<div class="choose">
                             <ul class="nav nav-pills nav-justified">
                                 <li><a href="#"><i class="fa fa-plus-square"></i>Listeme ekle</a></li>
 
                             </ul>
                         </div>*@
-                    </div>
                 </div>
-            }
+            </div>
+        }
 
 
         @*<div class="col-sm-4">
-            <div class="product-image-wrapper">
-                <div class="single-products">
-                    <div class="productinfo text-center">
-                        <img src="~/assets/img/d1.jpg" alt="" />
-                        <h2>₺12</h2>
-                        <p>sdfsdfsdf</p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Sepete ekle</a>
-                    </div>
-                    <div class="product-overlay">
-                        <div class="overlay-content">
-                            <h2>₺ 12</h2>
-                            <p>asdsdsd</p>
-                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Sepete Ekle</a>
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="~/assets/img/d1.jpg" alt="" />
+                                <h2>₺12</h2>
+                                <p>sdfsdfsdf</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Sepete ekle</a>
+                            </div>
+                            <div class="product-overlay">
+                                <div class="overlay-content">
+                                    <h2>₺ 12</h2>
+                                    <p>asdsdsd</p>
+                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Sepete Ekle</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="choose">
+                            <ul class="nav nav-pills nav-justified">
+                                <li><a href="#"><i class="fa fa-plus-square"></i>Listeme ekle</a></li>
+
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <div class="choose">
-                    <ul class="nav nav-pills nav-justified">
-                        <li><a href="#"><i class="fa fa-plus-square"></i>Listeme ekle</a></li>
+            </div>*@<!--features_items-->
 
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>*@<!--features_items-->
-    
-</div>  
+    </div>

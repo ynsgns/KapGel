@@ -18,6 +18,7 @@ namespace KapGel.Controllers.Admin
         {
             TokenController tk = new TokenController();
             tk.TokenSil();
+            return null;
         }
     }
 }

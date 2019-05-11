@@ -14,7 +14,7 @@ namespace KapGel.Controllers.Admin
         KapGelEntities db = new KapGelEntities();
         public ActionResult Index()
         {
-            var model = db.Categories.Where(x=>x.topCategoryId == 0).ToList();
+            var model = db.Categories.Where(x => x.topCategoryId == 0).ToList();//.Where(x=>x.topCategoryId == 0)
             return View(model);
         }
 
