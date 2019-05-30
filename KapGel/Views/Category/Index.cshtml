@@ -4,35 +4,80 @@
     Layout = "~/Views/Shared/_LayoutMarket.cshtml";
 }
 
- 
+
 <script src="~/assets/Scripts/jquery-3.3.1.js"></script>
 
-<div class="table-responsive table--no-card m-b-30">
-    <table class="table table-borderless table-striped table-earning">
-        <thead>
-            <tr>
-                <th>icon</th> 
-                <th>Kategori adi</th> 
-                <th>Üst Kategori Adi</th> 
-                <th>Onaylandımı</th> 
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var i in Model)
-            {
-                <tr> 
-                    <td><i class="@i.icon"></i></td>
-                    <td>@i.categoryName</td>
-                    <td>@i.topCategoryId</td>
-                    <td>@i.IsitApproved</td>
-                    <td>
-                        <a href="/OnayBekleyenUrunler/UrunOnayla/@i.Id" class="btn btn-success"><i class="fa fa-check"></i></a>
-                        <a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a>
-                    </td>
+@*<div class="table-responsive table--no-card m-b-30">
+        <table class="table table-borderless table-striped table-earning">
+            <thead>
+                <tr>
+                    <th>icon</th>
+                    <th>Kategori adi</th>
+                    <th>Üst Kategori Adi</th>
+                    <th>Onaylandımı</th>
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var i in Model)
+                {
+                    <tr>
+                        <td><i class="@i.icon"></i></td>
+                        <td>@i.categoryName</td>
+                        <td>@i.topCategoryId</td>
+                        <td>@i.IsitApproved</td>
+                        <td>
+                            <a href="/OnayBekleyenUrunler/UrunOnayla/@i.Id" class="btn btn-success"><i class="fa fa-check"></i></a>
+                            <a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>*@
+
+<button style="margin-right: 5px;margin-bottom: 5px" type="button" class="btn btn-success" data-toggle="modal"
+        onclick="modal('/Category/KategoriEkleGuncelle/0')" data-target="#mediumModal">
+    <i class="fa fa-plus"></i>  Yeni kategori ekle
+</button>
+<div class="row col-md-12" >
+    @foreach (var i in Model.Where(x => x.topCategoryId == 0))
+    {
+        <div class="col-md-4"style="padding: 5px">
+            <ul class="list-group col-md-12">
+                <li class="list-group-item active">
+                    <i class="@i.icon"></i> @i.categoryName @i.IsitApproved
+
+                    @*<a href="/Category/KategoriEkleGuncelle/@i.Id" class="btn btn-success float-right"><i class="fa fa-check"></i></a>
+                    <a href="/Category/Sil/@i.Id" class="btn btn-danger float-right"><i class="fa fa-times"></i></a>*@
+                    <button class="float-right"   type="button" data-toggle="modal"
+                            onclick="modal('/Category/KategoriEkleGuncelle/@i.Id')" data-target="#mediumModal">
+                        <i style="color: orange" class="fas fa-edit"></i>
+                    </button>
+
+                    <button class="float-right"  style="margin-right: 10px" type="button" data-toggle="modal" onclick="ModalileSil('/Category/Sil/@i.Id')" data-target="#staticModal">
+                        <i style="color: red" class="fas fa-trash-alt"></i>
+                    </button>
+                </li>
+                @foreach (var j in Model.Where(y => y.topCategoryId == i.Id))
+                {
+                    <li class="list-group-item">
+                        <i class="@j.icon"></i> @j.categoryName @j.IsitApproved
+                        @*<a href="/Category/KategoriEkleGuncelle/@j.Id" class="btn btn-success float-right"><i class="fa fa-check"></i></a>
+                        <a href="/Category/Sil/@j.Id" class="btn btn-danger float-right"><i class="fa fa-times"></i></a>*@
+                        <button class="float-right"   type="button" data-toggle="modal"
+                                onclick="modal('/Category/KategoriEkleGuncelle/@j.Id')" data-target="#mediumModal">
+                            <i style="color: orange" class="fas fa-edit"></i>
+                        </button>
+
+                        <button class="float-right" style="margin-right: 10px"  type="button" data-toggle="modal" onclick="ModalileSil('/Category/Sil/@j.Id')" data-target="#staticModal">
+                            <i style="color: red" class="fas fa-trash-alt"></i>
+                        </button>
+                     
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+
 </div>
- 

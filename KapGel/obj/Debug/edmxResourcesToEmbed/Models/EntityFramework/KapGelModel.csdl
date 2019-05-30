@@ -52,6 +52,7 @@
     <Property Name="categoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="icon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="topCategoryId" Type="Int32" />
+    <Property Name="IsitApproved" Type="Boolean" />
   </EntityType>
   <EntityType Name="Discounts">
     <Key>

@@ -53,6 +53,7 @@
     <EntitySetMapping Name="Categories">
       <EntityTypeMapping TypeName="KapGelModel.Categories">
         <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="IsitApproved" ColumnName="IsitApproved" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="categoryName" ColumnName="categoryName" />
           <ScalarProperty Name="icon" ColumnName="icon" />

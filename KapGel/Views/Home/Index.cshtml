@@ -1,78 +1,90 @@
 ﻿@using System.Globalization
-@model IEnumerable<KapGel.Models.ViewModelUrun>
+@*@model IEnumerable<KapGel.Models.ViewModelUrun>*@
+@using PagedList
+@using PagedList.Mvc
+@using KapGel.Models
+@model IPagedList<ViewModelUrun>
 @{
+    /**/
+
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <script src="~/assets/Scripts/jquery-3.3.1.js"></script>
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
 
-<div class="col-sm-3">
-    <div id="kategorii"></div>
-    <script type="text/jscript">
-        $('#kategorii').load('/Home/SolCategoriesistele')
-    </script>
-</div>
+<div id="kategorii"></div>
+<script type="text/jscript">
+    $('#kategorii').load('/Home/SolCategoriesistele')
+</script>
 
-<div class="col-sm-9 padding-right">
-    <div class="features_items">
-        <!--features_items-->
-        <h2 class="title text-center">Ürünler </h2>
+
+
+<div class="agileinfo-ads-display col-md-9">
+    @*@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+        {
+            <p>
+                @Html.TextBox("searchString", ViewBag.currentFilter as string, new { @placeholder = "Search by title or author" })
+                <input type="submit" value="Search" />
+            </p>
+        }*@
+    <div class="col-md-12">
+
         @foreach (var urn in Model)
-        {<div class="col-sm-4">
-                <div class="product-image-wrapper">
-                    <div class="single-products">
-                        <div class="productinfo text-center">
-                            <img src="~/Uploads/ProductsPictures/@urn.productPicture" style="width:80px; height: 90px" alt="" />
-                            <h2>@urn.price.ToString("C", CultureInfo.CurrentCulture)</h2>
-                            <p>@urn.productName</p>
-                            <button class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Sepete ekle</button>
-
+        {
+            <div class="col-md-4 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                    <div class="men-thumb-item">
+                        <img src="~/Uploads/ProductsPictures/@urn.productPicture" style="width:160px; height: 160px" alt="">
+                        <div class="men-cart-pro">
+                            <div class="inner-men-cart-pro">
+                                <a href="/Home/UrunAyrinti/@urn.Id" class="link-product-add-cart">Ayrıntı</a>
+                            </div>
                         </div>
-                        @*<div class="product-overlay"  >
-                                <div class="overlay-content" >
-                                    <img src="~/Uploads/ProductsPictures/@urn.productPicture"  width="80%" height="70%" alt="" />
-                                    <h2>₺ @urn.price</h2>
-                                    <p>@urn.productName</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Sepete Ekle</a>
-                                </div>
-                            </div>*@
+                        <span class="product-new-top">New</span>
                     </div>
-                    @*<div class="choose">
-                            <ul class="nav nav-pills nav-justified">
-                                <li><a href="#"><i class="fa fa-plus-square"></i>Listeme ekle</a></li>
+                    <div class="item-info-product ">
+                        <h4>
+                            <a href="single.html">@urn.productName, 100g</a>
+                        </h4>
+                        <div class="info-product-price">
+                            <span class="item_price">@urn.price.ToString("C", CultureInfo.CurrentCulture)</span>
+                            <del>@urn.price.ToString("C", CultureInfo.CurrentCulture)</del>
+                        </div>
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                            <form action="#" method="post">
+                                <fieldset>
+                                    <input type="hidden" name="cmd" value="_cart" />
+                                    <input type="hidden" name="add" value="1" />
+                                    <input type="hidden" name="business" value=" " />
+                                    <input type="hidden" name="item_name" value="Almonds, 100g" />
+                                    <input type="hidden" name="amount" value="149.00" />
+                                    <input type="hidden" name="discount_amount" value="1.00" />
+                                    <input type="hidden" name="currency_code" value="USD" />
+                                    <input type="hidden" name="return" value=" " />
+                                    <input type="hidden" name="cancel_return" value=" " />
+                                    <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                            </form>
+                        </div>
 
-                            </ul>
-                        </div>*@
+                    </div>
                 </div>
             </div>
         }
-
-
-        @*<div class="col-sm-4">
-                    <div class="product-image-wrapper">
-                        <div class="single-products">
-                            <div class="productinfo text-center">
-                                <img src="~/assets/img/d1.jpg" alt="" />
-                                <h2>₺12</h2>
-                                <p>sdfsdfsdf</p>
-                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Sepete ekle</a>
-                            </div>
-                            <div class="product-overlay">
-                                <div class="overlay-content">
-                                    <h2>₺ 12</h2>
-                                    <p>asdsdsd</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Sepete Ekle</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="choose">
-                            <ul class="nav nav-pills nav-justified">
-                                <li><a href="#"><i class="fa fa-plus-square"></i>Listeme ekle</a></li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>*@<!--features_items-->
-
     </div>
+    @Html.PagedListPager(
+    Model, _sayfaNo => Url.Action(
+        "Index", "Home", new
+        {
+            SayfaNo = _sayfaNo, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.sortOrder
+        })
+        )
+
+   @* @Html.PagedListPager(Model, _sayfaNo => Url.Action("Index", "Home", new { SayfaNo = _sayfaNo }), new PagedListRenderOptions { LinkToFirstPageFormat = "<< İlk", LinkToPreviousPageFormat = "< Önceki", LinkToNextPageFormat = "Sonraki >", LinkToLastPageFormat = "Son >>" })*@
+</div>
+
