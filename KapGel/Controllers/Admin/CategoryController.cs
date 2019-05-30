@@ -14,7 +14,7 @@ namespace KapGel.Controllers.Admin
         KapGelEntities db = new KapGelEntities();
         public ActionResult Index()
         {
-            var model = db.Categories.Where(x => x.topCategoryId == 0).ToList();//.Where(x=>x.topCategoryId == 0)
+            var model = db.Categories.ToList();//.Where(x=>x.topCategoryId == 0)
             return View(model);
         }
 
@@ -40,13 +40,19 @@ namespace KapGel.Controllers.Admin
         }
 
         [HttpPost]
-        public JsonResult KategoriEkleGuncelle(Categories ct)
+        public ActionResult KategoriEkleGuncelle(Categories ct)
         {
-            Categories newCategories = new Categories();
-            newCategories.categoryName = ct.categoryName;
-            newCategories.topCategoryId = ct.topCategoryId;// Yoksa 0
-            newCategories.icon = ct.icon;
+            Categories newCategories = new Categories()
+            {
+                Id = ct.Id,
+                topCategoryId = ct.topCategoryId,
+                categoryName = ct.categoryName,
+                icon = ct.icon,
+                IsitApproved = false
+            };
+            db.Categories.Add(newCategories);
             db.SaveChanges();
+            return RedirectToAction("Index", "Category");
             return Json(new { result = "ok" }, JsonRequestBehavior.AllowGet);
         }
 

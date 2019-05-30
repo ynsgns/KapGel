@@ -1,0 +1,62 @@
+﻿
+@model KapGel.Models.EntityFramework.Categories
+@{
+    ViewBag.Title = "KategoriEkleGuncelle";
+}
+
+<h2>@*Market Ekle/Guncelle*@</h2>
+
+@using (Html.BeginForm("KategoriEkleGuncelle", "Category", FormMethod.Post,
+    new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(x => x.Id)
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <span>
+                    Kategori Adı
+                </span>
+                @Html.TextBoxFor(x => x.categoryName, new { @class = "form-control col-md-9", @required = "required" })
+            </div>
+            <div class="col-md-3">
+                <span>
+                    Üst Kategori Adı
+                </span>
+                
+                <select id="ustKategori" name="topCategoryId" class="form-control"></select>
+
+
+            </div>
+            <div class="col-md-3">
+                <span>İcon adi</span>
+                @Html.TextBoxFor(x => x.icon, new { @class = "form-control col-md-9", @required = "required" })
+                <span> (fontawesome ("fa fa-star"))</span>
+            </div>
+
+        </div>
+
+        <input class="btn btn-primary" type="submit" value="Kaydet" />
+    </div>
+}
+
+
+<script>
+    $(document).ready(function () { /* code here */
+        $("#altKategoriDiv").hide();
+        $.ajax({
+            type: "GET",
+            url: '/MarketUrun/UstKategoriGet',
+            success: function (data) {
+                //alert(data.data[0].categoryName)
+                output = "<option value='0'> --------- </option>";
+                for (var i = 0; i < data.data.length; i++) {
+                    output += "<option   value='" + data.data[i].Id + "'> " + data.data[i].categoryName + "</option>";
+                }
+
+                $("#ustKategori").html(output);
+            },
+        });
+
+    });
+
+</script>

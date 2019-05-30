@@ -76,15 +76,15 @@ namespace KapGel.Controllers
                 else
                 {
                     GirisSay();
-                    if (IpEngelle()) return Json(new { result = "10 dan fazla hatalı giriş yaptığınız için 30 dakika giriş yapamazsınız." }, JsonRequestBehavior.AllowGet);
-                    return Json(new { result = "Şifre hatalı" }, JsonRequestBehavior.AllowGet);
+                    if (IpEngelle()) return Json(new { result = "error", message = "10 dan fazla hatalı giriş yaptığınız için 30 dakika giriş yapamazsınız." }, JsonRequestBehavior.AllowGet);
+                    return Json(new { result = "error", message = "Şifre hatalı" }, JsonRequestBehavior.AllowGet);
                 }
             }
             else
             {
                 GirisSay();
-                if (IpEngelle()) return Json(new { result = "10 dan fazla hatalı giriş yaptığınız için 30 dakika giriş yapamazsınız." }, JsonRequestBehavior.AllowGet);
-                return Json(new { result = "Kayıtlı böyle bir email adresi bulanamadı" }, JsonRequestBehavior.AllowGet);
+                if (IpEngelle()) return Json(new { result = "error", message = "10 dan fazla hatalı giriş yaptığınız için 30 dakika giriş yapamazsınız." }, JsonRequestBehavior.AllowGet);
+                return Json(new { result = "error", message = "Kayıtlı böyle bir email adresi bulanamadı" }, JsonRequestBehavior.AllowGet);
             }
         }
 
@@ -249,6 +249,13 @@ namespace KapGel.Controllers
             }
             return RedirectToAction("SifremiYenile", "Login");
 
+        }
+
+        public ActionResult CikisYap()
+        {
+            TokenController tk = new TokenController();
+            tk.TokenSil();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

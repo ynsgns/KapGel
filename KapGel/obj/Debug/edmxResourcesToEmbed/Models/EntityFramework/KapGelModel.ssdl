@@ -52,6 +52,7 @@
     <Property Name="categoryName" Type="varchar" MaxLength="50" />
     <Property Name="icon" Type="varchar" MaxLength="50" />
     <Property Name="topCategoryId" Type="int" />
+    <Property Name="IsitApproved" Type="bit" />
   </EntityType>
   <EntityType Name="Discounts">
     <Key>

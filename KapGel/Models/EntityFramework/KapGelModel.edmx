@@ -57,6 +57,7 @@
           <Property Name="categoryName" Type="varchar" MaxLength="50" />
           <Property Name="icon" Type="varchar" MaxLength="50" />
           <Property Name="topCategoryId" Type="int" />
+          <Property Name="IsitApproved" Type="bit" />
         </EntityType>
         <EntityType Name="Discounts">
           <Key>
@@ -359,6 +360,7 @@
           <Property Name="categoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="icon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="topCategoryId" Type="Int32" />
+          <Property Name="IsitApproved" Type="Boolean" />
         </EntityType>
         <EntityType Name="Discounts">
           <Key>
@@ -663,6 +665,7 @@
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="KapGelModel.Categories">
               <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="IsitApproved" ColumnName="IsitApproved" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="categoryName" ColumnName="categoryName" />
                 <ScalarProperty Name="icon" ColumnName="icon" />

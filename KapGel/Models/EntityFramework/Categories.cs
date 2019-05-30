@@ -18,6 +18,6 @@ namespace KapGel.Models.EntityFramework
         public string categoryName { get; set; }
         public string icon { get; set; }
         public Nullable<int> topCategoryId { get; set; }
-        public bool IsitApproved { get; internal set; }
+        public Nullable<bool> IsitApproved { get; set; }
     }
 }
