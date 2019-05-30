@@ -53,17 +53,6 @@ C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\roslyn\VBCSCompiler.e
 C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\KapGel.dll.config
 C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\KapGel.dll
 C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\KapGel.pdb
-C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\EntityFramework.dll
-C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\EntityFramework.SqlServer.dll
-C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\Newtonsoft.Json.dll
-C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\System.Web.Helpers.dll
-C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\System.Web.Mvc.dll
-C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\System.Web.Razor.dll
-C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\System.Web.Webpages.Deployment.dll
-C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\System.Web.Webpages.dll
-C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\System.Web.Webpages.Razor.dll
 C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\EntityFramework.xml
 C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\EntityFramework.SqlServer.xml
 C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
