@@ -626,6 +626,7 @@
     <Compile Include="Controllers\Market\MarketController.cs" />
     <Compile Include="Controllers\Market\MarketUrunController.cs" />
     <Compile Include="Controllers\Menu\MenuController.cs" />
+    <Compile Include="Controllers\SepetController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -730,6 +731,7 @@
     <Compile Include="Models\EntityFramework\Users.cs">
       <DependentUpon>KapGelModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SepetModel.cs" />
     <Compile Include="Models\ViewModelUrun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -916,6 +918,8 @@
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\KategoriEkleGuncelle.cshtml" />
     <Content Include="Views\Home\UrunAyrinti.cshtml" />
+    <Content Include="Views\Sepet\Index.cshtml" />
+    <Content Include="Views\Sepet\SepetListe.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -932,6 +936,8 @@
     <Folder Include="Views\FavoriteBrand\" />
     <Folder Include="Views\FavoriteMarket\" />
     <Folder Include="Views\FavoriteProduct\" />
+    <Folder Include="Views\Sepept\" />
+    <Folder Include="Views\SepetModel\" />
     <Folder Include="Views\Token\" />
   </ItemGroup>
   <ItemGroup>

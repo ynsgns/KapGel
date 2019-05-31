@@ -11,7 +11,7 @@ namespace KapGel.Controllers
     public class TokenController : Controller
     {
         // GET: Token 
-        public  string IsimGetir()
+        public string IsimGetir()
         {
             string isim = "";
             string token = System.Web.HttpContext.Current.Request.Cookies["Token"].Value;
@@ -28,7 +28,7 @@ namespace KapGel.Controllers
 
             return isim;
         }
-        public  int YetkiGetir()
+        public int YetkiGetir()
         {
             int yetki = 0;
             string token = System.Web.HttpContext.Current.Request.Cookies["Token"].Value;
@@ -47,7 +47,7 @@ namespace KapGel.Controllers
             }
             return yetki;
         }
-        public  int UserIdGetir()
+        public int UserIdGetir()
         {
             int id = 0;
             string token = System.Web.HttpContext.Current.Request.Cookies["Token"].Value;
@@ -64,7 +64,7 @@ namespace KapGel.Controllers
 
             return id;
         }
-        public  void TokenOlustur(string id, string yetki)
+        public void TokenOlustur(string id, string yetki)
         {
             KapGelEntities db = new KapGelEntities();
             int usersId = int.Parse(id);
@@ -93,7 +93,7 @@ namespace KapGel.Controllers
             userToken.Expires = DateTime.Now.AddHours(12);
             System.Web.HttpContext.Current.Response.Cookies.Add(userToken);
         }
-        public  void TokenSil()
+        public void TokenSil()
         {
             string token = System.Web.HttpContext.Current.Request.Cookies["Token"].Value;
             KapGelEntities db = new KapGelEntities();
@@ -107,5 +107,38 @@ namespace KapGel.Controllers
             }
 
         }
+
+        //public void GirisYapmayanTokenOlustur()
+        //{
+        //    KapGelEntities db = new KapGelEntities();
+
+        //    string usrTokrn = Request.Cookies["Token"].ToString() != null ? Request.Cookies["Token"].ToString() : null;
+
+
+        //    var kullaniciVarmi = db.Token.Where(x => x.tokenCode == usrTokrn).FirstOrDefault();
+        //    if (kullaniciVarmi != null)
+        //    {
+        //        db.Token.Remove(kullaniciVarmi);
+        //        db.SaveChanges();
+        //    }
+        //    string token = "";
+        //    do
+        //    {
+        //        token = Guid.NewGuid().ToString();
+        //    }
+        //    while (db.Token.Where(x => x.tokenCode == token).FirstOrDefault()?.tokenCode != null);
+          
+        //    Token tkn = new Token()
+        //    {
+        //        tokenCode = token,
+        //        authority = users.authority,
+        //        userId = users.id,
+        //    };
+        //    db.Token.Add(tkn);
+        //    db.SaveChanges();
+        //    HttpCookie userToken = new HttpCookie("Token", token);
+        //    userToken.Expires = DateTime.Now.AddHours(12);
+        //    System.Web.HttpContext.Current.Response.Cookies.Add(userToken);
+        //}
     }
 }

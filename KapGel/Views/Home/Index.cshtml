@@ -26,12 +26,12 @@
 
 <div class="agileinfo-ads-display col-md-9">
     @*@using (Html.BeginForm("Index", "Home", FormMethod.Get))
-        {
-            <p>
-                @Html.TextBox("searchString", ViewBag.currentFilter as string, new { @placeholder = "Search by title or author" })
-                <input type="submit" value="Search" />
-            </p>
-        }*@
+           {
+        <p>
+        @Html.TextBox("searchString", ViewBag.currentFilter as string, new { @placeholder = "Search by title or author" })
+        <input type="submit" value="Search" />
+        </p>
+           }*@
     <div class="col-md-12">
 
         @foreach (var urn in Model)
@@ -49,25 +49,25 @@
                     </div>
                     <div class="item-info-product ">
                         <h4>
-                            <a href="single.html">@urn.productName, 100g</a>
+                            <a href="single.html">@urn.productName@*, 100g*@</a>
                         </h4>
                         <div class="info-product-price">
                             <span class="item_price">@urn.price.ToString("C", CultureInfo.CurrentCulture)</span>
                             <del>@urn.price.ToString("C", CultureInfo.CurrentCulture)</del>
                         </div>
                         <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                            <form action="#" method="post">
+                            <form action="/Sepet/SepetListe" method="post">
                                 <fieldset>
                                     <input type="hidden" name="cmd" value="_cart" />
-                                    <input type="hidden" name="add" value="1" />
+                                    <input type="hidden" name="add" value="@urn.Id" />
                                     <input type="hidden" name="business" value=" " />
-                                    <input type="hidden" name="item_name" value="Almonds, 100g" />
-                                    <input type="hidden" name="amount" value="149.00" />
-                                    <input type="hidden" name="discount_amount" value="1.00" />
+                                    <input type="hidden" name="item_name" value="@urn.productName" />
+                                    <input type="hidden" name="amount" value="@urn.price.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)" />
+                                    <input type="hidden" name="discount_amount" value="@urn.price.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)" />
                                     <input type="hidden" name="currency_code" value="USD" />
                                     <input type="hidden" name="return" value=" " />
                                     <input type="hidden" name="cancel_return" value=" " />
-                                    <input type="submit" name="submit" value="Add to cart" class="button" />
+                                    <input type="submit" onclick="SepetEkle(@urn.Id)" name="submit" value="Sepete Ekle" class="button" />
                                 </fieldset>
                             </form>
                         </div>
@@ -79,12 +79,26 @@
     </div>
     @Html.PagedListPager(
     Model, _sayfaNo => Url.Action(
-        "Index", "Home", new
-        {
-            SayfaNo = _sayfaNo, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.sortOrder
-        })
-        )
+    "Index", "Home", new
+    {
+ SayfaNo = _sayfaNo, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.sortOrder
+    })
+    )
 
-   @* @Html.PagedListPager(Model, _sayfaNo => Url.Action("Index", "Home", new { SayfaNo = _sayfaNo }), new PagedListRenderOptions { LinkToFirstPageFormat = "<< İlk", LinkToPreviousPageFormat = "< Önceki", LinkToNextPageFormat = "Sonraki >", LinkToLastPageFormat = "Son >>" })*@
+    @* @Html.PagedListPager(Model, _sayfaNo => Url.Action("Index", "Home", new { SayfaNo = _sayfaNo }), new PagedListRenderOptions { LinkToFirstPageFormat = "<< İlk", LinkToPreviousPageFormat = "< Önceki", LinkToNextPageFormat = "Sonraki >", LinkToLastPageFormat = "Son >>" })*@
 </div>
 
+<button onclick="kisiTanimla()">dfgdg</button>
+
+<script>
+    function SepetEkle(id) {
+        if (typeof (Storage) !== "undefined") {
+            localStorage.Sepet = localStorage.Sepet == null ?  id : (localStorage.Sepet + "," + id);
+            //document.getElementById("inpAd").value = localStorage.Sepet;
+        }
+        else {
+            alert('Local storage desteği yok');
+        }
+    }
+ 
+</script>
