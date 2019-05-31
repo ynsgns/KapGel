@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<KapGel.Models.EntityFramework.Categories>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Kategori";
     Layout = "~/Views/Shared/_LayoutMarket.cshtml";
 }
 
@@ -62,7 +62,7 @@
                 @foreach (var j in Model.Where(y => y.topCategoryId == i.Id))
                 {
                     <li class="list-group-item">
-                        <i class="@j.icon"></i> @j.categoryName @j.IsitApproved
+                        @*<i class="@j.icon"></i>*@ @j.categoryName @j.IsitApproved
                         @*<a href="/Category/KategoriEkleGuncelle/@j.Id" class="btn btn-success float-right"><i class="fa fa-check"></i></a>
                         <a href="/Category/Sil/@j.Id" class="btn btn-danger float-right"><i class="fa fa-times"></i></a>*@
                         <button class="float-right"   type="button" data-toggle="modal"

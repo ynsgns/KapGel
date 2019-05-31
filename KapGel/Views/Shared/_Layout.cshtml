@@ -72,19 +72,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-8 header">
                 <!-- header lists -->
                 <ul>
-                    <li>
+                    @*<li>
                         <a class="play-icon popup-with-zoom-anim" href="#small-dialog1">
                             <span class="fa fa-map-marker" aria-hidden="true"></span> Shop Locator
                         </a>
-                    </li>
+                    </li>*@
                     <li>
                         <a href="#" data-toggle="modal" data-target="#myModal1">
-                            <span class="fa fa-truck" aria-hidden="true"></span>Track Order
+                            <span class="fa fa-truck" aria-hidden="true"></span>Kurye Takip
                         </a>
                     </li>
-                    <li>
-                        <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
-                    </li>
+                    
                     @if (Request.Cookies["Token"] != null)
                     {
 
@@ -127,7 +125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     @using (Html.BeginForm("Index", "Home", FormMethod.Get))
                     {
                         @*<input name="Search" type="search" placeholder="How can we help you today?" required="">*@
-                        @Html.TextBox("searchString", ViewBag.currentFilter as string, new { @placeholder = "Search by title or author", @type = "search" })
+                        @Html.TextBox("searchString", ViewBag.currentFilter as string, new { @placeholder = "Arama", @type = "search" })
                         <button type="submit" class="btn btn-default" aria-label="Left Align">
                             <span class="fa fa-search" aria-hidden="true"> </span>
                         </button>
@@ -154,7 +152,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     <!-- shop locator (popup) -->
     <!-- Button trigger modal(shop-locator) -->
-    <div id="small-dialog1" class="mfp-hide">
+    @*<div id="small-dialog1" class="mfp-hide">
         <div class="select-city">
             <h3>Please Select Your Location</h3>
             <select class="list_of_cities">
@@ -528,7 +526,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </select>
             <div class="clearfix"></div>
         </div>
-    </div>
+    </div>*@
     <!-- //shop locator (popup) -->
     <!-- signin Model -->
     <!-- Modal1 -->
@@ -653,7 +651,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- navigation -->
     <div class="ban-top">
         <div class="container">
-            <div class="agileits-navi_search">
+            @*<div class="agileits-navi_search">
                 <form action="#" method="post">
                     <select id="agileinfo-nav_search" name="agileinfo_search" required="">
                         <option value="">All Categories</option>
@@ -845,7 +843,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                     </div>
                 </nav>
-            </div>
+            </div>*@
         </div>
     </div>
     <!-- //navigation -->

@@ -28,6 +28,24 @@ namespace KapGel.Controllers
 
             return isim;
         }
+
+        public string MailGetir()
+        {
+            string mail = "";
+            string token = System.Web.HttpContext.Current.Request.Cookies["Token"].Value;
+            if (token != "" && token != null)
+            {
+                KapGelEntities db = new KapGelEntities();
+                var model = db.Token.FirstOrDefault(x => x.tokenCode == token);
+                if (model != null) mail = db.Users.FirstOrDefault(x => x.id == model.userId).eMail;
+                else
+                {
+                    TokenSil();
+                }
+            }
+
+            return mail;
+        }
         public int YetkiGetir()
         {
             int yetki = 0;
