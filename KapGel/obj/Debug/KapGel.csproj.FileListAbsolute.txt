@@ -99,3 +99,7 @@ C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\PagedList.dll
 C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\PagedList.Mvc.dll
 C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\PagedList.xml
 C:\Users\yunus\Documents\GitHub\KapGel\KapGel\bin\PagedList.Mvc.xml
+C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\PagedList.dll
+C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\PagedList.Mvc.dll
+C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\PagedList.xml
+C:\Users\begum\OneDrive\Documents\GitHub\kapgel\KapGel\bin\PagedList.Mvc.xml

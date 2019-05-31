@@ -99,11 +99,12 @@ namespace KapGel.Controllers
                 lg.ıpAdress = ipAdrssAddress;
                 lg.date = DateTime.Today;
                 lg.falseInputCount = lg.falseInputCount++;
+                db.Log.Add(lg);
                 db.SaveChanges();
             }
             else
             {
-                ipDb.falseInputCount = ipDb.falseInputCount++;
+                ipDb.falseInputCount = ipDb.falseInputCount == 0 ? 1 : ipDb.falseInputCount++;
                 db.Entry(ipDb);
                 db.SaveChanges();
             }
