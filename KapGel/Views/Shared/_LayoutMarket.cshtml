@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using KapGel.Controllers
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Required meta tags-->
@@ -12,7 +13,7 @@
     <!-- Fontfaces CSS-->
     <link href="~/MarketTemplate/css/font-face.css" rel="stylesheet" media="all">
     @*<link href="~/MarketTemplate/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="~/MarketTemplate/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">*@
+        <link href="~/MarketTemplate/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">*@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
 
@@ -54,8 +55,8 @@
                         KapGel.Controllers.TokenController tk = new KapGel.Controllers.TokenController();
                         var yetki = tk.YetkiGetir();
                     }
-                     @if (yetki == 1 || yetki == 3)
-                     {
+                    @if (yetki == 1)
+                    {
                         <ul class="navbar-mobile__list list-unstyled">
                             <li class="has-sub">
                                 <a class="js-arrow" href="/Market">
@@ -67,100 +68,116 @@
                                     <i class="fas fa-chart-bar"></i>Ürünler
                                 </a>
                             </li>
-                          
+
                         </ul>
-                     }
-                     else
-                     {
-                    <ul class="navbar-mobile__list list-unstyled">
-                        <li class="has-sub">
-                            <a class="js-arrow" href="/Market">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/MarketUrun">
-                                <i class="fas fa-chart-bar"></i>Ürünler
-                            </a>
-                        </li>
-                        <li>
-                            <a href="table.html">
-                                <i class="fas fa-table"></i>Tables
-                            </a>
-                        </li>
-                        <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>Forms
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-calendar-alt"></i>Calendar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="map.html">
-                                <i class="fas fa-map-marker-alt"></i>Maps
-                            </a>
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages
-                            </a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Register</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Forget Password</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-desktop"></i>UI Elements
-                            </a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="button.html">Button</a>
-                                </li>
-                                <li>
-                                    <a href="badge.html">Badges</a>
-                                </li>
-                                <li>
-                                    <a href="tab.html">Tabs</a>
-                                </li>
-                                <li>
-                                    <a href="card.html">Cards</a>
-                                </li>
-                                <li>
-                                    <a href="alert.html">Alerts</a>
-                                </li>
-                                <li>
-                                    <a href="progress-bar.html">Progress Bars</a>
-                                </li>
-                                <li>
-                                    <a href="modal.html">Modals</a>
-                                </li>
-                                <li>
-                                    <a href="switch.html">Switchs</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grids</a>
-                                </li>
-                                <li>
-                                    <a href="fontawesome.html">Fontawesome Icon</a>
-                                </li>
-                                <li>
-                                    <a href="typo.html">Typography</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                     }
+                    }
+                    else if (yetki == 1 || yetki == 3)
+                    {
+                        <ul class="navbar-mobile__list list-unstyled">
+                            <li class="has-sub">
+                                <a class="js-arrow" href="/Market">
+                                    <i class="fas fa-tachometer-alt"></i>Dashboard
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/MarketUrun">
+                                    <i class="fas fa-chart-bar"></i>Ürünler
+                                </a>
+                            </li>
+
+                        </ul>
+                    }
+                    else
+                    {
+                        <ul class="navbar-mobile__list list-unstyled">
+                            <li class="has-sub">
+                                <a class="js-arrow" href="/Market">
+                                    <i class="fas fa-tachometer-alt"></i>Dashboard
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/MarketUrun">
+                                    <i class="fas fa-chart-bar"></i>Ürünler
+                                </a>
+                            </li>
+                            <li>
+                                <a href="table.html">
+                                    <i class="fas fa-table"></i>Tables
+                                </a>
+                            </li>
+                            <li>
+                                <a href="form.html">
+                                    <i class="far fa-check-square"></i>Forms
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-calendar-alt"></i>Calendar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="map.html">
+                                    <i class="fas fa-map-marker-alt"></i>Maps
+                                </a>
+                            </li>
+                            <li class="has-sub">
+                                <a class="js-arrow" href="#">
+                                    <i class="fas fa-copy"></i>Pages
+                                </a>
+                                <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                    <li>
+                                        <a href="login.html">Login</a>
+                                    </li>
+                                    <li>
+                                        <a href="register.html">Register</a>
+                                    </li>
+                                    <li>
+                                        <a href="forget-pass.html">Forget Password</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="has-sub">
+                                <a class="js-arrow" href="#">
+                                    <i class="fas fa-desktop"></i>UI Elements
+                                </a>
+                                <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                    <li>
+                                        <a href="button.html">Button</a>
+                                    </li>
+                                    <li>
+                                        <a href="badge.html">Badges</a>
+                                    </li>
+                                    <li>
+                                        <a href="tab.html">Tabs</a>
+                                    </li>
+                                    <li>
+                                        <a href="card.html">Cards</a>
+                                    </li>
+                                    <li>
+                                        <a href="alert.html">Alerts</a>
+                                    </li>
+                                    <li>
+                                        <a href="progress-bar.html">Progress Bars</a>
+                                    </li>
+                                    <li>
+                                        <a href="modal.html">Modals</a>
+                                    </li>
+                                    <li>
+                                        <a href="switch.html">Switchs</a>
+                                    </li>
+                                    <li>
+                                        <a href="grid.html">Grids</a>
+                                    </li>
+                                    <li>
+                                        <a href="fontawesome.html">Fontawesome Icon</a>
+                                    </li>
+                                    <li>
+                                        <a href="typo.html">Typography</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    }
                 </div>
             </nav>
         </header>
@@ -174,7 +191,35 @@
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
-                    @if (yetki == 1 || yetki == 3)
+                    @if (yetki == 1 || yetki == 2)
+                    {
+                        <ul class="list-unstyled navbar__list">
+                            <li class="has-sub active">
+                                <a class="js-arrow" href="/AdminHome">
+                                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/OnayBekleyenUrunler/Index">
+                                    <i class="fas fa-store"></i>  Onay Bekleye Urunler
+                                </a>
+                            </li>
+                            @if (yetki != 2)
+                            {
+                                <li>
+                                    <a href="/Admin">
+                                        <i class="fas fa-table"></i> Personeller
+                                    </a>
+                                </li>
+                            }
+                            <li>
+                                <a href="/Category/Index">
+                                    <i class="fas fa-table"></i> Kategori
+                                </a>
+                            </li>
+                        </ul>
+                    }
+                    else if (yetki == 3)
                     {
                         <ul class="list-unstyled navbar__list">
                             <li class="has-sub active">
@@ -188,117 +233,26 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/OnayBekleyenUrunler/Index">
-                                    <i class="fas fa-store"></i>  Onay Bekleye Urunler
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/Brand/Index">
                                     <i class="fas fa-table"></i> Markalar
                                 </a>
-                            </li>  
+                            </li>
                             <li>
                                 <a href="/Market/Index">
                                     <i class="fas fa-table"></i> Market
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/Category/Index">
-                                    <i class="fas fa-table"></i> Category
                                 </a>
                             </li>
                         </ul>
                     }
                     else
                     {
-                    <ul class="list-unstyled navbar__list">
-                        <li class="has-sub active">
-                            <a class="js-arrow" href="/Market">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/MarketUrun">
-                                <i class="fas fa-store"></i>  Ürünler
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Brand/Index">
-                                <i class="fas fa-table"></i> Markalar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>Forms
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-calendar-alt"></i>Calendar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="map.html">
-                                <i class="fas fa-map-marker-alt"></i>Maps
-                            </a>
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages
-                            </a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Register</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Forget Password</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-desktop"></i>UI Elements
-                            </a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="button.html">Button</a>
-                                </li>
-                                <li>
-                                    <a href="badge.html">Badges</a>
-                                </li>
-                                <li>
-                                    <a href="tab.html">Tabs</a>
-                                </li>
-                                <li>
-                                    <a href="card.html">Cards</a>
-                                </li>
-                                <li>
-                                    <a href="alert.html">Alerts</a>
-                                </li>
-                                <li>
-                                    <a href="progress-bar.html">Progress Bars</a>
-                                </li>
-                                <li>
-                                    <a href="modal.html">Modals</a>
-                                </li>
-                                <li>
-                                    <a href="switch.html">Switchs</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grids</a>
-                                </li>
-                                <li>
-                                    <a href="fontawesome.html">Fontawesome Icon</a>
-                                </li>
-                                <li>
-                                    <a href="typo.html">Typography</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>}
+                        <ul class="list-unstyled navbar__list">
+                            <li class="has-sub active">
+                                <a class="js-arrow" href="/Market">
+                                    <i class="fas fa-tachometer-alt"></i>Dashboard
+                                </a>
+                            </li>
+                        </ul>}
                 </nav>
             </div>
         </aside>
@@ -311,14 +265,14 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             @*<form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
-                                <button class="au-btn--submit" type="submit">
-                                    <i class="zmdi zmdi-search"></i>
-                                </button>
-                            </form>*@
+                                    <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
+                                    <button class="au-btn--submit" type="submit">
+                                        <i class="zmdi zmdi-search"></i>
+                                    </button>
+                                </form>*@
                             <h2 style="font-family: inherit">@ViewBag.Title</h2>
                             <div class="header-button">
-                                <div class="noti-wrap">
+                                @*<div class="noti-wrap">
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-comment-more"></i>
                                         <span class="quantity">1</span>
@@ -429,14 +383,14 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>*@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
                                             <img src="~/MarketTemplate/images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                            <a class="js-acc-btn" href="#">@tk.IsimGetir()</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -447,12 +401,12 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">john doe</a>
+                                                        <a href="#">@tk.IsimGetir()</a>
                                                     </h5>
-                                                    <span class="email">johndoe@example.com</span>
+                                                    <span class="email">@tk.MailGetir()</span>
                                                 </div>
                                             </div>
-                                            <div class="account-dropdown__body">
+                                            @*<div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
                                                         <i class="zmdi zmdi-account"></i>Account
@@ -468,10 +422,10 @@
                                                         <i class="zmdi zmdi-money-box"></i>Billing
                                                     </a>
                                                 </div>
-                                            </div>
+                                            </div>*@
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
-                                                    <i class="zmdi zmdi-power"></i>Logout
+                                                <a href="/Login/CikisYap ">
+                                                    <i class="zmdi zmdi-power"></i>Çıkış Yap
                                                 </a>
                                             </div>
                                         </div>
@@ -569,7 +523,7 @@
     <script src="~/MarketTemplate/vendor/chartjs/Chart.bundle.min.js"></script>
     <script src="~/MarketTemplate/vendor/select2/select2.min.js">
     </script>
-    <!-- Main JS--> 
+    <!-- Main JS-->
     <script src="~/MarketTemplate/js/main.js"></script>
 </body>
 </html>

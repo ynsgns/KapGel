@@ -1,46 +1,91 @@
 ﻿@model IEnumerable<KapGel.Models.EntityFramework.Users>
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Personel ";
+    Layout = "~/Views/Shared/_LayoutMarket.cshtml";
 }
 
 
-<a class="btn btn-success" href="/Admin/Ekle/0">ekle</a>
-<table class="table tab-content">
+@*<a class="btn btn-success" href="/Admin/Ekle/0">ekle</a>*@
+
+<button style="margin-right: 5px;margin-bottom: 5px" type="button" class="btn btn-success" data-toggle="modal"
+        onclick="modal('/Admin/Ekle/0')" data-target="#mediumModal">
+    <i class="fa fa-plus"></i>  Personel ekle
+</button>
+<table class="table table-borderless table-striped table-earning">
+
     <thead>
 
-        <tr>
-            <th>ADI SOYADI</th>
-            <th>MAIL</th>
-            <th>SIFRESI</th>
-            <th>TEL</th>
-            <th>Yetki</th>
-            <th>Kayıt Tarihi</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var b in Model)
-        {
-
-            <tr>
-                <td>@b.NameSurname</td>
-                <td>@b.eMail</td>
-                <td>@b.password</td>
-                <td>@b.phoneNumber</td>
-                <td>@b.authority</td>
-                <td>@b.recordDate</td>
-                <td>
-                    <a class="btn btn-warning"  href="/Admin/Ekle/@b.id">Düzenle</a>
-                </td>
-                <td>
-                    <a class="btn btn-danger" href="/Admin/Sil/@b.id">Sil</a>
-                </td>
+    <tr>
+        <th>ADI SOYADI</th>
+        <th>MAIL</th>
+        <th>SIFRESI</th>
+        <th>TEL</th>
+        <th>Yetki</th>
+        @*<th>Kayıt Tarihi</th>*@
+        <th></th>
 
     </tr>
-        }
+    </thead>
+    <tbody>
+    @foreach (var b in Model)
+    {
+
+        <tr>
+            <td>@b.NameSurname</td>
+            <td>@b.eMail</td>
+            <td>@b.password</td>
+            <td>@b.phoneNumber</td>
+            <td>@b.authority</td>
+            @*<td>@b.recordDate</td>*@
+            <td>
+                @*<a class="btn btn-warning"  href="/Admin/Ekle/@b.id">Düzenle</a>
+             
+                    <a class="btn btn-danger" href="/Admin/Sil/@b.id">Sil</a>*@
+                    
+                <button class="float-right"   type="button" data-toggle="modal"
+                        onclick="modal('/Admin/Ekle/@b.id')" data-target="#mediumModal">
+                    <i style="color: orange" class="fas fa-edit"></i>
+                </button>
+
+                <button class="float-right" style="margin-right: 10px"  type="button" data-toggle="modal"
+                        onclick="ModalileSil('/Admin/Sil/@b.id')" data-target="#staticModal">
+                    <i style="color: red" class="fas fa-trash-alt"></i>
+                </button>
+            </td>
+
+        </tr>
+    }
 
     </tbody>
 
 
 </table>
+
+
+
+<script>
+
+    $.ajax({
+        url: "/Admin/YetkileriGetir",
+        type: "GET",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: "",
+        success: function (data) {
+
+            var output = "";
+            var adres = "";
+            for (var i in data.yetkidiJson) {
+                output += "<option value='" + data.yetkidiJson[i].Id + "'>" + data.yetkidiJson[i].roleName + "</option>";
+            }
+            $("#authority").html(output);
+        },
+        error: function (result) {
+            $.alert({
+                title: 'HATA!',
+                content: 'Bir hata oluştu',
+            });
+            error.show;
+        }
+    });
+</script>

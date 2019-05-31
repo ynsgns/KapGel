@@ -50,7 +50,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
     <!-- top-header -->
     <div class="header-most-top">
-        <p>En İyi Fırsatlar ve İndirimler
+        <p>
+            En İyi Fırsatlar ve İndirimler
         </p>
     </div>
     <!-- //top-header -->
@@ -61,8 +62,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-4 logo_agile">
                 <h1>
                     <a href="/">
-                        <span>K</span>ap 
-                        <span>G</span>el 
+                        <span>K</span>ap
+                        <span>G</span>el
                         <img src="~/assets/img/logo2.png" />
                     </a>
                 </h1>
@@ -71,19 +72,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-8 header">
                 <!-- header lists -->
                 <ul>
-                    <li>
+                    @*<li>
                         <a class="play-icon popup-with-zoom-anim" href="#small-dialog1">
                             <span class="fa fa-map-marker" aria-hidden="true"></span> Shop Locator
                         </a>
-                    </li>
+                    </li>*@
                     <li>
                         <a href="#" data-toggle="modal" data-target="#myModal1">
-                            <span class="fa fa-truck" aria-hidden="true"></span>Track Order
+                            <span class="fa fa-truck" aria-hidden="true"></span>Kurye Takip
                         </a>
                     </li>
-                    <li>
-                        <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
-                    </li>
+                    
                     @if (Request.Cookies["Token"] != null)
                     {
 
@@ -126,7 +125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     @using (Html.BeginForm("Index", "Home", FormMethod.Get))
                     {
                         @*<input name="Search" type="search" placeholder="How can we help you today?" required="">*@
-                        @Html.TextBox("searchString", ViewBag.currentFilter as string, new { @placeholder = "Search by title or author", @type = "search" })
+                        @Html.TextBox("searchString", ViewBag.currentFilter as string, new { @placeholder = "Arama", @type = "search" })
                         <button type="submit" class="btn btn-default" aria-label="Left Align">
                             <span class="fa fa-search" aria-hidden="true"> </span>
                         </button>
@@ -140,7 +139,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <input type="hidden" name="cmd" value="_cart">
                             <input type="hidden" name="display" value="1">
                             <button class="w3view-cart" type="submit" name="submit" value="">
-                                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i><span id="sepetSayim">(0)</span>
                             </button>
                         </form>
                     </div>
@@ -153,7 +152,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     <!-- shop locator (popup) -->
     <!-- Button trigger modal(shop-locator) -->
-    <div id="small-dialog1" class="mfp-hide">
+    @*<div id="small-dialog1" class="mfp-hide">
         <div class="select-city">
             <h3>Please Select Your Location</h3>
             <select class="list_of_cities">
@@ -527,7 +526,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </select>
             <div class="clearfix"></div>
         </div>
-    </div>
+    </div>*@
     <!-- //shop locator (popup) -->
     <!-- signin Model -->
     <!-- Modal1 -->
@@ -567,8 +566,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="styled-input">
                             <input type="password" placeholder="Şifre" id="pass" name="password" required="">
                         </div>
-                        
-                        <span id ="errorMsg" style="color:red"></span>
+
+                        <span id="errorMsg" style="color:red"></span>
                         <input onclick="Login()" type="submit" value="Giriş">
                         @*</form>*@
 
@@ -577,15 +576,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 mail = $("#email").val();
                                 pass = $("#pass").val();
                                 $.ajax({
-                                    type:'POST',
+                                    type: 'POST',
                                     url: '/Login/Giris?eMail=' + mail + '&password=' + pass,
                                     success: function (result) {
                                         //alert(result.result)
                                         if (result.result == "error") {
-                                          //  alert(result.message);
-                                            $("#errorMsg").html(result.message+'<br/>')
+                                            //  alert(result.message);
+                                            $("#errorMsg").html(result.message + '<br/>')
                                         } else {
-                                            $("#errorMsg").attr('color','green')
+                                            $("#errorMsg").attr('color', 'green')
                                             $("#errorMsg").html('Giriş Başarılı')
                                             location.reload();
                                         }
@@ -652,7 +651,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- navigation -->
     <div class="ban-top">
         <div class="container">
-            <div class="agileits-navi_search">
+            @*<div class="agileits-navi_search">
                 <form action="#" method="post">
                     <select id="agileinfo-nav_search" name="agileinfo_search" required="">
                         <option value="">All Categories</option>
@@ -844,7 +843,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                     </div>
                 </nav>
-            </div>
+            </div>*@
         </div>
     </div>
     <!-- //navigation -->
@@ -910,7 +909,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <input type="hidden" name="currency_code" value="USD" />
                                             <input type="hidden" name="return" value=" " />
                                             <input type="hidden" name="cancel_return" value=" " />
-                                            <input type="submit" name="submit" value="Add to cart" class="button" />
+                                            <input type="submit" name="submit" value="Sepete Ekle" class="button" />
                                         </fieldset>
                                     </form>
                                 </div>
@@ -944,7 +943,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <input type="hidden" name="currency_code" value="USD" />
                                             <input type="hidden" name="return" value=" " />
                                             <input type="hidden" name="cancel_return" value=" " />
-                                            <input type="submit" name="submit" value="Add to cart" class="button" />
+                                            <input type="submit" name="submit" value="Sepete Ekle" class="button" />
                                         </fieldset>
                                     </form>
                                 </div>
@@ -978,7 +977,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <input type="hidden" name="currency_code" value="USD" />
                                             <input type="hidden" name="return" value=" " />
                                             <input type="hidden" name="cancel_return" value=" " />
-                                            <input type="submit" name="submit" value="Add to cart" class="button" />
+                                            <input type="submit" name="submit" value="Sepete Ekle" class="button" />
                                         </fieldset>
                                     </form>
                                 </div>
@@ -1012,7 +1011,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <input type="hidden" name="currency_code" value="USD" />
                                             <input type="hidden" name="return" value=" " />
                                             <input type="hidden" name="cancel_return" value=" " />
-                                            <input type="submit" name="submit" value="Add to cart" class="button" />
+                                            <input type="submit" name="submit" value="Sepete Ekle" class="button" />
                                         </fieldset>
                                     </form>
                                 </div>
@@ -1046,7 +1045,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <input type="hidden" name="currency_code" value="USD" />
                                             <input type="hidden" name="return" value=" " />
                                             <input type="hidden" name="cancel_return" value=" " />
-                                            <input type="submit" name="submit" value="Add to cart" class="button" />
+                                            <input type="submit" name="submit" value="Sepete Ekle" class="button" />
                                         </fieldset>
                                     </form>
                                 </div>
@@ -1080,7 +1079,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <input type="hidden" name="currency_code" value="USD" />
                                             <input type="hidden" name="return" value=" " />
                                             <input type="hidden" name="cancel_return" value=" " />
-                                            <input type="submit" name="submit" value="Add to cart" class="button" />
+                                            <input type="submit" name="submit" value="Sepete Ekle" class="button" />
                                         </fieldset>
                                     </form>
                                 </div>
@@ -1114,7 +1113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <input type="hidden" name="currency_code" value="USD" />
                                             <input type="hidden" name="return" value=" " />
                                             <input type="hidden" name="cancel_return" value=" " />
-                                            <input type="submit" name="submit" value="Add to cart" class="button" />
+                                            <input type="submit" name="submit" value="Sepete Ekle" class="button" />
                                         </fieldset>
                                     </form>
                                 </div>
@@ -1148,7 +1147,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <input type="hidden" name="currency_code" value="USD" />
                                             <input type="hidden" name="return" value=" " />
                                             <input type="hidden" name="cancel_return" value=" " />
-                                            <input type="submit" name="submit" value="Add to cart" class="button" />
+                                            <input type="submit" name="submit" value="Sepete Ekle" class="button" />
                                         </fieldset>
                                     </form>
                                 </div>
@@ -1580,7 +1579,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
 
             if (total < 3) {
-                alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+                alert('Minimum sipariş miktarı 3\'tür. Lütfen kontrol etmeden önce alışveriş sepetinize daha fazla ekleyin.');
                 evt.preventDefault();
             }
         });
@@ -1700,7 +1699,57 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- //for bootstrap working -->
     <!-- //js-files -->
 
+    <script>
 
+
+        function SepetSil(sira) {
+            var lista = "";
+            var sepet = localStorage.Sepet.split(",");
+            var urunId = [];
+            // alert("sdf " + urunId.length)
+
+            tekrar = 0;
+            for (i = 0; i < sepet.length; i++) {
+                tekrar = 0;
+                for (j = i; j < sepet.length; j++) {
+                    varmi = false;
+                    for (k = 0; k < urunId.length; k++) {
+                        if (sepet[i] == urunId[k]) varmi = true;
+                    }
+                    if (varmi) {
+                        varmi = false;
+                    } else {
+                        urunId.push(sepet[i])
+                    }
+
+                }
+            }
+            var silinicek = urunId[sira];
+            for (i = 0; i < sepet.length; i++) {
+                if (sepet[i] == silinicek) {
+                    sepet[i] = " ";
+
+                }
+            }
+
+            var duzgunListe = "";
+            localStorage.Sepet = "";
+            for (i = 0; i < sepet.length; i++) {
+                if (sepet[i] != " " && sepet[i] != "," ) {
+                    duzgunListe = duzgunListe == null || "" ? "" : duzgunListe + "," + sepet[i]; 
+
+                }
+            }
+
+            //  alert(duzgunListe)
+            if (typeof (Storage) !== "undefined") {
+                localStorage.Sepet = duzgunListe;
+            }
+
+        }
+
+
+    </script>
 </body>
 
 </html>

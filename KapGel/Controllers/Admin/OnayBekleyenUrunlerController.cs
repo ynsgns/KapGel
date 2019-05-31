@@ -29,6 +29,7 @@ namespace KapGel.Controllers.Admin
                     }
                 ).Where(x=>x.IsitApproved == false).ToList();
             return View(model);
+ 
         }
          
         public JsonResult UrunOnayla(int id)
